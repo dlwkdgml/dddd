@@ -1,0 +1,1615 @@
+@charset "utf-8";
+
+* {font-family:'Open Sans',"arial", "Microsoft YaHei", Malgun Gothic, dotum, Meiryo, sans-serif !important; letter-spacing: 0 !important; }/* font 변경 - 20140514 */
+
+body.noscroll{overflow:hidden !important;}
+.popup *, .popup2 *{margin:0; padding:0; /*color:#838383;*/ list-style:none; font-size:13px; -webkit-text-size-adjust:none;} 
+.popup ul,.popup ol,.popup li,
+.popup2 ul,.popup2 ol,.popup li{list-style:none;}
+.popup em, .popup2 em{font-style:normal;}
+.popup table, .popup2 table{border-collapse:collapse; border-spacing:0;}
+.popup fieldset, .popup img,
+.popup2 fieldset, .popup2 img{border:none 0;}
+.popup input, .popup2 input{vertical-align:middle;}
+.popup var, .popup2 var{font-style:normal;} 
+.popup a, .popup2 a {color:#838383;}
+.popup a, .popup a:link, .popup a:visited, .popup a:active,
+.popup2 a, .popup2 a:link, .popup2 a:visited, .popup2 a:active{text-decoration:none;}
+.popup .vm, .popup2 .vm{vertical-align:middle;}
+.popup input, .popup textarea, 
+.popup2 input, .popup2 textarea{color:#535353; outline: none;} 
+.popup select, .popup2 select{outline:none;}
+.popup label, .popup2 label{color:#b7b9bb;  font-size:12px;} /* 20140703 수정 */
+.popup legend, .popup2 legend {position:absolute; top:0; left:0; width:0; height:0; overflow:hidden; visibility:hidden; font-size:0}
+
+.popup p.try, .popup2 p.try{position:fixed;left:10%;width:80%;top:50%;text-align:center;z-index:30; display: none;} /* 20140114 */
+.popup p.try span, .popup2 p.try span{display: inline-block; padding: 10px 10px; line-height: 20px; color: #fff; border-radius: 3px; border: 1px solid #303a4a;
+box-shadow: 0 3px 3px #d9d9d9; text-align: center; background: url(../../resources/image/Polaris/new/toast.png) repeat;}
+
+#minidownload:hover{text-decoration:underline;cursor:pointer;}
+/* dim */
+div.dim{position:fixed;width:100%;height:100%;top:0;left:0;background:#fff;opacity:0.5;filter:alpha(opacity=50);z-index:9;}
+input.disable{background:#ededed;}
+/*팝업 공통 - 라운드 박스, 제목, 닫기 */
+div.popup *{margin:0; padding:0;}
+div.popup input{color:#686868;border:1px solid #c5c9d0;}
+div.popup input[type="radio"]{vertical-align: top;}
+div.popup input:focus{outline:none;border:1px solid #3c7df0;}
+div.popup{position:relative;margin:auto;width:300px;color:#525558;background:#fdfcfc;font-family:'webfont','lucida grande','Tahoma','MS PGothic';font-size:11px;z-index:10;display:none;
+	border-top-left-radius:3px;-webkit-border-top-left-radius:3px;-moz-border-top-left-radius:3px;border-top-right-radius:3px;-webkit-border-top-right-radius:3px;-moz-border-top-right-radius:3px;/*behavior: url('/pc_browser/css/PIE.htc');*/} /* 20140120 */
+div.popup #email_locale{font-family:'lucida grande',sans-serif,'Tahoma','MS PGothic';} /* 20140122 */
+div.popup #email_locale option.seloptions{}
+div.popup h1{padding-left:12px;padding-right:30px;height:28px;line-height:28px;font-family:'webfont';font-weight:bold;font-size:13px;color:#fff;
+	overflow:hidden;white-space:nowrap;text-overflow:ellipsis;background:#596270;border-top-left-radius:3px;-webkit-border-top-left-radius:3px;-moz-border-top-left-radius:3px;border-top-right-radius:3px;-webkit-border-top-right-radius:3px;-moz-border-top-right-radius:3px;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+div.popup_content{border-left:1px solid #a5abb5;border-right:1px solid #a5abb5;background:#fdfcfc;background:none\0IE8;}
+div.popup_content.nobtn {border-bottom: 1px solid #a5abb5;} /* 20150428 성영원 추가 */
+div.popup_content.tree{padding-top:10px;}
+div.popup_content.upload{padding:10px;border-bottom:1px solid #a5abb5;background:#fff;
+	border-bottom-left-radius:3px;-webkit-border-bottom-left-radius:3px;-moz-border-bottom-left-radius:3px;border-bottom-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-bottom-right-radius:3px;-webkit-box-shadow:#e5e5e5 0px 2px 0;-moz-box-shadow:#e5e5e5 0px 2px 0;box-shadow:#e5e5e5 0 2px 0;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+div.popup_content.login_bx{border-bottom:1px solid #a5abb5;border-bottom-left-radius:3px;-webkit-border-bottom-left-radius:3px;-moz-border-bottom-left-radius:3px;border-bottom-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-bottom-right-radius:3px;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+div.popup span.btn_close{position:absolute;top:5px;right:5px;}
+div.popup span.btn_newFolder{position:absolute; top:351px; left:10px; height: 28px; line-height: 28px; font-family: 'webfont'; font-weight: bold; font-size: 11px;}
+div.popup span.btn_newFolder a{color: #5f6060; font-size: 11px;}
+/*수행 방법*/
+div.popup_content.bx_bonus1{padding:42px 0 46px 0px; border-bottom:1px solid #a5abb5;
+	border-bottom-left-radius:3px;-webkit-border-bottom-left-radius:3px;-moz-border-bottom-left-radius:3px;border-bottom-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-bottom-right-radius:3px;
+	-webkit-box-shadow:#e5e5e5 0px 2px 0;-moz-box-shadow:#e5e5e5 0px 2px 0;box-shadow:#e5e5e5 0 2px 0;behavior: url('/pc_browser/css/PIE.htc');}
+/*div.bx_bonus1 p{padding-bottom:30px;text-align:center;}
+div.bx_bonus1 div.button{text-align:center;}*/
+
+div.popup_content.bx_bonus2{border-bottom:1px solid #a5abb5;
+	border-bottom-left-radius:3px;-webkit-border-bottom-left-radius:3px;-moz-border-bottom-left-radius:3px;border-bottom-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-bottom-right-radius:3px;
+	-webkit-box-shadow:#e5e5e5 0px 2px 0;-moz-box-shadow:#e5e5e5 0px 2px 0;box-shadow:#e5e5e5 0 2px 0;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+div.bx_bonus2 div.bx_scroll{margin:auto;padding-top:30px;height:490px;overflow:auto;}
+div.bx_bonus2 div.bx_scroll p,
+div.bx_bonus2 div.bx_scroll li{text-align:center;}
+/* 수행방법 수정 20131010 김남경 */
+div.popup_content.bx_bonus1 h2, div.popup_content.bx_bonus2 h2, div.popup_content.bx_bonus3 h2 {margin:0 0 12px; text-align:center; font-size:21px; color:#3a4049; line-height:28px;}
+div.popup_content.bx_bonus1 h3, div.popup_content.bx_bonus2 h3, div.popup_content.bx_bonus3 h3 {text-align:center; font-size:12px; color:#6b7078; font-weight:normal; line-height:18px;} /* 공통 */
+
+div.bx_bonus1 p {padding:21px 0 15px; text-align:center;}
+div.bx_bonus1 .button {text-align:center;}
+a.btn_round {display:inline-block; height:34px; padding:0 0 0 18px; background:url("../../resources/image/Polaris/new/btn_round_L.png") left top no-repeat;}
+a.btn_round span {display:inline-block; padding:8px 36px 10px 0; color:#fff; font-size:14px; background:url("../../resources/image/Polaris/new/btn_round_R.png") right top no-repeat;}
+
+div.bx_bonus2 h3 {padding:0 45px; text-align:left;}
+div.bx_bonus2 dl {float:left; width:442px; margin:0 0 0 25px; padding:0 0 31px; border-bottom:1px solid #e0e0e0;}
+div.bx_bonus2 dl.last {border-bottom:none; behavior: url('/pc_browser/css/PIE.htc');}
+div.bx_bonus2 dl.last dt strong {top:42px;}
+div.bx_bonus2 dt {position:relative; padding:37px 0 23px 40px; color:#3a4049; line-height:18px; font-size:12px;}
+div.bx_bonus2 dt strong {position:absolute; left:17px; top:35px; font-size:28px;}
+div.bx_bonus2 ul {margin:0 0 0 25px;}
+div.bx_bonus2 li {float:left; margin:0 10px 0 0;}
+div.bx_bonus2 li span {display:block; margin:8px 0 0; text-align:center; width:114px;}
+div.bx_bonus2 li.last span {padding:0 0 0 23px;}
+div.bx_bonus2 li.first {margin:0 20px 0 0;}
+div.bx_bonus2 li.last {margin:0 0 0 0;}
+div.bx_bonus2 dd {text-align:center;}
+/* 공통 하단 버튼 영역 */
+div.popup div.bx_btn{padding-top:7px;height:31px;text-align:center;border:1px solid #a5abb5;border-top:1px solid #e6e6e6;background:#fdfcfc;
+	border-bottom-left-radius:3px;-webkit-border-bottom-left-radius:3px;-moz-border-bottom-left-radius:3px;border-bottom-right-radius:3px;-webkit-border-bottom-right-radius:3px;-moz-border-bottom-right-radius:3px;-webkit-box-shadow:#e5e5e5 0px 2px 2px;-moz-box-shadow:#e5e5e5 0px 2px 2px;box-shadow:#e5e5e5 0 2px 2px;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+div.popup div.bx_btn span.btn, a.btn{
+	display: inline-block;padding:0 10px;height:22px;cursor:pointer;font-size:13px;color:#6f7277;font-family:'webfont','Tahoma','MS PGothic';line-height:22px;font-weight:bold;letter-spacing:-1px;
+	background:#fefefe;border:1px solid #c1c5cb;border-radius:2px;-webkit-border-radius:2px;-moz-border-radius:2px;/*behavior: url('/pc_browser/css/PIE.htc');*/} /* 20140120 */ 
+div.popup div.bx_btn a:hover.btn{text-decoration:none;}
+div.popup div.bx_btn2{padding:12px 0;text-align:center;}
+div.popup div.bx_btn2 span.btn{display:inline-block;width:62px;height:28px;cursor:pointer;font-size:12px;color:#fff;font-family:'dotum';line-height:28px;font-weight:bold;background:url('../../resources/image/Polaris/new/popup_button_blue.png') no-repeat;}
+p.txt_0line{padding:16px 0;}
+p.txt_1line{font-family:sans-serif,'Tahoma','MS PGothic'; padding:45px 0;text-align:center; word-break: break-word;}/* 20140114 */
+p.txt_2line{font-family:sans-serif,'Tahoma','MS PGothic'; padding:35px 30px;line-height:17px; word-break: break-word;}/* 20140114 */
+p.txt_3line{font-family:sans-serif,'Tahoma','MS PGothic'; padding:34px 30px;line-height:17px; word-break: break-word;}/* 20140114 */
+/* 팝업 내용 */
+div.bx_login{width:300px;margin:auto;padding-top:29px;padding-bottom:20px;}
+div.txt_logo{margin-bottom:29px;text-align:center;}
+form.login_popup{position:relative;height:101px;}
+form.login_popup input.em{position:absolute;left:0;top:0;padding-left:28px;width:200px;height:22px;line-height:22px\0IE8;font-family:'돋움';font-size:11px;
+	background: url('../../resources/image/Polaris/new/bg_email.png') no-repeat left top;-webkit-border-radius: 2px;-moz-border-radius: 2px;	border-radius: 2px;border:1px solid #c9cacb;}
+form.login_popup input.pw{position:absolute;left:0;top:32px;padding-left:28px;width:200px;height:22px;line-height:22px\0IE8;font-family:'돋움';font-size:11px;
+	border:1px solid #c9cacb;background: url('../../resources/image/Polaris/new/bg_pw.png') no-repeat left top;-webkit-border-radius: 2px;-moz-border-radius: 2px;	border-radius: 2px;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+form.login_popup input.em:focus,
+form.login_popup input.pw:focus{outline:none;border:1px solid #3c7df0;}
+
+form.login_popup .save{position:absolute;left:0;top:70px;color:#575b60;}
+form.login_popup .save input{border:none;}
+form.login_popup .join{position:absolute;right:0;top:72px;font-weight:bold;}
+form.login_popup .join a{color:#4e8fc8;}
+form.login_popup .login_btn{position: absolute; right: 0; top: 0; width: 60px; height: 57px; font-size: 12px; color: #fff; border: none; text-align: center;
+ background-image: url("../../resources/image/Polaris/new/btn_login_popup_bg.png");}  
+form.login_popup .login_btn span{display: inline-block; padding: 22px 0 0; color: #fff; font-weight: bold; font-size:11px;}
+p.dscr_email,
+p.dscr_pw{position:absolute;width:120px;z-index:10;left:-148px;color:#404040;font-size:11px;line-height:15px;padding:3px 10px;
+	border: 1px solid #e4b782;	-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;-webkit-box-shadow:#8194ab 0px 0px 2px;-moz-box-shadow: #8194ab 0px 0px 2px;
+	box-shadow: #8194ab 0 0 2px;background:#ffe7ae;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+p.dscr_email img.arrow,
+p.dscr_pw img.arrow{position:absolute;top:8px;right:-4px;}
+p.dscr_email{top:0; display:none;}
+p.dscr_pw{top:32px; display:none;}
+div.lose_pw{margin-bottom:13px;text-align: left; border-top: 1px solid #eceeef; padding-top: 16px;}
+div.lose_pw a{color:#797e83;}
+div.btm_link{text-align:center;}
+div.btm_link a{color:#8b8c8d;line-height:12px;border-left:1px solid #dadada;padding:0 13px;}
+div.btm_link a.first{border-left:none;}
+/* 계정 설정 */
+div.info_set{margin:auto;padding:25px 0;width:374px;letter-spacing:0;}
+div.info_set table{width:100%;border-top:1px solid #d7d7d7;border-bottom:1px solid #d7d7d7;}
+div.info_set th{padding-left:13px;width:109px;font-size:11px;text-align:left;color:#5d6169;background:#f4f4f4;}
+div.info_set th.valign_top{padding-top:12px;vertical-align:top;}
+div.info_set th.valign_top label{color: #5d6169;}
+div.info_set td{padding:6px 8px;font-size:11px;color:#6a6868;}
+div.info_set td.bd_bottom{padding-bottom:12px;border-bottom:1px solid #dcdcdc;}
+div.info_set td.bd_bottom2{padding-bottom:7px;border-bottom:1px solid #dcdcdc;}
+div.info_set label{display:block;padding-top:5px;height:35px;font-family:'lucida grande','Tahoma','MS PGothic';} /* 20140109 */ 
+div.info_set label span.check{float:left;display:block;width:18px;}
+div.info_set label span.check input{border:none\0IE8;}
+div.info_set label span.txt{float:right;display:block;width:218px;}
+div.info_set input.txt{padding:0 7px;height:22px;font-size:11px;font-family:'lucida grande','Tahoma','MS PGothic';line-height:22px\0IE8; border: 1px solid #d8d9da;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;/*behavior: url('/pc_browser/css/PIE.htc');*/}  /* 20140109 */ 
+div.info_set input.txt.first_name{width:96px;}
+div.info_set input.txt.second_name{margin-left:8px;width:96px;}
+div.info_set input.txt.email{width:216px;}
+div.info_set input.txt.pw{margin:5px 0;width:174px;}
+div.info_set input.txt:focus{outline:none;border:1px solid #3c7df0;}
+div.info_set div.bx_charge{display:none;margin-top:18px;}
+div.info_set div.bx_charge.on{display:block;}
+div.info_set div.bx_charge h2{position:relative;height:19px;font-size:11px;line-height:19px;color:#525558;}
+div.info_set div.bx_charge h2 a{position:absolute;right:0;top:0;}
+div.info_set div.bx_charge h2 a.btn_cancel {padding:0 5px 0; font-family:NanumGothic; font-size:12px; color:#787878; border:1px solid #c1c5cb; background:#fdfcfc; border-radius:2px; behavior: url('/pc_browser/css/PIE.htc');}
+div.info_set div.bx_charge div.premium{position:relative;margin-top:4px;height:64px;font-weight:bold;border:1px solid #d3d8da;}
+div.info_set div.bx_charge div.premium strong{position:absolute;top:17px;left:16px;font-size:12px;color:#3c7df0;}
+div.info_set div.bx_charge div.premium span{position:absolute;top:36px;left:16px;font-weight:normal;font-size:11px;color:#787878;}
+div.info_set div.bx_charge div.premium a{position:absolute;top:20px;right:16px;}
+div.info_set div.bx_charge div.premium a.btn_extend {padding:4px 31px 5px; font-family:NanumGothic; font-size:12px; color:#fff; border:1px solid #529d20; background:#5eb226; border-radius:2px; behavior: url('/pc_browser/css/PIE.htc');}        
+div.info_set div.out{margin-top:13px;text-align:right;}
+div.info_set div.out a{height:20px;font-size:11px; font-family:'lucida grande','Tahoma','MS PGothic'; font-weight:bold;line-height:20px;color:#949494;} /* 20140120 */
+div.info_set div.out a{font-family:'Tahoma','MS PGothic'\0IE8; }
+/* 주소록, 초대하기 */
+div.address{padding-top:10px;}
+div.address div.tab{margin:auto;height:22px;/* width:340px; */  text-align:center;}
+div.address div.tab a{display:inline-block;width:167px;line-height:20px;text-align:center;color:#848484;font-weight:bold;font-size:11px;background:#f2f2f2;border-top:1px solid #dadada;border-bottom:1px solid #aeb0b4; border-left:1px solid #dadada; border-right:1px solid #dadada;}
+div.address div.tab a.on{width:169px;color:#454a50;border-top:1px solid #aeb0b4;border-bottom:1px solid #fff;background:#fff; border-right:1px solid #aeb0b4;border-left:1px solid #aeb0b4;}
+div.address div.tab a:hover{text-decoration:none;}
+div.popup div.address div.gmailAdded a{width:111px !important;}
+div.popup div.address div.gmailAdded a.on{width:112px !important;}
+div.address div.bx{position:relative;margin:auto;padding:10px 5px 0 10px;width:323px;border:1px solid #aeb0b4;border-top:none;background:#fff;}
+div.address div.bx_scroll{height:466px;overflow:auto;-webkit-overflow-scrolling:touch;}
+div.address div.bx_scroll div{display:none;}
+div.address div.bx_scroll div.show{display:block;}
+div.address div.bx_scroll.off{display:none;} /* tree bakira7*/
+div.address h2{height:16px;line-height:16px;font-size:10px;color:#8594a2;background: url("../../resources/image/Polaris/new/bg_address_h2.png");}
+div.address h2 span{padding-right:4px;background:#fff;}
+div.address ul.list li{position:relative;min-height:42px;font-family:'돋움','Dotum';font-size:11px;border-top:1px solid #e1e3e5;}
+div.address ul.list li:first-child{border-top:none;}
+div.address ul.list a.hide{display:none;position:absolute;right:60px;top:11px;} 
+div.address ul.list a.hide_clear{position:absolute;right:60px;top:11px;}
+div.address ul.list li:hover{background-color:#f3f9fe;}
+div.address ul.list li:hover a.hide{display:block;}
+div.address ul.list span{position:absolute;display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+div.address ul.list span.img{left:4px;top:5px;width:30px;height:30px;border:1px solid #c8c8c8;}
+div.address ul.list span.img img{width:30px;height:30px;}
+div.address ul.list span.name{left:43px;top:8px;width:190px;color:#000;font-family:sans-serif,'Tahoma','MS PGothic'; } /* 20140114 */
+div.address ul.list span.mail_id{left:43px;top:23px;width:190px;color:#8a8c8f;}
+div.address ul.list span.polaris{left:24px;top:25px;width:15px;}
+div.address ul.list span.polaris.off{display:none;} /* bakira7 */
+div.address ul.list li.group:hover{background-color:#f3f9fe;}
+div.address ul.list li a.btn_group{position:absolute;right:13px;top:14px;}
+div.address ul.list li.group.on,
+div.address ul.list li.group.on:hover{background:#e8f4fe;}
+div.address ul.list li.group div.list{display:none;}
+div.address ul.list li.group.on div.list{display:block;}
+div.address ul.list li.group.on div.list{padding-top:42px;}
+div.address ul.list li.group.on div.list div{padding-left:42px;height:32px;line-height:32px;color:#8a8c8f;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+div.address ul.list li.group.on div.list div.no_mb{border-top:1px solid #e1e3e5;}
+div.address ul.list li.group.on div.list div.member{border-top:1px solid #e1e3e5;}
+div.address p.no_data{padding-top:235px;text-align:center;color:#a4a7ab;background: url("../../resources/image/Polaris/new/send_no_result.png") no-repeat center 160px;letter-spacing:0;}
+div.bx_btn.address{border-top:none;}
+
+a.btn_popup {height:20px; padding:0 0 0 5px; color:#757575; font-size:11px; background:url("../../resources/image/Polaris/new/btn_L_02.gif") left top no-repeat; }
+a.btn_popup_sim {position: absolute;right: 22px;top: 9px;height:20px; padding:0 0 0 5px; color:#757575; font-size:11px; }
+a.btn_popup span {position:relative;}
+a.btn_popup span { display:inline-block; padding:4px 6px 5px 0; text-align:center; background:url("../../resources/image/Polaris/new/btn_R_02.gif") right top no-repeat;}
+a.btn_popup:hover {text-decoration:none;}   
+
+div.address div.bx_invite_search{margin:auto;padding-bottom:13px;width:340px;background:#fff;}
+div.address div.bx_invite_search textarea.txt{width:95%;padding: 5px 7px 0 7px;height:17px;font-size:11px;font-family:sans-serif,'Tahoma','MS PGothic'; overflow:hidden;resize:none;border:none;}/* 20140114 */
+div.address div.bx_invite_search textarea.txt:focus{outline:none;border:1px solid #3c7df0;height:15px;}
+div.address div.bx_invite_search div.search_id{float:left;	position:relative;padding:3px;width:332px;max-height:68px;border:1px solid #3c7df0;overflow-y:auto;overflow-x:hidden;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;}
+div.address div.bx_invite_search div.search_id.bd_agent{height:60px; max-height:60px;}
+div.address div.bx_invite_search div.search_id.bd_none.bd_agent{height:68px; max-height:68px;}
+div.address div.bx_invite_search div.search_id.bd_none{padding:0;width:338px;border:none;}
+div.address div.bx_invite_search div.search_id.bd_none textarea.txt{width:301px;padding: 5px 7px 0 28px;height:17px;font-size:11px;font-family:'dotum';overflow:hidden;
+	resize:none;background: url("../../resources/image/Polaris/new/bg_invite_search.png") no-repeat 6px 6px;border:1px solid #d8d9da;
+	-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;}
+div.address div.bx_invite_search div.search_id.bd_none textarea.txt:focus{outline:none;border:1px solid #3c7df0;}
+div.address div.bx_invite_search div.search_id.bd_agent textarea.txt{height: 53px;}
+div.address div.bx_invite_search div.search_id label{ display:none; }
+div.address div.bx_invite_search div.search_id.showLabel label{ display:block; }
+div.address div.bx_invite_search div.search_id span.id{float:left;position:relative;display:inline-block;margin-right:1px;margin-bottom:2px;padding:0 13px 0 3px;max-width:100px;height:17px;line-height:17px;color:#393e45;font-family:sans-serif,'Tahoma','MS PGothic'; font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border:1px solid #bed9f0;background:#d6ecff;text-shadow:0 1px 0 rgba(226, 242, 255, 1);} /* 20140114 */
+div.address div.bx_invite_search div.search_id span.id a{position:absolute;right:3px;/* top:5px; */}
+div.address div.bx_invite_search div.search_id span.id.wrong{border:1px solid #f2b6a8;background:#ffcdc2;text-shadow:0 1px 0 rgba(255, 220, 212, 1);}
+/* div.bx_invite_search div.search_id textarea{float:left;margin-top:1px;padding:0 5px;height:18px;width:50px;line-height:150%;font-family:'돋움';font-size:12px;border:none;resize:none;overflow:hidden;} */
+div.address div.bx_invite_search:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+div.address div.search_auto{display:block;position:absolute;left:-1px;top:-22px;background:#fff;z-index:2;}
+div.address div.search_auto.off {display:none;} 
+div.address div.search_auto ul{width:338px;max-height:330px;border:1px solid #919296;overflow-y:auto; overflow-x:hidden;}
+div.address div.search_auto li{position: relative; min-height: 44px; font-family:sans-serif,'Tahoma','MS PGothic'; font-size: 11px;} /* 20140114 */
+div.address div.search_auto li.selected{background-color:#f3f9fe;}
+div.address div.search_auto li span { position: absolute; display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+div.address div.search_auto li span.img {left: 4px; top: 5px; width: 30px; height: 30px;}
+div.address div.search_auto li span.img img { width: 30px; height: 30px;}
+div.address div.search_auto li span.bg {left:4px; top:5px; width:30px; height:30px; background:url(../../resources/image/Polaris/new/common/pic_bg30.png) no-repeat;} /* 20150401 추가 */
+div.address div.search_auto li.selected span.bg {background:url(../../resources/image/Polaris/new/common/pic_bg30_hover.png) no-repeat;} /* 20150401 추가 */
+
+div.address div.search_auto li span.name{top: 8px; left: 43px; color:#333; width: 280px;}
+div.address div.search_auto li span.email{left: 43px; top: 23px;font-family:'Arial';color:#8a8c8f;letter-spacing:0; width: 280px;}
+div.address div.search_auto li span.polaris{left: 20px;top: 20px;width:16px; height: 16px;} /* 20150401 수정 */
+div.address div.search_auto li span.polaris.off{display:none;}
+div.address div.search_auto strong{color:#3c7df0;font-weight:normal;}
+div.address div.bx_scroll.invite{height:378px;overflow:auto;}
+
+div.popup .open_closed {height:49px; margin-left:20px;}
+div.popup .open_closed label {margin:0 32px 0 0; color: #787878; }
+div.popup .open_closed p {margin:7px 0 0;}
+
+div.address div.tab a.hideA {display:none;}
+div.address div.bx_scroll.default ul.list li:hover a.hide{display:none;}
+div.address .link_send {display:none;}
+div.address .bx_invite_search h3 {display:none;}
+div.address .email_send {display:none;}
+div.address .btn_finish {display:none;}
+
+div.default div.address div.open_closed {display:none;}
+div.default div.address div.bx_invite_search {display:none;}
+div.default div.address div.tab a.recent {display:none;}
+div.default div.address div.tab a.hideA {display:inline-block;}
+div.default div.address div.bx_scroll.default ul.list li.pc:hover a.hide{display:block;}
+div.default div.address div.bx_scroll.default ul.list li.mobile a.hide{display:block;}
+div.default div.address div.bx_scroll.hideA ul.list li.pc:hover a.hide{display:block;}
+div.default div.address div.bx_scroll.hideA ul.list li.mobile a.hide{display:block;}
+
+div.address div.bx_scroll.recent ul.list li.mobile a.hide{display:block;}
+
+div.default div.bx_btn{ padding-top: 0; height:10px;}
+div.default div.bx_btn a {display: none;}
+
+div.invite  div.address div.open_closed {display:none;}
+
+div.weblink div.address div.open_closed {display:none;}
+div.weblink div.address div.tab {display:none;}
+div.weblink div.address div.bx_scroll {display:none;}
+div.weblink div.address {padding-bottom: 10px; border: 1px solid #8b919b; border-top: none; border-radius: 3px;}
+div.weblink div.address .link_send {display:block; position: relative; margin: 15px 16px 0; padding: 0 0 25px; word-break: break-all; color: #525558; font-family: sans-serif;}
+div.weblink div.address .link_send img {margin: 0 5px 0 0; vertical-align: middle;}
+div.weblink div.address .link_send span {display: inline-block; width: 280px; vertical-align: middle;}
+div.weblink div.address .bx {border: none; margin: 0 10px; padding: 0;}
+div.weblink div.address .bx_invite_search {padding-bottom: 6px; background: none;}
+div.weblink div.address .bx_invite_search h3 {display:block; padding: 17px 0 9px 6px;font-size: 11px;border-top: 1px solid #d7d7d7;}
+div.weblink div.address .search_auto { top: -7px;}
+div.weblink div.address .email_send {display:block; width: 338px; margin-bottom: 10px; background: #fff; border: 1px solid #c5c9d0; border-radius: 1px; behavior: url('/pc_browser/css/PIE.htc');}
+div.weblink div.address .email_send label {position: relative; display: block;}
+div.weblink div.address .email_send label span {position: absolute; top: 17px; left: 10px; line-height: 15px;}
+div.weblink div.address .email_send label span.off {display: none;}
+div.weblink div.address .email_send textarea {width: 324px; height: 237px; margin: 17px 0 0 10px; font-size: 11px; line-height: 15px; font-family: sans-serif; border: none; overflow: auto; resize: none;}
+div.weblink div.address .text_number {margin: 0 4px 4px 0; text-align: right;}
+div.weblink div.address .text_number span {display: inline-block; padding: 4px 9px; font-size: 10px; letter-spacing: 0; font-family: arial; background: #fffeef; border: 1px solid #d1cfb3; border-radius: 1px; behavior: url('/pc_browser/css/PIE.htc');}
+div.weblink div.address .btn_finish {display:block;}
+div.weblink div.bx_btn {display:none;}
+
+/* 업로드 */
+ul.bx_upload{height:260px;border:1px solid #bec0c3;overflow-y:auto;background:#fdfcfc;}
+ul.bx_upload li{position:relative;height:28px;border-bottom:1px solid #e7e7e8;line-height:20px;font-family:'dotum';}
+ul.bx_upload li div{position:absolute;left:0;top:0;height:28px;width:0;background:#ebf6ff;}
+ul.bx_upload li img.img{position:absolute;top:6px;left:17px;}
+ul.bx_upload li span{display:inline-block;position:absolute;height:28px;line-height:30px;}
+ul.bx_upload li span.title{left:42px;width:240px;overflow:hidden;}
+ul.bx_upload li span img {vertical-align: middle;}
+ul.bx_upload li.cancle,
+ul.bx_upload li.cancle img,
+ul.bx_upload li.cancle span{opacity:0.7;filter:alpha(opacity=40);background:#f3f3f3;}
+/* 알림 팝업 */
+div.popup ul.notice{font-family:'webfont';padding-bottom:25px;}
+div.popup ul.notice li{line-height:20px;text-align:center;color:#3c7df0; padding: 0 20px 0;}
+div.popup ul.notice li span{padding-left:15px;background:url('../../resources/image/Polaris/new/bul_notice.png') no-repeat left 1px;}
+/* 계정 팝업 */
+div.popup label.pos{position:absolute;left:8px;top:6px;}
+div.popup label.pos.off{display:none;}
+div.popup div.txt_set01{margin:auto;padding:33px 0 25px 0;width:234px;text-align:center;line-height:17px; word-break: break-word;}
+div.popup div.txt_set02{margin:auto;padding:25px 0 15px 0;width:210px;line-height:17px; word-break: break-word;}
+div.popup div.txt_title{margin:auto;padding:0 0 25px 0; text-align:center;line-height:17px; word-break: break-word;}
+div.popup div.input_setting{position:relative;margin:auto;padding-bottom:27px;width:210px;}
+div.popup ul.input_setting2{margin:auto;padding:40px 0;width:200px;}
+div.popup ul.input_setting2 li{position:relative;margin-top:12px;padding:0;}
+div.popup ul.input_setting2 li.first{margin-top:0;}
+div.popup ul.input_setting3{margin:auto;padding:23px 0;width:200px;}
+div.popup ul.input_setting3 li{position:relative;margin-top:12px;padding:0;}
+div.popup ul.input_setting3 li.first{margin-top:0;}
+div.popup input.setting{width:184px;padding:0 7px;height:22px;font-size:11px;font-family:'dotum';line-height:22px\0IE8;
+	border: 1px solid #d8d9da;	-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+div.popup input.setting:focus{outline:none;border:1px solid #3c7df0;}
+/* 동기화 */
+div.bx_sync{width:174px;margin:auto;padding:34px 0;}
+div.bx_sync p.txt{line-height:14px;margin-top:15px;text-align:center;}
+div.bx_sync div.bar{width:174px;height:6px;line-height:0;font-size:0;background:url('../../resources/image/Polaris/new/bg_sync.png') no-repeat;}
+div.bx_sync div.bar div{height:6px;background:#3c7df0;	}
+/* Url 보내기 */
+div.url_copy {position:relative; width:412px; margin:5px auto 0; background:url(../../resources/image/Polaris/new/popup/btmBg.png) bottom no-repeat;}
+div.url_copy h1 {position:relative; padding-left:12px;padding-right:30px;height:28px;line-height:28px;font-family:'webfont';font-weight:bold;font-size:11px;color:#fff;letter-spacing:-1px;
+	overflow:hidden;white-space:nowrap;text-overflow:ellipsis;background:#596270;border-top-left-radius:3px;-webkit-border-top-left-radius:3px;-moz-border-top-left-radius:3px;border-top-right-radius:3px;-webkit-border-top-right-radius:3px;-moz-border-top-right-radius:3px;behavior: url('/pc_browser/css/PIE.htc');}
+div.url_copy h1 a {position:absolute; top:5px; right:5px;}
+div.bx_url{position:relative;padding-top:29px;padding-left:120px;width:300px;height:83px;font-family:'dotum';}
+div.bx_url div.photo{position:absolute;top:25px;left:20px;width:80px;height:60px;border:1px solid #c6c7c7;background: url('../../resources/image/Polaris/new/bg_url.png') no-repeat;}
+div.bx_url div.photo img{width:80px;height:60px;}
+div.bx_url div.photo_portrait{position:absolute;top:11px;left:20px;width:62px;height:88px;border:1px solid #c6c7c7;background: url('../../resources/image/Polaris/new/bg_url_portrait.png') no-repeat;}
+div.bx_url div.photo_portrait img{width:62px;height:88px;}
+div.bx_url div.url{width:240px; height:30px;font-size:12px;color:#000;font-family:sans-serif,'Tahoma','MS PGothic'; overflow:hidden;white-space:nowrap;text-overflow:ellipsis;letter-spacing:0;}/* 20140114 */
+div.bx_url div.url img{vertical-align:-4px;}
+div.bx_url div.input{}
+div.bx_url div.input input{width:264px;padding:0 7px;height:22px;font-size:11px;font-family:'dotum';line-height:22px\0IE8;color:#393b3d;
+	-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;behavior: url('/pc_browser/css/PIE.htc');}
+div.bx_url div.input input:focus{outline:none; border:1px solid #3c7df0;}
+div.bx_url dl {}
+div.bx_url dt {position:relative; width:174px; height:22px; display:inline-block; vertical-align:middle;}
+div.bx_url dt input, div.bx_url dt input:focus {width:161px; padding:5px 7px 5px 7px; border:1px solid #c5c9d0; font-size:11px; vertical-align:middle; font-weight:normal; font-family:dotum; border-radius:1px; behavior:url('/pc_browser/css/PIE.htc');}
+div.bx_url dt input:focus{border:1px solid #3c7df0;}
+
+div.bx_url dt a {position:absolute; right:-2px; top:1px; display:inline-block; width:54px;  padding:6px 0 4px; background:#fff; color:#525558; text-align:center; border-left:1px solid #c5c9d0; font-size:11px;}
+div.bx_url dt a:hover {text-decoration:none;}
+/* div.bx_url dt {display:inline-block; vertical-align:middle; width:174px; height:22px; border:1px solid #c5c9d0; border-radius:1px; behavior:url('/pc_browser/css/PIE.htc');}
+div.bx_url dt:hover {border:1px solid #3c7df0; }
+div.bx_url dt input, div.bx_url dt input:focus  {width:112px; margin:0 0 0 7px; border:none; font-size:11px; font-weight:normal; font-family:dotum}
+div.bx_url dt input:focus{}
+
+div.bx_url dt a {display:inline-block; width:54px; padding:6px 0 3px; color:#525558; text-align:center; border-left:1px solid #c5c9d0; font-size:11px;}
+div.bx_url dt a:hover {text-decoration:none;}*/
+div.bx_url dd {display:inline-block; margin:0 0 0 11px; vertical-align:middle;}
+div.bx_url dd a {display:inline-block; width:24px; height:24px; margin:0 6px 0 0;  background:url(../../resources/image/Polaris/new/button/pop_social.png) no-repeat}
+div.bx_url dd a span {display:none;}
+div.bx_url dd a.social_01 {background-position:0 0;}
+div.bx_url dd a.social_02 {background-position:-30px 0;}
+div.bx_url dd a.social_03 {background-position:-60px 0;}
+div.bx_url dd a.social_04 {background-position:-90px 0;}
+div.url_copy p.btn_close {margin:0 1px; padding:7px 0 11px; text-align:center; border-top:1px solid #e6e6e6;}
+/* 트리구조 폴더 */ 
+div.tree_folder{margin:auto;width:338px;height:305px;border:1px solid #cacaca;padding:0;overflow:auto;}
+div.tree_folder h2{padding-top:12px;padding-bottom:10px;padding-left:44px;white-space:nowrap;font-size:12px;color:#575b60;font-weight:bold;background: url('../../resources/image/Polaris/new/folder_tree_bi.png') no-repeat 18px 9px;}
+div.tree_folder h2:hover{background-color:#f3f9fe;}
+div.tree_folder h2.on{color:#fff;background-color:#3c7df0;}
+/* div.tree_folder h2.on:hover{color:#575b60;background:#f3f9fe url('../../resources/image/Polaris/new/folder_tree_bi.png') no-repeat 18px 9px;} */
+div.tree_folder table{width:100%;font-family:'dotum';}
+div.tree_folder span{display:block;height:26px;line-height:26px;color:#5f6060;}
+div.tree_folder span:hover{background:#f3f9fe;color:#5f6060;}
+div.tree_folder span.on{background:#3c7df0;color:#fff;}
+div.tree_folder span:hover.on{background:#3c7df0;color:#fff;}
+div.tree_folder li{white-space:nowrap;}
+div.tree_folder li img{vertical-align:middle;}
+div.tree_folder li span{padding-left:40px; white-space: pre;}
+div.tree_folder li li span{padding-left:52px;}
+div.tree_folder li li li span{padding-left:64px;}
+div.tree_folder li li li li span{padding-left:76px;}
+div.tree_folder li li li li li span{padding-left:88px;}
+div.tree_folder li li li li li li span{padding-left:100px;}
+div.tree_folder li li li li li li li span{padding-left:112px;}
+div.tree_folder li li li li li li li li span{padding-left:124px;}
+div.tree_folder li li li li li li li li li span{padding-left:136px;}
+div.tree_folder li li li li li li li li li li span{padding-left:148px;}
+div.tree_folder li li li li li li li li li li li span{padding-left:160px;}
+div.tree_folder li li li li li li li li li li li li span{padding-left:172px;}
+div.tree_folder li li li li li li li li li li li li li span{padding-left:184px;}
+div.tree_folder li li li li li li li li li li li li li li span{padding-left:196px;}
+div.tree_folder li li li li li li li li li li li li li li li span{padding-left:208px;}
+div.tree_folder li li li li li li li li li li li li li li li li span{padding-left:220px;}
+div.tree_folder li li li li li li li li li li li li li li li li li span{padding-left:232px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li span{padding-left:244px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li span{padding-left:256px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li span{padding-left:268px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li span{padding-left:280px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li span{padding-left:292px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:304px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:316px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:328px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:340px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:352px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:364px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:376px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:388px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:400px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:412px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:424px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:436px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:448px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:460px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:472px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:484px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:496px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:508px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:520px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:532px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:544px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:556px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:568px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:580px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:592px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:604px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:616px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:628px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:640px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:652px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:664px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:676px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:688px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:700px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:712px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:724px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:736px;}
+div.tree_folder li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li li span{padding-left:748px;}
+
+/* 서비스 점검 */
+div.popup_service {width:510px; display:block;}
+div.popup_service div.bx_content {padding: 36px 46px 0 46px; border-bottom: 1px solid #a5abb5; border-bottom-left-radius: 3px; -webkit-border-bottom-left-radius: 3px;-moz-border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px; -webkit-border-bottom-right-radius: 3px; -moz-border-bottom-right-radius: 3px; -webkit-box-shadow: #e5e5e5 0px 2px 0; -moz-box-shadow: #e5e5e5 0px 2px 0;
+box-shadow: #e5e5e5 0 2px 0; border-left: 1px solid #a5abb5; border-right: 1px solid #a5abb5; background: #fdfcfc;}   
+div.popup_service div.bx_content div.bx_sub_content{position:relative; margin: auto; width: 418px;}
+div.popup_service div.bx_content div.bx_sub_content div.bx_img{height:132px;}
+div.popup_service div.bx_content div.bx_sub_content div.bx_img img.bx_first{position:absolute; top:0; left:0;}
+div.popup_service div.bx_content div.bx_sub_content div.bx_img img.bx_last{position:absolute; top:0; left:280px;}
+div.popup_service div.bx_content div.bx_sub_content1{font-size:12px; font-weight:bold; color:#6b7078; font-family:'돋움','Dotum','lucida grande'; line-height: 18px;}
+div.popup_service div.bx_content div.bx_sub_content2{margin: 20px 0 48px 0; border-top: 1px solid #d3d8da; border-bottom: 1px solid #d3d8da; border-left: 1px solid #d3d8da; border-right: 1px solid #d3d8da;
+border-top-left-radius: 3px; -webkit-border-top-left-radius: 3px; -moz-border-top-left-radius: 3px; border-top-right-radius: 3px; -webkit-border-top-right-radius: 3px; -moz-border-top-right-radius: 3px;
+border-bottom-left-radius: 3px; -webkit-border-bottom-left-radius: 3px; -moz-border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; -webkit-border-bottom-right-radius: 3px; -moz-border-bottom-right-radius: 3px;
+background: #ffffff; text-align:center; font-size:12px; color:#3c7df0; font-weight:bold; font-family:'돋움','Dotum','lucida grande'; line-height: 18px;} 
+div.popup_service div.bx_content div.bx_sub_content2 div.bx_txt{margin: 10px 0 10px 0;}
+
+div.ConfirmtPopup_external{position:fixed;z-index:10; color:#5e6165; width:100%; top: 50%;} 
+#url_copy_popup{position:fixed;display:none;width:100%;top:50%;margin-top:-200px;z-index:8;}
+/* 2013-06-14 김은희 :: 버튼 공통 */
+input.btn_blue,
+button.btn_blue{display:inline-block;margin:0;padding:0 8px;min-width:52px;height:26px;line-height:26px;font-family:'dotum';color:#fff;font-size:12px;font-weight:bold;vertical-align:middle;
+	text-shadow:0px -1px 1px rgba(66, 134, 191, 1);background: url('../../resources/image/Polaris/new/bg_btn_blue.png') repeat-x;cursor:pointer;
+	border: 1px solid #4078a9;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;-webkit-box-shadow:#f2f2f2 0px 1px 1px;-moz-box-shadow: #f2f2f2 0px 1px 1px;box-shadow: #f2f2f2 0 1px 1px;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+a.btn_blue{display:inline-block;margin:0;padding:0 8px;min-width:52px;height:24px;line-height:24px;font-family:'dotum';color:#fff;font-size:12px;font-weight:bold;vertical-align:middle;
+	text-shadow:0px -1px 1px rgba(66, 134, 191, 1);background: url('../../resources/image/Polaris/new/bg_btn_blue.png') repeat-x;
+	border: 1px solid #4078a9;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;-webkit-box-shadow:#f2f2f2 0px 1px 1px;-moz-box-shadow: #f2f2f2 0px 1px 1px;box-shadow: #f2f2f2 0 1px 1px;/*behavior: url('/pc_browser/css/PIE.htc');*/}
+a:hover.btn_blue{text-decoration:none;}
+.status_btn_closed{content:url("../../resources/image/Polaris/new/folder_tree_icon_folder_closed.png");}
+.status_btn_opened{content:url("../../resources/image/Polaris/new/folder_tree_icon_folder_opened.png");}
+.status_btn_normal{content:url("../../resources/image/Polaris/new/folder_tree_icon_folder_normal.png");}
+
+#move_and_copy_popup{width:362px;margin:auto;}
+/* 정기 점검 */
+.construction .popup_con {width:416px; padding:0 45px 46px; background:#fff;  border-radius:3px; border:2px solid #b4babd; behavior: url('PIE.htc');}
+.construction .popup_con h1 {background-color: #ffffff;width:417px; margin:34px 0 0; padding:0 0 10px; border-bottom:1px solid #e0e0e0;}
+.construction .popup_con dl {margin:35px 0 0; background:url(../../resources/image/Polaris/new/construction_img.png) right 4px no-repeat;}
+.construction .popup_con dt {margin:0 0 41px; font-size:24px; font-weight:bold; color:#3a4049; line-height:34px;}
+.construction .popup_con dd {font-size:12px; line-height:18px; color:#6b7078;}
+.construction .popup_con ul {margin:20px 0 0; padding:13px 0 13px; border:1px solid #d3d8da;}
+.construction .popup_con li {padding:0 0 6px 15px; font-size:12px; color:#3c7df0; }
+.construction .popup_con li:last-child {padding:0 0 0 15px;}
+.construction .popup_con label {float:right; margin-top:10px;}
+
+.btn_finish {clear:both; text-align:center;}
+.btn_finish a {padding:5px 11px 4px; background:#fff; border:1px solid #d1cfb3; border-radius:1px; behavior: url('/pc_browser/css/PIE.htc');}
+
+#hidespan { font-size: 11px;}
+
+div.header a.btn_detail {position:absolute; left:53px; top:34px; text-decoration:none}
+div.box p.txt.sso {text-align:center; font-size:11px;padding:9px 0 11px;}
+div.box p.txt.login {text-align:center; font-size:11px;clear:both; padding:20px 0 21px;}
+div.box p.txt.login a {font-size:11px; color:#2964de; text-decoration:underline}
+div.login div.ssologin {display:none}
+
+/*popup.css*/
+#upload_popup{width:442px;margin:auto;}
+ul.bx_upload li span.kb{right:63px;width:50px;text-align:right;}
+ul.bx_upload li span.state{right:0;width:60px;text-align:center;}
+
+/* 메신저 */
+/*.messenger {position:fixed; width:100%; height:100%; left:0; top:0; z-index:40; background:#fff;}*/
+.messenger {display:none;}
+/*.messenger * {font-family:'Malgun Gothic',dotum,돋움,arial,Tahoma,MS PGothic, sans-serif !important;} 20140716 삭제*/
+.messenger  a {text-decoration:none;}
+.messenger label{color: #b7b9bb; font-family:'Malgun Gothic',dotum,?뗭?,arial,Tahoma,MS PGothic, sans-serif; font-size: 12px; }
+.messenger p.mini_window {display:none; position:fixed; bottom:0; right:10px; width:202px; height:32px; color:#fff; background:url(/resources/image/Polaris/new/msg/mini_box.png) right no-repeat; z-index:9;} /* 20140413 추가 */
+.messenger p.mini_window span {display:inline-block; width:140px; padding:8px 0 0 11px;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}/* 20140413 추가 */
+/* .messenger p.mini_window img#close_popup {position:absolute; top:7px; right:10px; cursor:pointer;}20140428 수정 */
+.messenger p.mini_window a.max {position:absolute; right:37px; top:11px;}/* 20140428 추가 */
+.messenger p.mini_window a.close {position:absolute; right:10px; top:7px}/* 20140428 추가 */ 
+body.web.rtl .messenger p.mini_window span {padding:8px 11px 0 0;}
+body.web.rtl .messenger p.mini_window a.max {left:37px; right:auto;}
+body.web.rtl .messenger p.mini_window a.close {left:10px; right:auto;}
+
+.messenger_pop {position:fixed; top:100px; left:300px;margin:0 auto; width:382px; padding: 0 0 4px !important; overflow:hidden; z-index:9; background:#fff; border-top-left-radius:5px; border-top-right-radius:5px;}
+.messenger_pop p.try{position:absolute; z-index:9;}
+.messenger_pop .header {clear:both;position:relative; height:32px; cursor:move; background:#474f5b; z-index:2; border:none;}
+.messenger_pop .header h2 {padding:9px 0 0 11px; font-size:12px; color:#fff;}
+.messenger_pop .header h2 em {color:#f6ff00; font-style:normal;}
+.messenger_pop .header .btn {position:absolute; top:7px; right:10px;}
+.messenger_pop .header .btn  img {margin:0 0 0 6px;}
+.messenger_pop .setting {position:relative;height:37px; border:1px solid #3989c9; border-top:none; background:#6bb9f7; z-index:10}/* 20140428 수정 */
+.messenger_pop .setting p {position:relative; line-height:37px; height:37px; text-align:center; color:#fff;} /* 20140618 수정 */
+.messenger_pop .setting p span {width: 270px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: inline-block;}
+/* .messenger_pop .setting p span {padding:10px 0 0 11px; display:inline-block; color:#fff;}
+:root .messenger_pop .setting p span {padding:11px 0 0 11px; padding:10px 0 0 11px\0; width: 320px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;} */
+.messenger_pop .setting p a {position:absolute; right:0;}/* 20140413 추가 */
+body.rtl .messenger_pop .setting p a {left:0; right:auto;}
+.messenger_pop .setting p a.btn_prev {top:5px; left:4px; right:auto;} /* 20160618 추가 */
+body.rtl .messenger_pop .setting p a.btn_prev {display:inline-block; right:4px; left:auto; width:30px; height:28px; background:url(../../resources/image/Polaris/new/socket/btn_prev02_rtl.png) no-repeat;}
+body.rtl .messenger_pop .setting p a.btn_prev img {display:none;}
+.messenger_pop .setting ul.menu {display:none; position:absolute; top:30px; right:8px; width:106px; background:#fff; border:1px solid #515965; border-radius:3px}/* 20140413 .header -> .setting 수정 */
+body.rtl .messenger_pop .setting ul.menu {left:8px; right:auto;}
+.messenger_pop .setting ul.menu li {border-bottom:1px solid #e0e0e0;}/* 20140413 .header -> .setting 수정 */
+.messenger_pop .setting ul.menu a {display:block; padding:8px 10px 7px 10px; color:#767676;}/* 20140413 .header -> .setting 수정 */
+.messenger_pop .setting ul.menu.limit .checked{display:none;}
+/* .messenger_pop .setting ul.menu.limit a.checked{opacity:0.3;filter:alpha(opacity=30); cursor: text; text-decoration: none;} */
+/*.messenger_pop .setting ul.menu a:hover {background:#e9e9e9;} 20140413 .header -> .setting 수정 */
+.messenger_pop .chat_box { border:1px solid #515965; border-top:none; box-shadow:2px 2px 0 #ebe7e3;  border-radius:5px; border-top-left-radius:0; border-top-right-radius:0}/* 20140413 추가 */
+/* .messenger_pop .chat_box.group {height:546px;}
+.messenger_pop .chat_box.chat {height:509px;} */
+.messenger_pop .chat_box ul {float:left; width:380px; height:41px; }
+.messenger_pop .chat_box ul.tab li {float:left; width:127px;}
+.messenger_pop .chat_box ul.tab li.first, .messenger_pop  .chat_box  ul.tab li.last {width:126px;}
+.messenger_pop .chat_box ul.tab a {display:inline-block; width:125px; font-size:13px; color:#747b85; font-weight:bold; padding:11px 0 11px; background:#f2f4f4; border-left:1px solid #f2f4f4; border-right:1px solid #f2f4f4;  border-bottom:1px solid #b3b6b6; text-align:center;}
+.messenger_pop .chat_box ul.tab li.first a {width:125px; border-left:none}
+.messenger_pop .chat_box ul.tab li.last a {border-left:1px solid #f2f4f4;   border-right:none}
+.messenger_pop .chat_box ul.tab li.on a  {width:125px;color:#474f5b; background:#fff; border-left:1px solid #b3b6b6; border-right:1px solid #b3b6b6; border-bottom:1px solid #fff;}
+.messenger_pop .chat_box ul.tab li.first.on a {border-left:none}
+.messenger_pop .chat_box ul.tab li.last.on a {border-left:1px solid #b3b6b6; border-right:0}
+/* 20140415 추가*/
+.messenger_pop .chat_box h3.title {position:relative; text-align:center; height:37px; line-height:37px; color:#fff; font-size:13px; background:#9198a3; border-bottom:1px solid #6e757f;clear: both;} /* 20140618 수정 */
+.messenger_pop .chat_box h3.title a {position:absolute; top:5px; left:4px;} /* 20140618 추가 */
+.messenger_pop .chat_box h3.title a.btn_help {top:0px; left:auto; right:4px;}
+.messenger_pop.sharedinfo .chat_box h3.title {padding-left:14px; color:#46505a; text-align:left; background:#cfd1d5; border:none}
+.messenger_pop .chat_box p.member-add {padding:10px 0; text-align:center; border-bottom:1px solid #dfe1e4;}
+.messenger_pop .chat_box p.member-add a {display:inline-block; width:152px; padding:7px 0 8px; color:#757575; border-radius:2px; border:1px solid #c1c5cb; text-align:center; background:url(/resources/image/Polaris/new/msg/btn_bg.png) top repeat-x;}
+:root .messenger_pop .chat_box p.member-add a {padding-bottom:9px; padding-bottom:8px\0}
+:root .messenger_pop .chat_box p.member-add.limit a {opacity:30%; opacity: 0.3;}
+.messenger_pop .chat_box p.member-add a span {display:inline-block; padding:0 0 0 25px; border:none; background:url(/resources/image/Polaris/new/msg/bul_add.png) 0 2px no-repeat;}
+/* 20140415 추가 끝 */
+.messenger_pop .box {display:none; clear:both;overflow:auto;-webkit-overflow-scrolling:touch;}
+.messenger_pop .box.on{display:block;} 
+.messenger_pop .box.chat {background: #e0effc; padding:20px 0; height:398px;} /* 20140414 height 변경 */
+body.rtl .messenger_pop .box.chat {direction:ltr;}
+
+/*문서공유시 - 20140418 */
+.messenger_pop.share .box {clear:both;overflow:auto; background;#eff0f0;-webkit-overflow-scrolling:touch;}
+.messenger_pop.share .box.chat {padding:20px 0; height:322px;} /* 20140414 height 변경 */
+/*group tab*/
+.messenger_pop .box.group {height:487px;}
+.messenger_pop.share .box.group{height:391px;}
+.messenger_pop.share.new .box.group {height:435px;}
+.messenger_pop.noti .box.group {height:435px;}
+.messenger_pop.share.noti .box.group {height:391px;}
+.messenger_pop.share.noti.new .box.group {height:435px;}
+/*people tab */
+.messenger_pop .box.people,
+.messenger_pop .box.search {height:429px;} 
+.messenger_pop .box.people.line_1,
+.messenger_pop .box.search.line_1 {height:351px;} /* 선택된 사람이 1줄일경우 */
+.messenger_pop.address .box.people, 
+.messenger_pop.address .box.hidepeople {height:527px;}
+.messenger_pop.share .box.people, 
+.messenger_pop.share .box.search, 
+.messenger_pop.noti .box.people, 
+.messenger_pop.noti .box.search {height: 377px;}
+.messenger_pop .people2 .box.people,
+.messenger_pop .people2 .box.search {height:429px;}
+.messenger_pop.share .people2 .box.people, 
+.messenger_pop.share .people2 .box.search {height:377px;}
+.messenger_pop.share .box.people.line_1, 
+.messenger_pop.share .box.search.line_1,
+.messenger_pop.noti .box.people.line_1,
+.messenger_pop.noti .box.search.line_1 {height:299px;}
+.messenger_pop .member-add .box.people.line_1, 
+.messenger_pop .member-add .box.search.line_1,
+.messenger_pop .people2 .box.people.line_1,
+.messenger_pop .people2 .box.search.line_1 {height:351px;}
+.messenger_pop.share .people2 .box.people.line_1, 
+.messenger_pop.share .people2 .box.search.line_1 {height:299px;}
+.messenger_pop.share .box.people .no_invite, 
+.messenger_pop.noti .box.people .no_invite {margin:110px 0 0 0;}
+.messenger_pop.share .box.people.line_1 .no_invite,
+.messenger_pop.noti .box.people.line_1 .no_invite {margin:80px 0 0 0;}
+
+/* etc tab */
+.messenger_pop .box.share-doc {height:527px;}
+.messenger_pop .box.groupinfo {height:473px;} /* 20140415 추가 */
+.messenger_pop .box.externalpeople {height: 448px;}
+.messenger_pop.share .box.externalpeople,
+.messenger_pop.noti .box.externalpeople {height: 396px;}
+.messenger_pop .box.externals {height:527px;} /* 20140415 추가 */
+.messenger_pop.share .box.externals, 
+.messenger_pop.noti .box.externals {height:475px;}
+/* .messenger_pop .box.sharedfilegroup {height:527px;} */
+.messenger_pop.sharedinfo .box.sharedfilegroup {height:384px;} 
+
+/* 그룹 피블 공통 */
+.messenger_pop .box dl, .messenger_pop .search_list dl {position:relative; float:left; width:100%; border-bottom:1px solid #dfe1e4;} /* 20140416 수정 */
+.messenger_pop .box dl.selected{background:#E0EFFC;}
+.messenger_pop .box dl:last-child dd, .messenger_pop .search_list dl:last-child  dd{border-bottom:none;} /* 20140414 추가 */
+/*.messenger_pop .group  dl:hover, .messenger_pop .people  dl:hover {background:#f2f2f2}*/
+.messenger_pop .box.group dl {padding:11px 0 12px;} 
+.messenger_pop .box.group dl.dndover {background:#6eb2ed;}  
+.messenger_pop .box dt {position:relative;}
+.messenger_pop .box dt, .messenger_pop .box  dd,
+.messenger_pop .search_list dt, .messenger_pop .search_list dd, .messenger_pop .owner dt, .messenger_pop .owner dd{float:left;} /* 20140414 추가 */
+.messenger_pop .box dt, .messenger_pop .search_list  dt , .messenger_pop .owner dt  {position:relative; width:20%; text-align:center} /* 20140414 추가 */
+.messenger_pop .box dt img, .messenger_pop .owner img {border-radius:30px;}
+.messenger_pop .box.share-doc dt img {border-radius:0}
+.messenger_pop .box dt, 
+.messenger_pop .box dd,
+.messenger_pop .search_list dt,
+.messenger_pop .search_list dd,
+.messenger_pop .owner dt,
+.messenger_pop .owner dd{position:relative; width:80%; font-size:13px} /* 20140414 추가 */
+.messenger_pop .people dd{width: 269px;}
+.messenger_pop.address .box.people dd, .messenger_pop.address .box.hidepeople dd{width:80%;}
+/* .messenger_pop .box dt, .messenger_pop .search_list dt, .messenger_pop .groupinfo dt, .messenger_pop .owner dt {width:68px; padding-top:9px; padding-bottom:8px;} */ /* 20140418 수정 */
+
+.messenger_pop .box dt,.messenger_pop .owner dt{width:68px; padding-top:9px; padding-bottom:8px;}
+.messenger_pop .people dt{width: 92px;}
+.messenger_pop .owner dt{width:68px;}
+.messenger_pop.address .box.people dt, .messenger_pop.address .box.hidepeople dt{width: 68px;}
+.messenger_pop .box.group dt{width:68px; padding-top:0px; padding-bottom:0px;}
+.messenger_pop .people dt input{margin: 12px 13px 0 0; vertical-align:top}
+.messenger_pop span.back_img {position:absolute; display:block; text-indent:-9999em} /* 20140716 - border-radius IE8대응 */
+.messenger_pop .box dt span.back_img {left:11px; top:0; width:46px; height:46px; background: url(/resources/image/Polaris/new/msg/thum_bg.png) no-repeat;}
+.messenger_pop .box span.pic span.back_img {left:0px; top:0; width:50px; height:50px; background: url(/resources/image/Polaris/new/msg/thum_bg02.png) no-repeat;}
+
+.messenger_pop .box.hidepeople dt span.back_img,
+.messenger_pop .invite_search span.back_img {left:15px; top:9px; width:38px; height:38px; background: url(/resources/image/Polaris/new/msg/thum_bg03.png) no-repeat;}
+
+.messenger_pop .people dt span.back_img{left:40px;top:9px; width:38px; height:38px; background: url(/resources/image/Polaris/new/msg/thum_bg03.png) no-repeat;}
+.messenger_pop.address .box.people dt input, .messenger_pop.address .box.hidepeople dt input {display:none;}
+.messenger_pop.address .box.people dt span.back_img{left:15px;}
+
+.messenger_pop .box.group dl.dndover dt span.back_img{background: url(/resources/image/Polaris/new/msg/thum_bg_over.png) no-repeat;}
+.messenger_pop .box.people dl.selected dt span.back_img, .messenger_pop .box.hidepeople dl.selected dt span.back_img, .messenger_pop .box.search dl.selected dt span.back_img {background: url(/resources/image/Polaris/new/msg/thum_bg02.png) no-repeat;}
+.messenger_pop .invite_search span.back_img {left:0; top:0;} /* 20140723 추가 */
+
+.messenger_pop .box.externalpeople dt {width:91px;  text-align:left;}
+.messenger_pop .box.externalpeople dd {width:70%;} 
+.messenger_pop .box.externalpeople dt input {position:relative; top:14px; margin:0 15px; background:#fff; vertical-align:top}
+/*.messenger_pop .box.invite dt input {position:relative; top:14px; margin:0 15px; border:1px solid #c0c6cf; width:13px; height:13px; backgrond:#fff;}*/
+.messenger_pop .box.share-doc dt {width:20px; padding:17px 12px 0 15px;}
+.messenger_pop .box.share-doc dd {width:300px; padding-bottom:11px}
+.messenger_pop .box a.btn_popup {position: absolute; top: 16px; right: 20px; display:none;}
+body.rtl .messenger_pop .box a.btn_popup {left:20px; right:auto}
+.messenger_pop .box .over a.btn_popup {display:block;}
+/* 그룹 */
+.messenger_pop .group  dd strong, .messenger_pop .group  dd span.txt {display:block; width:220px; height:40px; line-height:20px; overflow:hidden }
+.messenger_pop .group  dd strong {display:block; margin:0 0 6px; }
+.messenger_pop .group  dd span.title {display:block; color:#000; font-weight:bold; margin: 0 0 3px; width: 180px; height: 17px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-right: 40px;} /* 20140826 수정 */
+body.rtl .messenger_pop .group  dd span.title {padding:0 0 0 40px;}
+.messenger_pop .group  dd span.name {display:block; color:#3c7df0; margin:0 0 5px}
+.messenger_pop .group  dd span.txt {margin-top:-1px; color:#787878; line-height:19px; word-wrap: break-word;}/* 20150623 수정 */
+.messenger_pop .group  dd span.date {position:absolute; top:1px; right:5px; color:#aaa; font-size:11px;}
+body.rtl .messenger_pop .group  dd span.date {left:5px; right: auto}
+.messenger_pop .group  dd span.member, .messenger_pop .group  dd span.writing, .messenger_pop .group ul.chat_group_add span.member {position:absolute; right:9px; display:inline-block; width:32px; padding:2px 0; font-weight:bold; font-family:arial; text-align:center; border-radius:9px;}
+.messenger_pop .group  dd span.member, .messenger_pop.sharedinfo h4 span.member, .messenger_pop .group ul.chat_group_add span.member {vertical-align: top; padding:0 0 0 16px; height: 16px; color:#9197a1; text-align:left; border-radius:0; background:url(/resources/image/Polaris/new/msg/bul_member_l.png) left top no-repeat;} /* 20140819 추가 */
+.messenger_pop .group  dd span.member {position:absolute; left:185px; }/* 20140826 수정 */
+body.rtl .messenger_pop .group  dd span.member {right:185px; left:auto;}
+.messenger_pop .group  dd span.member em, .messenger_pop.sharedinfo h4 span.member em,.messenger_pop .group ul.chat_group_add span.member em {display:inline-block; height: 19px; padding:0 7px 0 0; line-height: 15px; vertical-align: top;font-size:11px; font-style:normal; background:url(/resources/image/Polaris/new/msg/bul_member_r.png) right top no-repeat;}/* 20140819 추가 */
+.messenger_pop.sharedinfo h4 span.member {display: inline;}
+.messenger_pop .group  dd span.writing {top: 18px; right:6px; background:#ff5b49; color:#fff; width:30px; padding:0;height: 16px; line-height:16px; font-size: 11px;} /* 20150623 수정 */
+body.rtl .messenger_pop .group  dd span.writing  {left:6px; right:auto;}
+.messenger_pop .group  dd span.writing.no {display:none;}
+.messenger_pop p.btn_groupAdd {display:none; clear:both; padding:0 0 0 18px; height:39px; line-height:39px; border-bottom:1px solid #cacaca;} /* 20141002 */
+body.rtl .messenger_pop p.btn_groupAdd {padding:0 18px 0 0}
+.messenger_pop p.btn_groupAdd a {display:inline-block;padding-left:24px; color:#838383; font-weight:bold; background: url(/resources/image/Polaris/new/msg/bul_groupAdd.png) 0 12px no-repeat;} 
+body.rtl .messenger_pop p.btn_groupAdd a {padding:0 24px 0 0; background: url(/resources/image/Polaris/new/msg/bul_groupAdd.png) right 12px no-repeat;} 
+.messenger_pop p.btn_groupAdd.off {border-bottom:none; height:40px;}
+.messenger_pop p.btn_groupAdd.off a {display:none;}
+/* 피플 */
+.messenger_pop fieldset.friend_search, .messenger_pop fieldset.invite {border:none; border-bottom:1px solid #ccc;}
+.messenger_pop fieldset.friend_search p{position:relative; padding:8px 0; text-align:center;}
+
+.messenger_pop fieldset.friend_search label {display:block; position:absolute; left:155px; top:14px; height:18px; padding:3px 0 0 23px; color:#aaa; background:url(/resources/image/Polaris/new/msg/search.png) 0px 0px no-repeat;}
+
+.messenger_pop fieldset.invite p.input label {display:block; position:absolute; left:6px; top:8px; padding-left:22px; color:#aaa; font-family:dotum; font-size:12px;}
+.messenger_pop fieldset.friend_search label.off,
+.messenger_pop fieldset.invite p.input label.off {display:none;}
+.messenger_pop fieldset.friend_search input {width:304px; padding:7px 0; text-align:center; border:1px solid #ccc; border-radius:15px}
+.messenger_pop fieldset.invite {clear:both} /* 20140415 수정 */
+.messenger_pop fieldset.invite div.invite_search:focus {border:1px solid #3c7df0;}/* 20140414 수정 */
+.messenger_pop fieldset.invite div.invite_search span.name {display:inline-block; margin:0px 5px 0px 0px; padding:5px 39px 5px 6px; font-family:dotum; color:#393e45; background:#d6ecff url(/resources/image/Polaris/new/msg/invite_close.png) right no-repeat; cursor:pointer; border-radius:2px; border:1px solid #bed9f0; font-size:13px; font-weight:normal;}/* 20140414 수정 */
+.messenger_pop fieldset.invite div.invite_search span.name.disable {background-image:none; padding:5px 6px 5px 6px;}
+/* .messenger_pop fieldset.invite div.invite_search span.name:hover {background:#ffcdc2 url(/resources/image/Polaris/new/msg/invite_close_on.png) right no-repeat; border:1px solid #f2b6a8;}20140414 수정
+ */.messenger_pop fieldset.invite div.invite_search p.check { padding:10px 0 5px 10px; max-height:53px; overflow:auto;-webkit-overflow-scrolling:touch; border-bottom:1px solid #dfe2e2;}/* 20140414 수정 */
+.messenger_pop fieldset.invite div.invite_search p.input {position:relative; margin:10px; width:358px; height:28px; border:1px solid #ccc; border-radius:3px; float: left;}/* 20140414 수정 */
+.messenger_pop fieldset.invite  input {border:none; width:327px; margin:0 0 0 28px; height:28px;}
+.messenger_pop fieldset.invite p.input img{position: absolute; left: 6px; top: 8px;}
+.messenger_pop fieldset.invite  .off {display:none}
+
+.messenger_pop fieldset.invite .search_list {position:absolute; width:358px; left:11px; margin:-12px 0 0; max-height:375px; overflow:auto; -webkit-overflow-scrolling:touch; z-index:3; background:#fff; border:1px solid #b3b6b6;}
+.messenger_pop fieldset.invite div.invite_search div.invite_box {height:77px; overflow:auto; -webkit-overflow-scrolling:touch; border-bottom:1px solid #b3b6b6;}
+.messenger_pop fieldset.invite div.invite_search ul {padding:0 0 12px 13px; width:345px;}
+.messenger_pop fieldset.invite div.invite_search ul li {position:relative; display:inline-block; margin:12px 10px 0 0;}
+.messenger_pop fieldset.invite div.invite_search ul li a {display:block; width:41px; height:54px;}
+.messenger_pop fieldset.invite div.invite_search ul li a:hover img {opacity: 0.8}
+.messenger_pop fieldset.invite div.invite_search ul li em {display:block; margin:4px 0 0; width:39px; text-align:center;  color:#000; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;  font-size:12px;} /* 20140723 추가 */
+.messenger_pop fieldset.invite div.invite_search img.del {position:absolute; top:24px; left:24px;}
+
+
+
+
+.messenger_pop .people dd, 
+.messenger_pop .search_list dd, 
+.messenger_pop .groupinfo dd, 
+.messenger_pop .people dd, 
+.messenger_pop .share-doc dd, 
+.messenger_pop .owner dd,
+.messenger_pop .sharedfilegroup dd,
+.messenger_pop .externalpeople dd {padding-top:12px;} /* 20140414 추가 */
+.messenger_pop .people span.name,
+.messenger_pop .search_list span.name, 
+.messenger_pop .groupinfo span.name, 
+.messenger_pop .share-doc span.name, 
+.messenger_pop .owner span.name,
+.messenger_pop .sharedfilegroup span.name,
+.messenger_pop .externalpeople span.name {display:block; font-weight:bold; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;} /* 20140414 추가 */
+.messenger_pop span.name.all {margin-top: 7px;}
+.messenger_pop .people span.link_check, 
+.messenger_pop .groupinfo span.link_check,
+.messenger_pop .owner span.link_check,
+.messenger_pop .sharedfilegroup span.link_check {position:absolute; left:40px; top:32px;}
+.messenger_pop .people span.name a,
+.messenger_pop .share-doc span.name a,
+.messenger_pop .owner span.name a,
+.messenger_pop .externalpeople span.name a {color:#282828;} /* 20140417 추가 */
+.messenger_pop .people span.link_check {left:65px;}
+.messenger_pop .people.owner span.link_check {left:40px;}
+.messenger_pop.address .box.people span.link_check, .messenger_pop.address .box.hidepeople span.link_check {left: 40px;}
+.messenger_pop .invite span.link_check {position:absolute; left:68px; top:32px;}
+.messenger_pop .people span.link_check.no {display:none;}
+.messenger_pop .people span.mail,
+.messenger_pop .search_list  span.mail,
+.messenger_pop .groupinfo span.mail,
+.messenger_pop .share-doc span.mail,
+.messenger_pop .owner span.mail,
+.messenger_pop .sharedfilegroup span.mail,
+.messenger_pop .externalpeople span.mail {display:block; color:#787878; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; } /* 20140414 추가 */
+.messenger_pop p.btn_bottom, .messenger_pop p.group_btn_bottom, .messenger_pop p.groupall_btn_bottom { width:100%; padding:10px 0; text-align:center; border-top:1px solid #ccc; border-bottom-left-radius:5px; border-bottom-right-radius:5px; background:#fff; } /* 20140416 수정 */
+.messenger_pop p.btn_bottom a, .messenger_pop p.group_btn_bottom a, .messenger_pop p.groupall_btn_bottom a {display:inline-block; margin:0 5px; border:1px solid #ccc; padding:4px 10px 4px; font-size:13px; font-weight:bold; border-radius:3px;color: #838383;}
+.messenger_pop p.group_btn_bottom, .messenger_pop p.groupall_btn_bottom{display:none;}
+.messenger_pop.share p.group_btn_bottom a, .messenger_pop.share p.groupall_btn_bottom a {border:none; color:#2964de;}
+.messenger_pop .share-doc span.name.myowner{width:220px;}
+.messenger_pop .share-doc span.mail.myowner{width:220px;}
+/* 채팅 */
+.messenger_pop .msg {position:relative; margin: 0 0 7px; padding: 0 10px;}
+.messenger_pop .msg.incoming {padding-right:35px;float: left;margin: 0 0 12px;}
+.messenger_pop .msg.outcoming {padding-left:35px;float: right;}
+.messenger_pop .msg div {position:relative; border-radius:5px; padding: 0 7px 5px 50px; width: 260px;} /* 20140716 수정 */
+/*.messenger_pop .msg.incoming div { border:1px solid #dcdcdc; background: #fff;} 20140716 삭제 */
+.messenger_pop .msg.outcoming div {float:right; text-align:right}/* 20140428 수정 */
+.messenger_pop .msg p {display:inline-block; color:#000; padding:0 0 ; font-size:13px; word-break:break-all; /* white-space: pre-wrap; */}/* 20140428 수정 */
+.messenger_pop .msg span.pic {position:absolute; top:12px; left: 0;}/* 20140428 수정 */
+.messenger_pop .msg span.pic img {width:38px; height:38px; /* border-radius:30px; */ }/* 20140716 수정 */
+.messenger_pop .msg span.name {display:block; padding: 2px 0 7px; color:#646464; font-size: 11px; font-weight:bold}/* 20140716 수정 */
+.messenger_pop .msg.incoming p, .messenger_pop .msg.outcoming p {position:relative; padding:10px 12px; max-width:224px; border-radius:10px; text-align: left; white-space: pre-wrap;} /* 20140716 추가 */
+.messenger_pop .msg.incoming p {background: #fff; border-top-left-radius: 0;} /* 20140716 수정 */
+.messenger_pop .msg.outcoming p {background: #90eb30;  border-top-right-radius: 0}
+.messenger_pop .msg.incoming p img.arrow, .messenger_pop .msg.outcoming p img.arrow {position:absolute; top:0;}
+.messenger_pop .msg.incoming p img.arrow {left:-7px;}
+.messenger_pop .msg.outcoming p img.arrow {right:-7px;}
+/*.messenger_pop .msg span.tail {position:absolute; top:35px;  display:block; width:9px; height:10px; background:url(/resources/image/Polaris/new/msg/set_tail.gif) no-repeat;}
+.messenger_pop .msg.incoming span.tail {left:53px; background-position:0 0;}
+.messenger_pop .msg.outcoming span.tail {right:52px; background-position:0 -10px;}*/
+.messenger_pop .msg span.date {float:right; display:inline-block; font-size: 11px; font-family:arial;color:#646464; margin: 0 0 12px;} /* 20140716 수정 */
+.messenger_pop .msg.incoming span.date {float:left;margin-left:52px;} /* 20140716 추가 */
+.messenger_pop .msg.outcoming span.date {margin-right:10px;} /* 20140716 추가 */
+.messenger_pop .msg_input {position:relative; /* padding:9px 0; */ border-top:1px solid #ccc; height: 88px;} /* 20140716 수정 */
+.messenger_pop .msg_input label {position:absolute; left:10px;top:5px; color:#a8b0ba;}
+body.rtl .messenger_pop .msg_input label {right:10px; top:10px; left:auto;}
+.messenger_pop .msg_input label.off {display:none;}  
+.messenger_pop .msg_input textarea {float:left; width: 289px; height: 40px; margin: 10px 0; padding: 0 10px 18px; font-size:13px; vertical-align:middle; resize: none;border: none; outline: none; font-family:'Malgun Gothic', 'AppleGothic','Tahoma','MS PGothic', '돋움','Dotum','lucida grande';}
+body.rtl .messenger_pop .msg_input textarea {float:right;}
+.messenger_pop .msg_input p.txt_number {position:absolute; left:0; bottom:0; width:290px; height:18px; background:#fff} /* 20140813 추가 */
+.messenger_pop .msg_input p.txt_number span {position:absolute; bottom:5px; right:12px; font-size:12px; color:#a0a0a0; text-align:right} /* 20140813 추가 */
+body.rtl .messenger_pop .msg_input p.txt_number span {left:82px; right:auto;}
+.messenger_pop .msg_input a {position:absolute; right: 0; display:inline-block; width: 70px; height: 88px; line-height: 29px;text-align:center; color:#757575; border-left: 1px solid #c1c5cb;} /* 20140716 수정 */
+body.rtl .messenger_pop .msg_input a {left:0; right:auto; border-right: 1px solid #c1c5cb; border-left:none}
+/* .messenger_pop .msg_input.limit a {opacity:30%; opacity: 0.3;} */
+.messenger_pop .msg_input a span {position:relative; top:28px;}
+/* 20140716 삭제
+.messenger_pop  .file, .messenger_pop .invite_msg {margin:5px 0 15px; text-align:center; padding: 8px 12px;} 
+.messenger_pop  .file {clear:both; background:#d6ecff;}
+.messenger_pop  .file a {color:#000; text-decoration:underline}
+.messenger_pop  .file span {display:inline-block; margin:0 0 0 15px;}
+.messenger_pop  .file span a {display:inline-block; margin:0 2px;} */
+.messenger_pop .invite_msg {margin:5px 0 15px; text-align:center; padding: 8px 12px;} /* 20140716 수정 */
+.messenger_pop .msg.outcoming p.file, .messenger_pop .msg.incoming p.file {display:table; height: 54px; max-width:248px; padding:0;} /* 20140716 추가 */
+.messenger_pop .msg.outcoming p.file {float: right;} /* 20140717 추가 */
+.messenger_pop p.file.cancel span.del {display:none;}
+.messenger_pop p.file a.file_name, .messenger_pop p.file em.file_name {padding: 12px 10px 12px 58px; display: table-cell; vertical-align: middle; color: #282828;} /* 20140716 추가 */
+.messenger_pop .msg.outcoming p.file a.file_name, .messenger_pop .msg.outcoming p.file em.file_name {padding:12px 58px 12px 8px; margin:0; /* padding-left:11px; */}
+/* .messenger_pop .msg.outcoming p.file:hover a.file_name {margin:0 0 0 28px; border-left:1px solid #71c340;} */
+.messenger_pop .msg.outcoming p.file a.file_name {padding: 12px 58px 12px 30px;}
+.messenger_pop p.file span.thum {position:absolute; top:50%; margin-top:-24px; display:inline-block; width:48px; height:48px} /* 20140716 추가 */
+.messenger_pop .msg.incoming p.file span.thum {left:3px; background:url(/resources/image/Polaris/new/msg/incoming_fileBox.png) no-repeat;} /* 20140716 추가 */
+.messenger_pop .msg.outcoming p.file span.thum {text-align: left; right:3px; background:url(/resources/image/Polaris/new/msg/outcoming_fileBox.png) no-repeat;} /* 20140716 추가 */
+.messenger_pop p.file span.thum img.thum {padding:6px 0 0 6px;} /* 20140716 추가 */
+.messenger_pop p.file span.thum img.share {position:absolute; top:29px; left:23px;} /* 20140716 추가 */
+/* .messenger_pop p.file span.del {display:none;}
+.messenger_pop p.file:hover span.del {display:block; position:absolute; left:0; top:50%; margin-top:-9px; width:28px; padding:0; text-align:center;} */
+.messenger_pop p.file span.del {display:block; position:absolute; left:0; top:50%; margin-top:-9px; width:28px; padding:0; text-align:center;}
+.messenger_pop p.file.cancel span.del, .messenger_pop p.file.cancel span.thum img.share {display:none;}
+.messenger_pop .msg.outcoming p.file.cancel a.file_name, .messenger_pop p.file.cancel span.thum {opacity:30%; opacity: 0.3; filter:alpha(opacity=30); }
+.messenger_pop .msg.outcoming p.file.cancel:hover a.file_name {margin:0; border-left:none;}
+.messenger_pop  .invite_msg {background: #cfe7fb;color: #134c9e;width: 326px;margin: 0 auto 14px;clear: both; word-break: break-all;} /* 20140716 수정 */
+/* 채팅방 팝업 */
+.messenger_pop .popup {display:none; position:absolute; top:200px; left:50px; width:280px; border-radius:5px; background:#fff; border:1px solid #8b919b; z-index:10}
+.messenger_pop .popup h3 {position:relative; height:28px; color:#fff; font-size:12px; background:#596270; z-index:2}
+.messenger_pop .popup h3 span {display:inline-block; padding:7px 0 8px 11px;}
+.messenger_pop .popup h3 a {position:absolute; right:5px; top:5px;}
+.messenger_pop .popup div {position:relative; background:#fdfcfc; z-index:2; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;}
+.messenger_pop .popup.help div {padding:35px 26px 0 28px; border-radius: 5px; font-family:dotum;} /* 20141002 추가 */
+.messenger_pop .popup.help div a.add {font-weight:bold; color:#2964de; font-family:dotum; text-decoration: underline;}/* 20141002 추가 */
+.messenger_pop .popup p.title {padding:27px 20px 10px 20px;  font-size:12px; color:#525558;}
+.messenger_pop .popup p.input  {padding-left:30px; padding-bottom:13px;}
+.messenger_pop .popup input {width:220px; height:22px; border-radius:2px; border:1px solid #ccc;}
+.messenger_pop .popup p.btn {margin:13px 0 0; padding:10px 0; text-align:center; border-top:1px solid #e6e6e6;  }
+.messenger_pop .popup p.btn a {display:inline-block; margin:0 5px; border:1px solid #ccc; padding:4px 10px 4px; font-size:13px; font-weight:bold; border-radius:3px;}
+.messenger_pop .popup div.inner_dim {position:absolute; top:-200px; left:-50px; width:380px; height:597px; background:#000; opacity:0.5; filter:alpha(opacity=50); z-index:1;}
+.messenger_pop .popup label.window_close {display:inline-block; margin:9px 0 10px 20px; font-size:12px; color:#525558; font-family:dotum, sans-serif;} /* 20140922 ì¶”ê°€ */
+.messenger_pop .popup label.window_close input {width:auto; height:auto; vertical-align: middle;} /* 20140922 */
+ 
+/* 초대된 경우가 없을 경우  */
+.messenger_pop .no_invite {margin:100px 0 0; padding:72px 45px 0; color:#a4a7ab; text-align:center; font-size: 13px; line-height:16px; background:url(/resources/image/Polaris/new/msg/send_no_result.png) center top no-repeat;}
+.messenger_pop .box.group .no_invite {margin:100px 0 0;} 
+.messenger_pop .box.group .no_invite a {display:inline-block; margin:19px 0 0; padding:0 42px; height:40px; line-height:38px; border:1px solid #c1c5cb; border-radius:2px;}
+.messenger_pop .box.group .no_invite a span{display:inline-block; padding-left:20px; background:url(/resources/image/Polaris/new/msg/bul_groupAdd.png) 0 12px no-repeat;} 
+
+/* 피블추가 - 20140415 */
+.messenger_pop .box.externals h3, .messenger_pop .box.external p.txt {font-size:13px;}
+.messenger_pop .box.externals h3 {padding:20px 23px 9px;}
+.messenger_pop .box.externals p.txt {padding:0 23px 20px;}
+.messenger_pop .box.externals dl.bring {width:346px; margin:0 16px; border:1px solid #c1c5cb; margin: 0 16px 20px;}
+.messenger_pop .box.externals dl.bring dt {margin:0 0 0 16px; padding:22px 0 0 23px; width:auto; color:#282828;  background:url(/resources/image/Polaris/new/msg/gmail.png) 0 24px no-repeat;}
+.messenger_pop .box.externals dl.bring.outlook dt {background:url(/resources/image/Polaris/new/msg/outlook.png) 0 24px no-repeat;}
+.messenger_pop .box.externals dl.bring.outlook.mac dt {background:url(/resources/image/Polaris/new/msg/desktop.png) 0 24px no-repeat;}
+
+.messenger_pop .box.externals dl.bring dt.default {display:none;}
+.messenger_pop .box.externals dl.bring.off dt.default {display:block; height: 30px;}
+.messenger_pop .box.externals dl.bring.off dt.name {display:none;}
+.messenger_pop .box.externals dl.bring dd {width:auto; float:right; padding:17px 16px 17px 0}
+.messenger_pop .box.externals dl.bring a,
+.messenger_pop .box dd a.btn {display:inline-block; margin:0 4px 0 0; padding:4px 15px 5px; font-size:12px; color:#6f7277;  font-weight: bold; border:1px solid #c1c5cb; border-radius:2px; background:url(/resources/image/Polaris/new/msg/btn_bg.png) repeat-x; line-height: 13px; height: 13px;}
+.messenger_pop .box.externals dl.bring.off a.remove {display:none;}
+.messenger_pop p.select {clear:both; position:relative; padding:8px 0 8px; font-weight:bold; border-bottom:1px solid #dfe1e4;}
+:root .messenger_pop p.select {padding-bottom:9px; padding-bottom:8px\0}
+.messenger_pop p.select label {display:inline-block; margin:0 0 0 15px; }
+.messenger_pop p.select input {vertical-align:middle; position:relative; top:-1px;}
+.messenger_pop p.select em { color: #838383; }
+.messenger_pop p.select span {position:absolute; right:17px; color: #838383; font-size:12px;}
+.messenger_pop .box dd a.btn {position:absolute; top:16px; right:15px;} /* 20140416  */
+.messenger_pop .box dd a.btn.disable{display:none;}
+.messenger_pop .box.share-doc dd a.btn {position:absolute; top:16px; right:0; padding-left:9px; padding-right:9px;} /* 20140416 추가 */
+.messenger_pop .box dl.re_invite {background:#ffffee;} /* 20140416 */
+.messenger_pop .box dl.re_invite dd span{width:240px;}
+.messenger_pop .box dl.no_address dd span{width:240px;}
+.messenger_pop .box dl dd a.btn.re_invite, .messenger_pop .box dl dd a.btn.mail {right:23px; padding:0; border:none; background:none;} /* 20140724 추가 */
+.messenger_pop .box dl dd a.btn.mail {top:20px; right:25px;} /* 20140724 추가 */
+.messenger_pop .box .mail_plus {position:relative; margin:0 16px 13px; height:30px; border:1px solid #c5c9d0; border-radius:1px;}
+.messenger_pop .box .mail_plus label {position:absolute; left:7px; top:8px; font-family:dotum;}
+body.web.rtl .messenger_pop .box .mail_plus label {right:7px; left:auto}
+.messenger_pop .box .mail_plus label.off {display:none;}
+.messenger_pop .box .mail_plus input {width:307px; height:30px; line-height:30px; margin-left:8px; border:none; border-right:1px solid #c5c9d0;}
+body.web.rtl .messenger_pop .box .mail_plus input {border-left:1px solid #c5c9d0; border-right:none;}
+.messenger_pop .box .mail_plus a img {vertical-align: top;}
+/* 문서공유 */
+.messenger_pop .share_option {height:37px; color:#fff; font-weight:bold; background:#9198a3; border-bottom:1px solid #6e757f; display:none;}
+.messenger_pop .share_option dt {float:left; padding:9px 0 0 16px;}
+.messenger_pop .share_option dd {position:relative; float:left; width:80px; height:23px; padding:5px 0 0 9px; margin:5px 0 0 16px; background:url(/resources/image/Polaris/new/msg/select_bg.png) no-repeat}
+.messenger_pop .share_option dd a {color:#fff; display:block}
+.messenger_pop .share_option ul {position:absolute; top:30px; left:0px; padding:14px 0 0; width:250px; height:98px; border-radius:3px; border:1px solid #a6aaaf; background:#fff; box-shadow:0 2px 0 #ebe7e3; z-index:5}
+.messenger_pop .share_option ul.off {display:none;} 
+.messenger_pop .share_option li {color:#8a8c8f; margin:0 0 15px; padding:0 15px 0 0;  font-weight:normal;}
+.messenger_pop .share_option li label {display:block; margin:0 0 5px 15px; color:#282828; font-weight:bold;}
+.messenger_pop .share_option li span {display:inline-block; padding-left:32px;}
+.messenger_pop .share_option li input {vertical-align:middle;}
+/* 20140716 추가 */
+.messenger_pop .doc_share, 
+.messenger_pop .doc_guide {display:none; position:relative; height:51px; background:#707c8f; border-bottom:1px solid #5e697a;}/* 20140724 수정 */
+.messenger_pop .doc_share span, .messenger_pop .doc_guide span {display:table; width:290px; height:30px; padding:9px 0 0 36px; margin:0 0 0 12px; color:#fff; overflow:hidden; }/* 20140724 수정 */
+.messenger_pop .doc_guide span {padding:9px 0 0 22px;}
+.messenger_pop .doc_share span img {position:absolute; left:8px; z-index:3;} 
+.messenger_pop .doc_guide span img {position:absolute; top:12px; left:12px; z-index:3;} /* 20140724 추가 */
+.messenger_pop .doc_share span img.thum02, .messenger_pop .doc_share span img.thum03 {display:none;}
+.messenger_pop .doc_share span.multi img {top:7px; z-index:3;}
+.messenger_pop .doc_share span.multi img.thum02 {display:block; top:9px; left:10px; z-index:2;}
+.messenger_pop .doc_share span.multi img.thum03 {display:block; top:11px; left:12px; z-index:1;}
+.messenger_pop .doc_share span strong {display:table-cell; height:30px; vertical-align:middle; font-weight:normal} /* 20140717 추가 */
+.messenger_pop .doc_share a, .messenger_pop .doc_guide a {position:absolute; top:18px; right:12px;} /* 20140724 수정 */
+.messenger_pop .doc_guide span a {position:relative; top:0px; right:0px; color: #fff; }
+.messenger_pop .chat_doc_share {display:none; height:76px; overflow:hidden} /* 20140801 추가 */
+.messenger_pop.share.msgbox .chat_doc_share {display:block;}/* 20140801 추가 */
+.messenger_pop.share.msgbox .chat_doc_share .doc_share{display:block;}
+.messenger_pop .chat_doc_share h3 {height:24px; line-height:24px; font-size:12px; text-align:center; background:#8a94a3; color:#fff;} /* 20140801 추가 */
+.messenger_pop.share.sharedinfo .doc_share span {padding-left:76px;} /* 20140819 추가 */
+.messenger_pop.share.sharedinfo .doc_share span img {left:48px} /* 20140819 추가 */
+.messenger_pop.share.sharedinfo .doc_share a.btn_prev {left:9px; top:11px} /* 20140819 추가 */
+
+/* 공유 그룹 리스트 */
+.messenger_pop .owner {float:left; width:100%; background:#f4f5f5; /* padding:0 0 8px */} /* 20140819 수정 */
+.messenger_pop .owner dl {background:#f4f5f5;}
+.messenger_pop .index {clear:both;}
+.messenger_pop .index h4 {padding:7px 0 10px 15px; background:#ebebeb url(/resources/image/Polaris/new/msg/btn_down.png) 355px 15px no-repeat; color:#474f5b; border-bottom:1px solid #bcbcbc; cursor:pointer}
+:root .messenger_pop .index h4 {padding:10px 0 10px 15px; padding:7px 0 10px 15px\0}
+.messenger_pop .index.on h4 {background:#ebebeb url(/resources/image/Polaris/new/msg/btn_up.png) 352px 15px no-repeat;}
+.messenger_pop .index h4 span {display:inline-block; width:300px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; vertical-align:middle}
+.messenger_pop .index p.btn {padding:8px 0; text-align:center; border-bottom:1px solid #c6c7c8;}
+.messenger_pop .index p.btn a {display:inline-block; width:122px; margin:0 2px; padding:8px 0 9px; text-align:center; border-radius:3px; border:1px solid #c1c5cb; color:#6f7277; }
+.messenger_pop .index div {display:none;}
+.messenger_pop .index.on div {display:block;}
+
+/* 추가 bakira7 */
+.messenger_pop .box.group.sloading,
+.messenger_pop .box.group.sloading,
+.messenger_pop .box.externalpeople.sloading,
+.messenger_pop .box.people.sloading,
+.messenger_pop .box.hidepeople.sloading { background: url(/resources/image/Polaris/new/msg/loading.gif) center center no-repeat;}
+.messenger_pop.msgbox .box.sloading {background: #e0effc url(/resources/image/Polaris/new/msg/loading.gif) center center no-repeat;}
+.messenger_pop section.setting{display:none;}
+.messenger_pop.msgbox section.setting{display:block;}
+
+.messenger_pop .no_invite.off{display:none;}
+
+.messenger_pop .chat_box h3.title4{display:none;}
+.messenger_pop .chat_box h3.title5{display:none;}
+ 
+.messenger_pop .chat_box.group p.btn_groupAdd{display:block;}
+.messenger_pop .chat_box.group fieldset,
+.messenger_pop .chat_box.group p.btn_bottom,
+.messenger_pop .chat_box.group .msg_input,
+.messenger_pop .chat_box.group h3.title,
+.messenger_pop .chat_box.group h3.title2, 
+.messenger_pop .chat_box.group h3.title3,
+.messenger_pop .chat_box.group .member-add, 
+.messenger_pop .chat_box.people .msg_input,
+/* .messenger_pop .chat_box.people dt input[type="checkbox"], */
+.messenger_pop .chat_box.people h3.title,
+.messenger_pop .chat_box.people h3.title2, 
+.messenger_pop .chat_box.people h3.title3,
+.messenger_pop .chat_box.people .member-add,
+.messenger_pop .chat_box.people.member-add ul.tab,
+.messenger_pop .chat_box.people.people2 ul.tab,
+.messenger_pop .chat_box.externals fieldset,
+.messenger_pop .chat_box.externals p.btn_bottom,
+.messenger_pop .chat_box.externals .msg_input,
+.messenger_pop .chat_box.externals h3.title,
+.messenger_pop .chat_box.externals h3.title2, 
+.messenger_pop .chat_box.externals h3.title3,
+.messenger_pop .chat_box.externals .member-add,
+.messenger_pop .chat_box.msgbox fieldset,
+.messenger_pop .chat_box.msgbox ul.tab,
+.messenger_pop .chat_box.msgbox p.btn_bottom,
+.messenger_pop .chat_box.msgbox h3.title,
+.messenger_pop .chat_box.msgbox h3.title2,
+.messenger_pop .chat_box.msgbox h3.title3,
+.messenger_pop .chat_box.msgbox .member-add,
+.messenger_pop .chat_box.groupinfo ul.tab,
+.messenger_pop .chat_box.groupinfo h3.title.gray,
+.messenger_pop .chat_box.groupinfo h3.title2,
+.messenger_pop .chat_box.groupinfo h3.title3,
+.messenger_pop .chat_box.groupinfo fieldset,
+.messenger_pop .chat_box.groupinfo .msg_input,
+.messenger_pop .chat_box.groupinfo p.btn_bottom,
+.messenger_pop .chat_box.share-doc ul.tab,
+.messenger_pop .chat_box.share-doc fieldset,
+.messenger_pop .chat_box.share-doc .msg_input,
+.messenger_pop .chat_box.share-doc h3.title,
+.messenger_pop .chat_box.share-doc h3.title3,
+.messenger_pop .chat_box.share-doc .member-add,
+.messenger_pop .chat_box.share-doc p.btn_bottom,
+.messenger_pop .chat_box.sharedfilegroup fieldset,
+.messenger_pop .chat_box.sharedfilegroup ul.tab,
+.messenger_pop .chat_box.sharedfilegroup h3.title,
+.messenger_pop .chat_box.sharedfilegroup .member-add,
+.messenger_pop .chat_box.sharedfilegroup .msg_input,
+.messenger_pop .chat_box.sharedfilegroup p.btn_bottom,
+.messenger_pop .chat_box.externalpeople fieldset,
+.messenger_pop .chat_box.externalpeople h3.title,
+.messenger_pop .chat_box.externalpeople-doc h3.title3,
+.messenger_pop .chat_box.externalpeople .member-add,
+.messenger_pop .chat_box.externalpeople .msg_input{display:none;}
+.messenger_pop .chat_box.share-doc h3.title6{display:block;}
+.messenger_pop.share .chat_box.group p.group_btn_bottom{display:block;}
+.messenger_pop.share.new .chat_box.group p.group_btn_bottom{display:none;}
+
+.messenger_pop .chat_box.sharedfilegroup h3.title4{display:block;}
+.messenger_pop.sharedinfo .chat_box.sharedfilegroup h3.title4{display:none;}
+
+.messenger_pop.share .chat_box.group .doc_share,
+.messenger_pop.share .chat_box.externals .doc_share,
+.messenger_pop.share .chat_box.externalpeople .doc_share,
+.messenger_pop.share .chat_box.people .doc_share,
+.messenger_pop .chat_box.group .doc_guide,
+.messenger_pop .chat_box.externals .doc_guide, 
+.messenger_pop .chat_box.externalpeople .doc_guide,
+.messenger_pop .chat_box.people .doc_guide {display:block;}/* 20140724 수정 */
+.messenger_pop .chat_box.people.people2 .doc_guide,
+.messenger_pop.address .chat_box .doc_guide {display:none;}/* 20140724 수정 */
+
+/* .messenger_pop .chat_box.sharedfilegroup .doc_share {display:none;} */
+.messenger_pop .chat_box.member-add.people .doc_share {display:none;}
+.messenger_pop .chat_box.member-add.people .doc_guide {display:none;}
+
+.messenger_pop .owner,
+.messenger_pop .share_option,
+.messenger_pop .title2,
+.messenger_pop .title3, 
+.messenger_pop ul.tab li.hideads,
+.messenger_pop p.select{display:none;}
+.messenger_pop.sharedinfo .owner{display:block;}
+.messenger_pop.share.owner .share_option{display:block;}
+.messenger_pop.share.owner .doc_guide{display:none;}
+.messenger_pop .chat_box.share-doc h3.title2{display:block;}
+.messenger_pop.sharedinfo .chat_box.sharedfilegroup .owner h3.title2{display:block;}
+.messenger_pop.sharedinfo .chat_box.sharedfilegroup h3.title3{display:block;}
+.messenger_pop .chat_box h3.title5, .messenger_pop .chat_box h3.title7{display:none;}
+.messenger_pop .chat_box.people.people2 h3.title7,
+.messenger_pop .chat_box.people.member-add h3.title5{display:block;}
+.messenger_pop.sharedinfo .doc_share{display:block;}
+.messenger_pop.share .doc_share a.btn_prev{display:none;}
+.messenger_pop.sharedinfo .doc_share a.btn_prev{display:none;}
+.messenger_pop.share.sharedinfo .doc_share a.btn_prev{display:block;}
+.messenger_pop.sharedinfo .doc_share a.btn_close{display:none;}
+
+.messenger_pop.share.sharedinfo.owner .share_option{display:block;}
+.messenger_pop.address ul.tab li.first, .messenger_pop.address fieldset, .messenger_pop.address p.btn_bottom{display:none;}
+.messenger_pop.address ul.tab li.hideads{display:block;}
+body.fr .messenger_pop.address ul.tab li a { font-size: 11px; }
+.messenger_pop.address .box a.btn_popup {display:block;}
+.messenger_pop.address .chat_box.externalpeople p.btn_bottom {display:block;}
+
+.messenger_pop .chat_box.externalpeople p.select{display:block;}
+.messenger.agent section.header{display:none;}
+.messenger.agent .messenger_pop {border-top-left-radius: 0px; border-top-right-radius: 0px;}
+.messenger.agent .messenger_pop .chat_box{border:none;}
+
+.messenger_pop .box.group.talk_add {height:434px; overflow-y:auto;}
+.messenger_pop p.chat_group_add {display:none; padding:14px 35px 14px 65px; color:#787878; border-bottom:1px solid #dfe1e4; background:#fafafa url(/resources/image/Polaris/new/msg/chat_group_add.png) 19px 15px no-repeat}
+.messenger_pop p.chat_group_add strong {display:none; padding:12px 0 4px; color:#25272a;}
+.messenger_pop .chat_box ul.chat_group_add {width:100%; height:434px;}
+.messenger_pop ul.chat_group_add li {position:relative; padding-left:15px; border-bottom:1px solid #dfe1e4;}
+.messenger_pop ul.chat_group_add li label {display:inline-block; width:300px; line-height:54px; color:#25272a; padding:14px 0 12px 2px; font-size:13px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height:26px;}
+.messenger_pop ul.chat_group_add li label input {position:relative; top:-2px;  vertical-align: middle;}
+.messenger_pop ul.chat_group_add div.member_etc { width:auto; margin:-12px 10px 12px 18px; color:#5e5f60; display:none; word-break: break-all;}
+.messenger_pop .chat_box ul.chat_group_add li div.member_etc ul {float:none; width:340px; padding:0 0 10px; height: auto;}
+.messenger_pop .chat_box ul.chat_group_add div.member_etc ul li {padding:0 10px; line-height:21px;  overflow:auto;  border-bottom: none; height: auto;position: static;}
+.messenger_pop .group ul.chat_group_add span.member {top:20px; right:15px; width:auto;}
+.messenger_pop ul.chat_group_add li a.view {position:relative; top:0px;; display:inline-block; width:15px; text-indent:-9999em; padding-left:0; background:url(/resources/image/Polaris/new/share/arrow_off.png) 6px 10px no-repeat;}
+.messenger_pop ul.chat_group_add li.on a.view {background:url(/resources/image/Polaris/new/share/arrow_on.png) 6px 10px no-repeat;}
+.messenger_pop ul.chat_group_add  li.on div.member_etc {display:block;}
+/* 
+.messenger {display:none;}
+.messenger  a {text-decoration:none;}
+.messenger label{color: #b7b9bb; font-family:'Malgun Gothic',dotum,?뗭?,arial,Tahoma,MS PGothic, sans-serif; font-size: 12px; }
+
+.messenger_pop {position:fixed; top:100px; left:300px;margin:0 auto; width:382px; padding: 0 0 4px !important; overflow:hidden; z-index:9; background:#fff; border-top-left-radius:5px; border-top-right-radius:5px;}
+.messenger_pop p.try{position:absolute; z-index:9;}
+.messenger_pop .header {clear:both;position:relative; height:32px; cursor:move; background:#474f5b; z-index:2; border:none;}
+.messenger_pop .header h2 {padding:9px 0 0 11px; font-size:12px; color:#fff;}
+.messenger_pop .header h2 em {color:#f6ff00; font-style:normal;}
+.messenger_pop .header .btn {position:absolute; top:7px; right:10px;}
+.messenger_pop .header .btn  img {margin:0 0 0 6px;}
+
+.messenger_pop .chat_box { border:1px solid #515965; border-top:none; box-shadow:2px 2px 0 #ebe7e3;  border-radius:5px; border-top-left-radius:0; border-top-right-radius:0}20140413 추가
+.messenger_pop .chat_box ul {float:left; width:380px; height:41px; }
+.messenger_pop .chat_box ul.tab li {float:left; width:127px;}
+.messenger_pop .chat_box ul.tab li.first, .messenger_pop  .chat_box  ul.tab li.last {width:126px;}
+.messenger_pop .chat_box ul.tab a {display:inline-block; width:125px; font-size:13px; color:#747b85; font-weight:bold; padding:11px 0 11px; background:#f2f4f4; border-left:1px solid #f2f4f4; border-right:1px solid #f2f4f4;  border-bottom:1px solid #b3b6b6; text-align:center;}
+.messenger_pop .chat_box ul.tab li.first a {width:125px; border-left:none}
+.messenger_pop .chat_box ul.tab li.last a {border-left:1px solid #f2f4f4;   border-right:none}
+.messenger_pop .chat_box ul.tab li.on a  {width:125px;color:#474f5b; background:#fff; border-left:1px solid #b3b6b6; border-right:1px solid #b3b6b6; border-bottom:1px solid #fff;}
+.messenger_pop .chat_box ul.tab li.first.on a {border-left:none}
+.messenger_pop .chat_box ul.tab li.last.on a {border-left:1px solid #b3b6b6; border-right:0}
+
+.messenger_pop .chat_box h3.title {position:relative; text-align:center; height:37px; line-height:37px; color:#fff; font-size:13px; background:#9198a3; border-bottom:1px solid #6e757f;clear: both;} 20140618 수정
+.messenger_pop .chat_box h3.title a {position:absolute; top:5px; left:4px;} 20140618 추가
+.messenger_pop .box {display:none; clear:both;overflow:auto;-webkit-overflow-scrolling:touch;}
+.messenger_pop .box.on{display:block;} 
+.messenger_pop .box.chat {background: #e0effc; padding:20px 0; height:398px;} 20140414 height 변경
+
+group tab
+.messenger_pop .box.group {height:487px;}
+people tab
+.messenger_pop .box.people,
+.messenger_pop .box.search {height:429px;} 
+.messenger_pop .box.people.line_1,
+.messenger_pop .box.search.line_1 {height:351px;} 선택된 사람이 1줄일경우
+etc tab
+.messenger_pop .box.externalpeople {height: 448px;}
+.messenger_pop .box.externals {height:527px;} 20140415 추가
+
+.messenger_pop .box dl, .messenger_pop .search_list dl {position:relative; float:left; width:100%; border-bottom:1px solid #dfe1e4;} 20140416 수정
+.messenger_pop .box dl.selected{background:#E0EFFC;}
+.messenger_pop .box dl:last-child dd, .messenger_pop .search_list dl:last-child  dd{border-bottom:none;} 20140414 추가
+.messenger_pop .box.group dl {padding:11px 0 12px;} 
+.messenger_pop .box.group dl.dndover {background:#6eb2ed;}  
+.messenger_pop .box dt {position:relative;}
+.messenger_pop .box dt, .messenger_pop .box  dd,
+.messenger_pop .search_list dt, .messenger_pop .search_list dd{float:left;} 20140414 추가
+.messenger_pop .box dt, .messenger_pop .search_list  dt{position:relative; width:20%; text-align:center} 20140414 추가
+.messenger_pop .box dt img{border-radius:30px;}
+.messenger_pop .box.share-doc dt img {border-radius:0}
+.messenger_pop .box dt, 
+.messenger_pop .box dd,
+.messenger_pop .search_list dt,
+.messenger_pop .search_list dd{position:relative; width:80%; font-size:13px} 20140414 추가
+.messenger_pop .people dd{width: 269px;}
+
+.messenger_pop .box dt{width:68px; padding-top:9px; padding-bottom:8px;}
+.messenger_pop .people dt{width: 92px;}
+.messenger_pop .box.group dt{width:68px; padding-top:0px; padding-bottom:0px;}
+.messenger_pop .people dt input{margin: 12px 13px 0 0;}
+.messenger_pop span.back_img {position:absolute; display:block; text-indent:-9999em} 20140716 - border-radius IE8대응
+.messenger_pop .box dt span.back_img {left:11px; top:0; width:46px; height:46px; background: url(../../resources/image/Polaris/new/msg/thum_bg.png) no-repeat;}
+.messenger_pop .box span.pic span.back_img {left:0px; top:0; width:50px; height:50px; background: url(../../resources/image/Polaris/new/msg/thum_bg02.png) no-repeat;}
+
+.messenger_pop .invite_search span.back_img {left:15px; top:9px; width:38px; height:38px; background: url(../../resources/image/Polaris/new/msg/thum_bg03.png) no-repeat;}
+
+.messenger_pop .people dt span.back_img{left:40px;top:9px; width:38px; height:38px; background: url(../../resources/image/Polaris/new/msg/thum_bg03.png) no-repeat;}
+
+.messenger_pop .box.group dl.dndover dt span.back_img{background: url(../../resources/image/Polaris/new/msg/thum_bg_over.png) no-repeat;}
+.messenger_pop .box.people dl.selected dt span.back_img, .messenger_pop .box.search dl.selected dt span.back_img {background: url(../../resources/image/Polaris/new/msg/thum_bg02.png) no-repeat;}
+.messenger_pop .invite_search span.back_img {left:0; top:0;} 20140723 추가
+
+.messenger_pop .box.externalpeople dt {width:91px;  text-align:left;}
+.messenger_pop .box.externalpeople dd {width:70%;} 
+.messenger_pop .box.externalpeople dt input {position:relative; top:14px; margin:0 15px; backgrond:#fff;}
+.messenger_pop .box a.btn_popup {position: absolute; top: 16px; right: 20px; display:none;}
+.messenger_pop .box .over a.btn_popup {display:block;}
+그룹
+.messenger_pop .group  dd strong, .messenger_pop .group  dd span.txt {display:block; width:220px; height:40px; line-height:20px; overflow:hidden }
+.messenger_pop .group  dd strong {display:block; margin:0 0 6px; }
+.messenger_pop .group  dd span.title {display:block; color:#000; font-weight:bold; margin: 0 0 3px; width: 180px; height: 17px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; padding-right: 40px;} 20140826 수정
+.messenger_pop .group  dd span.name {display:block; color:#3c7df0; margin:0 0 5px}
+.messenger_pop .group  dd span.txt {margin-top:-1px; color:#787878; line-height:19px; word-wrap: break-word;}
+.messenger_pop .group  dd span.date {position:absolute; top:1px; right:5px; color:#aaa; font-size:11px;}
+.messenger_pop .group  dd span.member, .messenger_pop .group  dd span.writing, .messenger_pop .group ul.chat_group_add span.member {position:absolute; right:9px; display:inline-block; width:32px; padding:2px 0; font-weight:bold; font-family:arial; text-align:center; border-radius:9px;}
+.messenger_pop .group  dd span.member, .messenger_pop .group ul.chat_group_add span.member {vertical-align: top; padding:0 0 0 16px; height: 16px; color:#9197a1; text-align:left; border-radius:0; background:url(../../resources/image/Polaris/new/msg/bul_member_l.png) left top no-repeat;} 20140819 추가
+.messenger_pop .group  dd span.member {position:absolute; left:185px; }20140826 수정
+.messenger_pop .group  dd span.member em,.messenger_pop .group ul.chat_group_add span.member em {display:inline-block; height: 19px; padding:0 7px 0 0; line-height: 15px; vertical-align: top;font-size:11px; font-style:normal; background:url(../../resources/image/Polaris/new/msg/bul_member_r.png) right top no-repeat;}20140819 추가
+.messenger_pop .group  dd span.writing {top: 18px; right:6px; background:#ff5b49; color:#fff; width:30px; padding:0;height: 16px;font-size: 11px;} 20150623 수정
+.messenger_pop .group  dd span.writing.no {display:none;}
+.messenger_pop p.btn_groupAdd {display:none; clear:both; padding:0 0 0 18px; height:39px; line-height:39px; border-bottom:1px solid #cacaca;} 20141002 ì¶”ê°€
+.messenger_pop p.btn_groupAdd a {display:inline-block;padding-left:24px; background: url(../../resources/image/Polaris/new/msg/bul_groupAdd.png) 0 12px no-repeat;} 20141002 ì¶”ê°€
+.messenger_pop p.btn_groupAdd.off {border-bottom:none; height:40px;}
+.messenger_pop p.btn_groupAdd.off a {display:none;}
+.messenger_pop fieldset.friend_search, .messenger_pop fieldset.invite {border:none; border-bottom:1px solid #ccc;}
+.messenger_pop fieldset.friend_search p{position:relative; padding:8px 0; text-align:center;}
+
+.messenger_pop fieldset.friend_search label {display:block; position:absolute; left:155px; top:14px; height:18px; padding:3px 0 0 23px; color:#aaa; background:url(../../resources/image/Polaris/new/msg/search.png) 0px 0px no-repeat;}
+
+.messenger_pop fieldset.invite p.input label {display:block; position:absolute; left:6px; top:8px; padding-left:22px; color:#aaa; font-family:dotum; font-size:12px;}
+.messenger_pop fieldset.friend_search label.off,
+.messenger_pop fieldset.invite p.input label.off {display:none;}
+.messenger_pop fieldset.friend_search input {width:304px; padding:7px 0; text-align:center; border:1px solid #ccc; border-radius:15px}
+.messenger_pop fieldset.invite {clear:both} 20140415 수정
+.messenger_pop fieldset.invite div.invite_search:focus {border:1px solid #3c7df0;}20140414 수정
+.messenger_pop fieldset.invite div.invite_search span.name {display:inline-block; margin:0px 5px 0px 0px; padding:5px 39px 5px 6px; font-family:dotum; color:#393e45; background:#d6ecff url(../../resources/image/Polaris/new/msg/invite_close.png) right no-repeat; cursor:pointer; border-radius:2px; border:1px solid #bed9f0; font-size:13px; font-weight:normal;}20140414 수정
+.messenger_pop fieldset.invite div.invite_search span.name.disable {background-image:none; padding:5px 6px 5px 6px;}
+.messenger_pop fieldset.invite div.invite_search p.check { padding:10px 0 5px 10px; max-height:53px; overflow:auto;-webkit-overflow-scrolling:touch; border-bottom:1px solid #dfe2e2;}20140414 수정
+.messenger_pop fieldset.invite div.invite_search p.input {position:relative; margin:10px; width:358px; height:28px; border:1px solid #ccc; border-radius:3px; float: left;}20140414 수정
+.messenger_pop fieldset.invite  input {border:none; width:327px; margin:0 0 0 28px; height:28px;}
+.messenger_pop fieldset.invite p.input img{position: absolute; left: 6px; top: 8px;}
+.messenger_pop fieldset.invite  .off {display:none}
+
+.messenger_pop fieldset.invite .search_list {position:absolute; width:358px; left:11px; margin:-12px 0 0; max-height:375px; overflow:auto; -webkit-overflow-scrolling:touch; z-index:3; background:#fff; border:1px solid #b3b6b6;}
+.messenger_pop fieldset.invite div.invite_search div.invite_box {height:77px; overflow:auto; -webkit-overflow-scrolling:touch; border-bottom:1px solid #b3b6b6;}
+.messenger_pop fieldset.invite div.invite_search ul {padding:0 0 12px 13px; width:345px;}
+.messenger_pop fieldset.invite div.invite_search ul li {position:relative; display:inline-block; margin:12px 10px 0 0;}
+.messenger_pop fieldset.invite div.invite_search ul li a {display:block; width:41px; height:54px;}
+.messenger_pop fieldset.invite div.invite_search ul li a:hover img {opacity: 0.8}
+.messenger_pop fieldset.invite div.invite_search ul li em {display:block; margin:4px 0 0; width:39px; text-align:center;  color:#000; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;  font-size:12px;} 20140723 추가
+.messenger_pop fieldset.invite div.invite_search img.del {position:absolute; top:24px; left:24px;}
+
+.messenger_pop .people dd, 
+.messenger_pop .search_list dd, 
+.messenger_pop .people dd, 
+.messenger_pop .externalpeople dd {padding-top:12px;} 20140414 추가
+.messenger_pop .people span.name,
+.messenger_pop .search_list span.name, 
+.messenger_pop .externalpeople span.name {display:block; font-weight:bold; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis;} 20140414 추가
+.messenger_pop span.name.all {margin-top: 7px;}
+.messenger_pop .people span.link_check{position:absolute; left:40px; top:32px;}
+.messenger_pop .people span.name a,
+.messenger_pop .externalpeople span.name a {color:#282828;} 20140417 추가
+.messenger_pop .people span.link_check {left:65px;}
+.messenger_pop .invite span.link_check {position:absolute; left:68px; top:32px;}
+.messenger_pop .people span.link_check.no {display:none;}
+.messenger_pop .people span.mail,
+.messenger_pop .search_list  span.mail,
+.messenger_pop .externalpeople span.mail {display:block; color:#787878; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; } 20140414 추가
+.messenger_pop p.btn_bottom{ width:100%; padding:10px 0; text-align:center; border-top:1px solid #ccc; border-bottom-left-radius:5px; border-bottom-right-radius:5px; background:#fff; } 20140416 수정
+.messenger_pop p.btn_bottom a{display:inline-block; margin:0 5px; border:1px solid #ccc; padding:4px 10px 4px; font-size:13px; font-weight:bold; border-radius:3px; color: #838383;}
+채팅방 팝업
+.messenger_pop .no_invite {margin:100px 0 0; padding:72px 45px 0; color:#a4a7ab; text-align:center; font-size: 13px; line-height:16px; background:url(../../resources/image/Polaris/new/msg/send_no_result.png) center top no-repeat;}
+.messenger_pop .box.group .no_invite {margin:100px 0 0;} 
+.messenger_pop .box.group .no_invite a {display:inline-block; margin:19px 0 0; padding:0 42px; height:40px; line-height:38px; border:1px solid #c1c5cb; border-radius:2px;}
+.messenger_pop .box.group .no_invite a span{display:inline-block; padding-left:20px; background:url(../../resources/image/Polaris/new/msg/bul_groupAdd.png) 0 12px no-repeat;} 
+
+피블추가 - 20140415
+.messenger_pop .box.externals h3, .messenger_pop .box.external p.txt {font-size:13px;}
+.messenger_pop .box.externals h3 {padding:20px 23px 9px;}
+.messenger_pop .box.externals p.txt {padding:0 23px 20px;}
+.messenger_pop .box.externals dl.bring {width:346px; margin:0 16px; border:1px solid #c1c5cb; margin: 0 16px 20px;}
+.messenger_pop .box.externals dl.bring dt {margin:0 0 0 16px; padding:22px 0 0 23px; width:auto; color:#282828;  background:url(../../resources/image/Polaris/new/msg/gmail.png) 0 24px no-repeat;}
+.messenger_pop .box.externals dl.bring.outlook dt {background:url(../../resources/image/Polaris/new/msg/outlook.png) 0 24px no-repeat;}
+.messenger_pop .box.externals dl.bring.outlook.mac dt {background:url(../../resources/image/Polaris/new/msg/desktop.png) 0 24px no-repeat;}
+
+.messenger_pop .box.externals dl.bring dt.default {display:none;}
+.messenger_pop .box.externals dl.bring.off dt.default {display:block; height: 30px;}
+.messenger_pop .box.externals dl.bring.off dt.name {display:none;}
+.messenger_pop .box.externals dl.bring dd {width:auto; float:right; padding:17px 16px 17px 0}
+.messenger_pop .box.externals dl.bring a,
+.messenger_pop .box dd a.btn {display:inline-block; margin:0 4px 0 0; padding:4px 15px 5px; font-size:12px; color:#6f7277;  font-weight: bold; border:1px solid #c1c5cb; border-radius:2px; background:url(../../resources/image/Polaris/new/msg/btn_bg.png) repeat-x; line-height: 13px; height: 13px;}
+.messenger_pop .box.externals dl.bring.off a.remove {display:none;}
+.messenger_pop p.select {clear:both; position:relative; padding:8px 0 8px; font-weight:bold; border-bottom:1px solid #dfe1e4;}
+:root .messenger_pop p.select {padding-bottom:9px; padding-bottom:8px\0}
+.messenger_pop p.select label {display:inline-block; margin:0 0 0 15px; }
+.messenger_pop p.select input {vertical-align:middle; position:relative; top:-1px;}
+.messenger_pop p.select em { color: #838383; }
+.messenger_pop p.select span {position:absolute; right:17px; color: #838383; font-size:12px;}
+.messenger_pop .box dd a.btn {position:absolute; top:16px; right:15px;} 20140416 
+.messenger_pop .box dd a.btn.disable{display:none;}
+.messenger_pop .box dl.no_address dd span{width:240px;}
+
+
+추가 bakira7
+.messenger_pop .box.group.sloading,
+.messenger_pop .box.externalpeople.sloading,
+.messenger_pop .box.people.sloading{ background: url(../../resources/image/Polaris/new/msg/loading.gif) center center no-repeat;}
+
+.messenger_pop .no_invite.off{display:none;}
+
+.messenger_pop .chat_box.group fieldset,
+.messenger_pop .chat_box.group p.btn_bottom,
+.messenger_pop .chat_box.group h3.title,
+.messenger_pop .chat_box.group .member-add, 
+.messenger_pop .chat_box.people .msg_input,
+.messenger_pop .chat_box.people h3.title,
+.messenger_pop .chat_box.externals fieldset,
+.messenger_pop .chat_box.externals p.btn_bottom,
+.messenger_pop .chat_box.externals h3.title,
+.messenger_pop .chat_box.externalpeople fieldset,
+.messenger_pop .chat_box.externalpeople h3.title,
+.messenger_pop .chat_box.externalpeople .member-add,
+.messenger_pop .chat_box.externalpeople .msg_input{display:none;}
+
+.messenger_pop ul.tab li.hideads,
+.messenger_pop p.select{display:none;}
+ 
+.messenger_pop .chat_box.externalpeople p.select{display:block;}
+.messenger.agent section.header{display:none;}
+.messenger.agent .messenger_pop {border-top-left-radius: 0px; border-top-right-radius: 0px;}
+.messenger.agent .messenger_pop .chat_box{border:none;}
+
+.messenger_pop .box.group.talk_add {height:434px; overflow-y:auto;}
+.messenger_pop p.chat_group_add {display:none; padding:14px 35px 14px 65px; color:#787878; border-bottom:1px solid #dfe1e4; background:#fafafa url(../../resources/image/Polaris/new/msg/chat_group_add.png) 19px 15px no-repeat}
+.messenger_pop p.chat_group_add strong {display:none; padding:12px 0 4px; color:#25272a;}
+.messenger_pop .chat_box ul.chat_group_add {width:100%; height:434px;}
+.messenger_pop ul.chat_group_add li {position:relative; padding-left:15px; border-bottom:1px solid #dfe1e4;}
+.messenger_pop ul.chat_group_add li label {display:inline-block; width:300px; line-height:54px; color:#25272a; padding:14px 0 12px 2px; font-size:13px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; line-height:26px;}
+.messenger_pop ul.chat_group_add li label input {position:relative; top:-2px;  vertical-align: middle;}
+.messenger_pop ul.chat_group_add div.member_etc { width:auto; margin:-12px 10px 12px 18px; color:#5e5f60; display:none; word-break: break-all;}
+.messenger_pop .chat_box ul.chat_group_add li div.member_etc ul {float:none; width:340px; padding:0 0 10px; height: auto;}
+.messenger_pop .chat_box ul.chat_group_add div.member_etc ul li {padding:0 10px; line-height:21px;  overflow:auto;  border-bottom: none; height: auto;position: static;}
+.messenger_pop .group ul.chat_group_add span.member {top:20px; right:15px; width:auto;}
+.messenger_pop ul.chat_group_add li a.view {position:relative; top:0px;; display:inline-block; width:15px; text-indent:-9999em; padding-left:0; background:url(../../resources/image/Polaris/new/share/arrow_off.png) 6px 10px no-repeat;}
+.messenger_pop ul.chat_group_add li.on a.view {background:url(../../resources/image/Polaris/new/share/arrow_on.png) 6px 10px no-repeat;}
+.messenger_pop ul.chat_group_add  li.on div.member_etc {display:block;} */
+
+#cooperation2 section.header {cursor:inherit;}
+#cooperation2 .messenger_pop {position: relative;top: 0; left: 0;}
+#cooperation2 .messenger_pop .chat_box ul.tab li.first, #cooperation2 .messenger_pop .chat_box ul.tab li.last{width:190px;}
+#cooperation2 .messenger_pop .chat_box ul.tab li a{width:189px;}
+#cooperation2 .messenger_pop .group dd span.title{width: 240px;}
+#cooperation2 .messenger_pop .group dd span.member{left: initial; right: 0;}
+body.rtl #cooperation2 .messenger_pop .group dd span.member {left: 0; right: initial;}
+#cooperation2 .messenger_pop .chat_box.group p.btn_bottom{display:block;}
+#cooperation2 .messenger_pop .chat_box.group p.chat_group_add{display:block;}
+#cooperation2 .messenger_pop .chat_box.group ul.tab{display:none;}
+#cooperation2 .messenger_pop .group ul.chat_group_add span.member{cursor:pointer;}
+
+#cooperation2.agent{margin:0 !important; width:382px; !important;}
+#cooperation2.agent section.header{display:none;}
+#cooperation2.agent .messenger_pop {border-top-left-radius: 0px; border-top-right-radius: 0px;}
+#cooperation2.agent .messenger_pop .chat_box{border:none;}
+
+.messenger_pop p.try { position: absolute; z-index: 9;}
+
+
+.popup.tree {display:block; width:594px; height:385px; border:1px solid #596270; border-radius:4px; z-index:10; box-shadow: 0 2px 0 #e5e5e5} /* 20140722 height / margin 수정 */
+.popup.tree h1, .popup.share_doc .btn_share a {font-family:'Malgun Gothic', sans-serif;}
+.popup.tree a {font-family:dotum; text-decoration: none}
+.popup.tree dl.tree_folder {float:left; width:338px; height:305px; margin:10px 0 0 10px; border:1px solid #bec0c3; background:#fff; overflow: auto;} /* 20140722 수정 */
+.popup.tree dl.tree_folder dt a {display:block; padding:9px 0 9px 34px; font-weight:bold; font-size:12px; background:url(../../resources/image/Polaris/new/folder_tree_bi.png) 10px 7px no-repeat;}/* 20140707 dt 에서 dt a 로 변경 */
+.popup.tree dl.tree_folder dt a.on {background-color:#3c7df0 !important; color:#fff;}/* 20140707 추가 */
+.popup.tree dl.tree_folder dt a:hover {background-color:#f3f9fe;} /* 20140707 추가 */
+.popup.tree dl.tree_folder dt a:hover.on{background-color:#3c7df0; color:#fff;}
+.popup.tree dd {width:100%;} /* 20140707 추가 */
+.popup.tree dl.tree_folder table {width:100%;}
+.popup.tree dd span{display:block;height:28px;line-height:30px;color:#5f6060;font-family:dotum;}/* 20140707 수정 */
+.popup.tree dd span img {position:relative; top:-1px;} /* 20140707 추가 */
+.popup.tree dd span:hover{background:#f3f9fe;color:#5f6060;}
+.popup.tree dd span.on{background:#3c7df0;color:#fff;}
+.popup.tree dd span:hover.on{background:#3c7df0;color:#fff;}
+.popup.tree dd li{white-space:nowrap;}
+.popup.tree dd li img{vertical-align:middle;}
+.popup.tree dd ul {width:100%;}
+.popup.tree dd li.close ul {display:none;}
+.popup.tree li span{padding-left:10px; white-space: pre;}
+.popup.tree li li span{padding-left:22px;}
+.popup.tree li li li span{padding-left:34px;}
+.popup.tree li li li li span{padding-left:46px;}
+.popup.tree li li li li li span{padding-left:58px;}
+.popup.tree li li li li li li span{padding-left:70px;}
+.popup.tree li li li li li li li span{padding-left:82px;}
+.popup.tree li li li li li li li li span{padding-left:94px;}
+.popup.tree li li li li li li li li li span{padding-left:106px;}
+.popup.tree li li li li li li li li li li span{padding-left:118px;}
+.popup.tree li li li li li li li li li li li span{padding-left:130px;}
+.popup.tree li li li li li li li li li li li li span{padding-left:142px;}
+.popup.tree li li li li li li li li li li li li li span{padding-left:156px;}
+.popup.tree li li li li li li li li li li li li li li span{padding-left:168px;}
+.popup.tree li li li li li li li li li li li li li li li span{padding-left:180px;}
+.popup.tree p.btn {float:left; width:100%; margin:8px 0 0; text-align:center;}/* 20140722 수정 */
+.popup.tree p.btn a {display:inline-block; height:22px; padding:0 10px; font-weight:bold; line-height:22px; background:#fff; border:1px solid #bec0c3; border-radius:2px; background:url(../../resources/image/Polaris/new/button/bg.png) repeat-x;}/* 20140722 수정 */
+.popup.tree p.btn a.disabled {opacity: 0.3; filter: alpha(opacity=30)}
+
+.popup .address label.label_invite{position:absolute;left:30px;top:6px;}
+
+/* popup */
+div.popup.name_change {width:380px; font-size:13px;}
+/* div.popup.name_change h1 {height:32px; line-height:32px; font-size:12px; background:#474f5b;} */
+div.popup.name_change .popup_content {padding:0 13px; background:#fff; color:#25272a;}
+div.popup.name_change .popup_content dl {padding:18px 0 0;}
+div.popup.name_change .popup_content dt {padding:0 0 15px 7px; font-weight:bold;}
+div.popup.name_change .popup_content input {height:30px; width:100%; line-height:30px; border-radius:2px; font-size:12px; text-indent:8px;}
+div.popup.name_change .popup_content p.location {word-wrap: break-word; padding:18px 0 30px 13px;}
+div.popup.name_change div.bx_btn {padding:10px 0; height:auto; background:#fff;}
+div.popup.name_change div.bx_btn a {padding:0 28px; font-size:13px;} 
+/*div.popup.name_change span.btn_close {top:10px; right:15px;}*/
+
+/*start poppup */
+.start_wrap {display:none; position:fixed; width:100%; height:100%; background:url(/resources/image/Polaris/new/start/bg.png) repeat; z-index:10;moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none; }
+.start_wrap div#modal {position:fixed; top:0; left:0; width:100%; height:100%; background:#5b5b5b; opacity:0.8}
+.start_pop.ko * {font-family:'Malgun Gothic','AppleGothic', sans-serif}
+.start_pop.en * {font-family:'Verdana', sans-serif}
+.start_pop.jp * {font-family:'Meiryo', sans-serif}
+.start_pop.cn * {font-family:'\5FAE\8F6F\96C5\9ED1', sans-serif}
+#slideshow {position:absolute; top:50%; left:50%; width:926px; height:614px; margin:-307px 0 0 -463px; z-index:2}
+@media screen and (max-height:480px) {
+	#slideshow{margin-top:1%}
+}
+.control {display:block; width:37px; height:75px; text-indent:-10000px; position:absolute; cursor: pointer;}
+#slidesContainer {width:782px; height:614px; border-radius:6px;overflow:hidden; margin:0 auto}
+#leftControl {top:266px;left:0px; background:transparent url(/resources/image/Polaris/new/start/prev.png) no-repeat 0 0;}
+#rightControl {top:266px; right:0px; background:transparent url(/resources/image/Polaris/new/start/next.png) no-repeat 0 0;}
+.start_pop .slide {position:relative; width:782px; height:614px; background:url(/resources/image/Polaris/new/start/new/box_bg.png) no-repeat}
+.start_pop .slide .box {width:782px; height:614px;}
+.start_pop .slide .box a {text-decoration:none;}
+.start_pop .slide .box a.btn_install, .slide .box a.btn_start, .start_pop a.start {display:inline-block; height:44px; line-height:44px; text-align:center; color:#fff; border-radius:3px; background:#134c9e;}
+.start_pop a.start {width:142px; font-size:16px;}
+.start_pop .slide .box a.btn_start {display:none}
+.start_pop .slide .box a.btn_install {position:absolute; top:76px; right:70px; width:115px; padding-left:44px; text-align:left; font-size:14px; background:#134c9e url(/resources/image/Polaris/new/start/new/bul_install.png) 20px 14px no-repeat;}
+.start_pop .slide .box.page_01 {background:url(/resources/image/Polaris/new/start/new/slide_bg01.png) no-repeat}
+.start_pop .slide .page_01 h1 {padding:60px 0 3px 67px}
+.start_pop .slide h2, .start_pop .slide p.txt {color:#073372; font-weight:normal;}
+.start_pop .slide h2 {font-size:26px; padding-bottom:9px; letter-spacing:-2px;}
+.start_pop.en .slide h2{font-size:23px;}
+.start_pop.jp .slide h2{font-size:24px;}
+.start_pop .slide p.txt {font-size:15px; line-height:22px;}
+.start_pop.ko .slide h2 {letter-spacing:-2px;}
+.start_pop.ko .slide p.txt {letter-spacing:-1px;}
+.start_pop.ko .slide .box a.btn_install, .start_pop.ko .slide .box a.btn_start, .start_pop.ko .start_pop a.start {line-height:42px;}
+.start_pop .slide .page_02 h2, .start_pop .slide .page_02 p.txt {text-align:center}
+.start_pop .slide .page_03 h2, .start_pop .slide .page_03 p.txt
+.start_pop .slide .page_04 h2, .start_pop .slide .page_04 p.txt {text-align:left;}
+.start_pop .slide .page_01 h2, .start_pop .slide .page_01 p.txt {padding-left:67px;}
+.start_pop .slide .page_02 h2,
+.start_pop .slide .page_03 h2,
+.start_pop .slide .page_04 h2 {padding-top:22px; padding-bottom:4px;}
+.start_pop .slide .page_03 h2, .start_pop .slide .page_04 h2 {padding-left:62px;}
+.start_pop.fr .slide .page_03 h2, .start_pop .slide .page_04 h2 {padding-left:62px; width: 535px;}
+body.web.rtl .start_pop .slide .page_04 h2 {padding-right:62px;}
+.start_pop.jp .slide .page_03 h2 {padding-left:118px}/* 20150615 추가 */
+.start_pop .slide .page_03 p.txt, .start_pop .slide .page_04 p.txt {padding-left:65px}
+body.web.rtl .start_pop .slide .page_03 p.txt, body.web.rtl .start_pop .slide .page_04 p.txt {text-align:right; padding-right:65px; padding-left:0;}
+.start_pop.ko .slide .page_02 {background:url(/resources/image/Polaris/new/start/new/ko_slide_bg02.png) 90px 229px no-repeat;}
+.start_pop.ko .slide .page_03 {background:url(/resources/image/Polaris/new/start/new/ko_slide_bg03.png) 90px 213px no-repeat;} 
+.start_pop.ko .slide .page_04 {background:url(/resources/image/Polaris/new/start/new/ko_slide_bg04.png) 89px 214px no-repeat;}
+.start_pop.en .slide .page_02 {background:url(/resources/image/Polaris/new/start/new/en_slide_bg02.png) 90px 229px no-repeat;}
+.start_pop.en .slide .page_03 {background:url(/resources/image/Polaris/new/start/new/en_slide_bg03.png) 90px 213px no-repeat;} 
+.start_pop.en .slide .page_04 {background:url(/resources/image/Polaris/new/start/new/en_slide_bg04.png) 89px 214px no-repeat;}
+.start_pop.jp .slide .page_02 {background:url(/resources/image/Polaris/new/start/new/en_slide_bg02.png) 90px 229px no-repeat;}
+.start_pop.jp .slide .page_03 {background:url(/resources/image/Polaris/new/start/new/en_slide_bg03.png) 90px 213px no-repeat;} 
+.start_pop.jp .slide .page_04 {background:url(/resources/image/Polaris/new/start/new/jp_slide_bg04.png) 89px 214px no-repeat;}
+.start_pop.cn .slide .page_02 {background:url(/resources/image/Polaris/new/start/new/en_slide_bg02.png) 90px 229px no-repeat;}
+.start_pop.cn .slide .page_03 {background:url(/resources/image/Polaris/new/start/new/en_slide_bg03.png) 90px 213px no-repeat;} 
+.start_pop.cn .slide .page_04 {width:1200px; background:url(/resources/image/Polaris/new/start/new/cn_slide_bg04.png) 89px 214px no-repeat;}
+.start_pop .slide a.close {display:inline-block; margin:26px 0 0 32px; color:#8697af; font-size:13px;}
+body.web.rtl .start_pop .slide a.close {margin:26px 32px 0 0;}
+.start_pop .slide p.paging {position:absolute; top:178px; left:363px; /* 3개일 경우 width:60px;*/ width:40px; height:2px; overflow:hidden; background:url(/resources/image/Polaris/new/start/new/paging.png) no-repeat;}
+.start_pop .slide .page_02 p.paging {background-position:0 0;}
+.start_pop .slide .page_03 p.paging {background-position:0 -2px;}
+.start_pop .slide .page_04 p.paging {background-position:0 -2px;}
+.start_pop a.start {position:absolute; top:76px; right:70px; width:115px}
+body.web.rtl .start_pop a.start {left:70px; right:auto;}
+/*start poppup end */
+
+/* ageress popup */
+div.notice_popup a {text-decoration: none}
+div.notice_popup input[type="checkbox"] {position:relative; top:-1px; border:none; -webkit-appearance:none;-webkit-border-radius:0; outline: none; vertical-align: middle}
+div.notice_popup input[type="checkbox"]:checked {outline: none}
+
+div.notice_popup, div.notice_popup1 {position:fixed; top:50%; left:50%; margin:-298px 0 0 -241px;  width:482px; height:594px; overflow: hidden; background:#fff; border:1px solid #bdbdbd; box-shadow: 0 0 4px 1px #ebebeb; border-radius:5px; z-index:10;}
+div.notice_popup1{opacity: 0.5; filter:alpha(opacity=50);display:none;}
+div.notice_popup h1 {position:relative; height:44px; padding-left:29px; line-height:44px; background:#3b7cef; font-size:14px; color:#fff;}
+body.web.rtl div.notice_popup h1 {padding-right:22px;}
+div.notice_popup h1 a.btn_close {position:absolute; top:16px; right:30px; width:12px; height:12px; text-indent:-999em; background:url(/resources/image/Polaris/new/popup/notice/btn_close.png) no-repeat}
+body.web.rtl div.notice_popup h1 a.btn_close {left:30px;right:auto;}
+div.notice_popup h2 {font-size:13px; color:#134c9e;}
+div.notice_popup div.box {padding: 22px 30px 5px;}
+div.notice_popup div.txt {margin:12px 0 0; padding:20px 34px 20px 17px; height:220px; font-size:12px; color:#515358; overflow: auto;  background:#f1f3f7; font-weight:bold; -webkit-overflow-scrolling:touch;}
+div.notice_popup div.txt.detail {display:none; height:252px; margin-bottom:18px;}
+div.notice_popup div.txt.detail a {text-decoration: underline; color:#2964de;}
+div.notice_popup p.detail {position:relative; top:0px; font-size:12px; width:100%; padding:5px 0 0; height:30px; line-height:20px; font-weight:bold; color:#82848a; background:#f1f3f7;}
+div.notice_popup p.detail a {display:inline-block; float:right; margin-right:34px; padding-right:12px; color:#134c9e; background:url(/resources/image/Polaris/new/popup/notice/arrow_02.png) right 8px no-repeat;}
+div.notice_popup div.agree {margin:15px 0 0;}
+div.notice_popup div.agree dl {clear:both;position:relative; top: -6px;}
+div.notice_popup div.agree dt {height: 37px; line-height: 37px; font-size:14px; color:#3c65c3; font-weight:bold;}
+div.notice_popup div.agree dt label{color: #3c65c3;}
+div.notice_popup div.agree dt input[type="checkbox"] {width:19px; height:19px; margin-right:9px; background:url(/resources/image/Polaris/new/popup/notice/check_01_off.png) no-repeat; background-size:19px 19px;}
+body.web.rtl div.notice_popup div.agree dt input[type="checkbox"] {margin:0 0 0 9px;}
+div.notice_popup div.agree dt input[type="checkbox"]:checked {width:19px; height:19px; background:url(/resources/image/Polaris/new/popup/notice/check_01_on.png) no-repeat; background-size:19px 19px;}
+div.notice_popup div.agree dd {height:64px;}
+div.notice_popup div.agree ul {padding:7px 0 6px;}
+div.notice_popup div.agree li {padding:0 0 2px 2px; color:#999ca3; font-size:12px;}
+div.notice_popup div.agree li label{color:#999ca3;}
+div.notice_popup div.agree li input[type="checkbox"] {width:15px; height:15px; margin-right:5px; background:url(/resources/image/Polaris/new/popup/notice/check_02_off.png) no-repeat; background-size:15px 15px;}
+body.web.rtl div.notice_popup div.agree li input[type="checkbox"] {margin:0 0 0 5px;}
+div.notice_popup div.agree li input[type="checkbox"]:checked {width:15px; height:15px; background:url(/resources/image/Polaris/new/popup/notice/check_02_on.png) no-repeat; background-size:15px 15px;}
+div.notice_popup div.agree p.btn {padding: 19px 0 0; text-align:center}
+div.notice_popup div.agree p.btn a {display:inline-block; height:38px; padding:0 15px; line-height:38px; background:#3b7cef; font-size:13px; color:#fff; text-align:center; border-radius:3px;}
+
+div.notice_popup div.txt ul {margin:5px 0 10px;}
+div.notice_popup div.txt ul li {margin:0 0 0 10px; padding-left:10px; background:url(/resources/image/Polaris/new/bullet/bul_circle.png) 0 8px no-repeat;}
+div.notice_popup div.txt ul li ul {margin-left:-10px;}
+div.notice_popup div.txt ul li ul li {padding:0 0 0 6px; background:url(/resources/image/Polaris/new/bullet/bul_compare.png) 0 8px no-repeat;}
+
+div.notice_popup div.txt {
+	overflow:hidden;
+	overflow-x:hidden;
+	-webkit-overflow-scrolling:touch;
+}
+div.notice_popup div.txt:hover{
+	overflow:auto;
+	overflow-x:hidden;
+}
+div.notice_popup div.txt::-webkit-scrollbar{
+    border-radius:2px;
+	width: 8px;
+	height: 8px;
+        position: absolute
+}
+div.notice_popup div.txt::-webkit-scrollbar-thumb{
+	width: 50px;
+	background:#c3c6cd;
+	border: 0;
+	border-radius:2px;
+}
+div.notice_popup div.txt::-webkit-scrollbar-track{	
+	background:#dbdde2;
+	border-radius:10px;
+}
+/* ageress popup end */
+
+/* rtl */
+body.rtl .messenger_pop .header .btn{left:10px; right: auto;}
+body.rtl .messenger_pop .box dt, 
+body.rtl .messenger_pop .box dd,
+body.rtl .messenger_pop .search_list dt,
+body.rtl .messenger_pop .search_list dd {float:right}
+body.rtl .messenger_pop .people dt span.back_img{right:40px;}
+body.rtl .messenger_pop .people dt input{margin:14px 0 0 13px; vertical-align:top;}
+body.rtl .messenger_pop fieldset.invite p.input label  {right:6px; padding-right:22px; padding-left:0}
+body.rtl .messenger_pop fieldset.invite p.input img {left:auto; right: 6px}
+body.rtl .messenger_pop fieldset.invite  input {margin:0 28px 0 0;}
+body.rtl .messenger_pop .people span.link_check {left:auto; right:65px;}
+/* body.rtl .messenger_pop .box dl,
+body.rtl .messenger_pop .search_list dl {height:58px; float:none;} */
+body.rtl .messenger_pop .invite_search span.back_img {left:0; right:0;}
+body.rtl .messenger_pop fieldset.invite div.invite_search img.del {left:auto; right:24px;}
+body.rtl .messenger_pop .box.externals dl.bring.off dt.default {padding:22px 23px 0 0}
+body.rtl .messenger_pop .box.externals dl.bring dt {margin:0 16px 0 0; background-position: right 24px;padding-right: 23px;}
+body.rtl .messenger_pop .box.externals dl.bring dd {float:left; padding:17px 0 17px 16px;}
+body.rtl .messenger_pop .box.externals dl.bring.outlook dt {background:url(../../resources/image/Polaris/new/msg/outlook.png) right 22px no-repeat}
+body.rtl .messenger_pop p.select span{  left: 17px; right: inherit;}
+body.rtl .messenger_pop ul.chat_group_add li {padding:0 15px 0 0;}
+body.rtl .messenger_pop ul.chat_group_add li label {padding:14px 2px 12px 0;}
+body.rtl .messenger_pop .group ul.chat_group_add span.member {right:auto; left:15px;}
+body.rtl .messenger_pop p.chat_group_add {padding:14px 65px 14px 35px; color:#787878; border-bottom:1px solid #dfe1e4; background:#fafafa url(../../resources/image/Polaris/new/msg/chat_group_add.png) 332px 12px no-repeat}
+body.rtl .messenger_pop .box.externals dl.bring {right:0px;} 
+body.rtl .messenger_pop .chat_box ul{float:none;}
+body.rtl .messenger_pop .popup h3 span{padding: 7px 11px 8px 0;}
+body.rtl .messenger_pop .popup h3 a{right:auto; left:5px;}
+body.rtl .messenger_pop .popup p.input{padding: 0 30px 13px 0;}
+/* RTL */
+body.rtl .popup.tree li span {padding:0 10px 0 0;}
+body.rtl .popup.tree li li span{padding-right:22px;}
+body.rtl .popup.tree li li li span{padding-right:34px;}
+body.rtl .popup.tree li li li li span{padding-right:46px;}
+body.rtl .popup.tree li li li li li span{padding-right:58px;}
+body.rtl .popup.tree li li li li li li span{padding-right:70px;}
+body.rtl .popup.tree li li li li li li li span{padding-right:82px;}
+body.rtl .popup.tree li li li li li li li li span{padding-right:94px;}
+body.rtl .popup.tree li li li li li li li li li span{padding-right:106px;}
+body.rtl .popup.tree li li li li li li li li li li span{padding-right:118px;}
+body.rtl .popup.tree li li li li li li li li li li li span{padding-right:130px;}
+body.rtl .popup.tree li li li li li li li li li li li li span{padding-right:142px;}
+body.rtl .popup.tree li li li li li li li li li li li li li span{padding-right:156px;}
+body.rtl .popup.tree li li li li li li li li li li li li li li span{padding-right:168px;}
+body.rtl .popup.tree li li li li li li li li li li li li li li li span{padding-right:180px;}
+body.rtl .popup.tree dl.tree_folder dt a {padding:9px 34px 9px 0; color:auto; background:url('../../resources/image/Polaris/new/folder_tree_bi.png') right 7px no-repeat;}
+body.rtl div.popup span.btn_newFolder {left:40px; right:auto; text-align:right}
+
+body.rtl ul.bx_upload li img.img{right: 17px; left: auto;}
+body.rtl ul.bx_upload li span.title{right: 42px; left: auto;}
+body.rtl ul.bx_upload li span.kb{text-align: left; left: 63px; right: auto;}
+body.rtl ul.bx_upload li span.state{left: 0; right: auto;}
+
+body.rtl div.address div.search_auto li span.img,
+body.rtl div.address div.search_auto li span.bg{right: 4px; left: auto;}
+body.rtl div.address div.search_auto li span.polaris{right: 20px; left: auto;}
+body.rtl div.address div.search_auto li span.name{right: 43px; left: auto;}
+body.rtl div.address div.search_auto li span.email{right: 43px; left: auto;}
+body.rtl div.address div.search_auto{right:-1px; left:auto;}
+body.rtl div.address div.bx_invite_search div.search_id.bd_none textarea.txt{background: url("../../resources/image/Polaris/new/bg_invite_search.png") no-repeat 316px 6px; padding: 5px 28px 0 7px;}
+body.rtl .popup .address label.label_invite{right: 30px; left: auto;}
+body.rtl div.weblink div.address .link_send img{margin: 0 0 0 5px;}
+body.rtl div.weblink div.address .email_send label span{right: 10px; left: auto;}
+body.rtl div.weblink div.address .text_number{text-align: left;margin: 0 0 4px 4px;}
+body.rtl div.weblink div.address .email_send textarea{margin: 17px 10px 0 0;}
+body.rtl div.address div.bx_invite_search div.search_id span.id{float: right; padding: 0 3px 0 13px;}
+body.rtl div.address div.bx_invite_search div.search_id span.id a{left: 3px; right: auto;}
+body.rtl .messenger_pop.address .box.people dt span.back_img{right:15px;}
+
+a.hidepwd {position: absolute;margin: 3px 5px 0px -26px;}
+a.showpwd {position: absolute;margin: 3px 5px 0px -26px;display: none;}
+input#popup_account_change_password2 {display:none;}
+input#popup_account_deletion_password2 {display:none;}
+input#popup_password_regist2 {display:none;}
+body.cn.zh input#popup_account_change_newaccount, body.cn.zh input#popup_account_change_password {line-height: 12px;}
+
+/* start pop */
+.start_wrap{position:fixed;width:100%;height:100%;background:url(/resources/image/Polaris/new/startpop/backbg.png) 0 0 repeat;}
+.start_wrap .con_box{z-index:20;position:absolute;top:50%;left:50%;width:927px;height:598px;margin:-299px 0 0 -463px;}
+.start_wrap .btn_rolling{float:left;width:37px;height:75px;margin-top:262px;text-indent:-9999px;}
+.start_wrap .btn_rolling.on{background-position:0 -75px;}
+.start_wrap .btn_prev{background:url(/resources/image/Polaris/new/startpop/btn_prev.png) 0 0 no-repeat;}
+.start_wrap .btn_next{background:url(/resources/image/Polaris/new/startpop/btn_next.png) 0 0 no-repeat;}
+.start_wrap .inner_box{overflow:hidden;float:left;width:768px;margin:0 42px;}
+.start_wrap ul{width:3840px;}
+.start_wrap ul li{position:relative;float:left;width:768px;height:598px;}
+.start_wrap h3{font-weight:bold;text-align:center;word-spacing:2px;font-size:30px;line-height:30px;}
+.start_wrap p{margin-top:21px;font-size:16px;line-height:16px;text-align:center;word-spacing:2px;letter-spacing:-0.5px;}
+
+.start_wrap .roll_00{background:url(/resources/image/Polaris/new/startpop/roll_img0.png) 0 0 repeat;}
+.start_wrap .roll_00 h3{padding-top:110px;color:#fff;font-weight:600;line-height:37px;}
+.start_wrap .roll_01{background:url(/resources/image/Polaris/new/startpop/roll_img1.png) 0 0 repeat;}
+.start_wrap .roll_01 h3{padding-top:42px;}
+.start_wrap .btn_down{display:inline-block;height:46px;margin-top:365px;background:url(/resources/image/Polaris/new/startpop/btnbg02.gif) right 0 no-repeat;background-color:#ff9b00;letter-spacing:0;}
+.start_wrap .btn_down a{display:block;width:auto;height:33px;padding:13px 36px 0 82px;font-size:17px;line-height:17px;color:#fff;background-image:url(/resources/image/Polaris/new/startpop/btnbg01.gif);background-position:0 0;background-repeat:no-repeat;}
+.start_wrap li .page{position:absolute;bottom:39px;right:347px;display:inline-block;width:74px;height:11px;margin:30px auto 0 auto;background:url(/resources/image/Polaris/new/startpop/btn_pagepng.png) 0 0 no-repeat;text-indent:-9999px;}
+.start_wrap li .pop_close{position:absolute;bottom:35px;right:35px;padding-bottom:3px;background:url(/resources/image/Polaris/new/startpop/pop_closebg.gif) 0 bottom repeat-x;letter-spacing:0;}
+.start_wrap .roll_02{background:url(/resources/image/Polaris/new/startpop/roll_img2.png) 0 0 repeat;}
+.start_wrap .roll_02 h3{padding-top:42px;}
+.start_wrap .roll_02 .page{background-position:0 -11px;}
+.start_wrap .roll_03{background:url(/resources/image/Polaris/new/startpop/roll_img3.png) 0 0 repeat;}
+.start_wrap .roll_03 h3{padding-top:42px;}
+.start_wrap .roll_03 .page{background-position:0 -22px;}
+.start_wrap .roll_04{background:url(/resources/image/Polaris/new/startpop/roll_img4.png) 0 0 repeat;}
+.start_wrap .roll_04 h3{padding-top:42px;}
+.start_wrap .roll_04 .page{background-position:0 -33px;}
+.start_wrap .btn_start{display:inline-block;height:46px;margin-top:365px;background:url(/resources/image/Polaris/new/startpop/btnbg04.gif) right 0 no-repeat;background-color:#3cbe00;letter-spacing:0;}
+.start_wrap .btn_start a{display:block;width:auto;height:33px;padding:13px 26px 0 82px;font-size:17px;line-height:17px;color:#fff;background-image:url(/resources/image/Polaris/new/startpop/btnbg03.gif);background-position:0 0;background-repeat:no-repeat;}

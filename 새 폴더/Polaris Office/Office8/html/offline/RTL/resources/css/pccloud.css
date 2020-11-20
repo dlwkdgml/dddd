@@ -1,0 +1,1724 @@
+body.progress *{cursor: progress !important;}
+body {font-size:13px;}
+body.fr {float:none;}
+
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700);
+* {margin:0; padding:0; list-style:none; font-family:'Open Sans',"arial", "Microsoft YaHei", Malgun Gothic, dotum, Meiryo, sans-serif !important; letter-spacing: 0}
+legend {display:none;}
+table {border-collapse: collapse}
+
+/* alink */
+
+a {text-decoration: none}
+img {border:none} /*20150819 송경식 */
+
+.fl {float:left;}
+.fr {float:right;}
+.pointer {cursor: pointer;}
+#cloud {width:100%;}
+#cloud em {font-style:normal;}
+#cloud a {color:#888; text-decoration: none}
+#cloud fieldset, #cloud button {border:none;}
+
+#cloud .header h1, #cloud .header ul.util_cloud li a, #cloud .header fieldset p.search button, dl.floating a,  dl.floating dt span {background:url(../../resources/image/Polaris/new/img.png) no-repeat}
+
+#cloud .header {position:relative; width:100%;}
+#cloud .header h1 {display:block;clear:both; width:397px; height:22px; margin:0 auto; /*padding:54px 0 63px;*/ padding:54px 0 52px; overflow:hidden; text-indent:-999em;cursor:pointer; background:url(../../resources/image/Polaris/new/bi_ko.png) no-repeat}
+/*
+#cloud .header h1.ko {display:block;background:url(../../resources/image/Polaris/new/bi_ko.png) no-repeat}
+#cloud .header h1.zhCN {display:block;background:url(../../resources/image/Polaris/new/bi_cn.png) no-repeat}
+#cloud .header h1.en {display:block;background:url(../../resources/image/Polaris/new/bi_en.png) no-repeat}
+#cloud .header h1.ja {display:block;background:url(../../resources/image/Polaris/new/bi_jp.png) no-repeat}
+#cloud .header h1.fr {display:block;background:url(../../resources/image/Polaris/new/bi_en.png) no-repeat}
+#cloud .header h1.ar {display:block;background:url(../../resources/image/Polaris/new/bi_en.png) no-repeat}
+*/
+#cloud .header ul.util_cloud {}
+#cloud .header ul.util_cloud.fl {margin:15px 0 0 32px;}
+#cloud .header ul.util_cloud.fr {margin:8px 17px 0 0;}
+#cloud .header ul.util_cloud li {position:relative; float:left; padding:0 20px 0 0; height:32px; }
+body.rtl #cloud .header ul.util_cloud li {padding: 0 0 0 20px;}
+#cloud .header ul.util_cloud li a {display:inline-block; color:#6e6e6e; font-size:14px;height: 32px;} /* 20150820 */
+#cloud .header ul.util_cloud li.open a {padding:0 10px 0 0; background-position:0 -98px; line-height:30px; background:none;font-weight:bold;}
+#cloud .header ul.util_cloud li.share a {padding:0 0 0 25px; background-position:0 -152px; min-width:17px;}
+#cloud .header ul.util_cloud li.notice {position:relative; padding:0 26px 0 0}
+#cloud .header ul.util_cloud li.notice a {width:16px; height: 26px; text-indent:-999em; background-position: 0 -191px;}
+#cloud .header ul.util_cloud li.notice span.count {position:absolute; top:4px; left:9px; max-width:30px; display:inline-block; padding:0 0 0 6px; height:18px; background:url(../../resources/image/Polaris/new/num_bg_l.png) left no-repeat; color:#fff; font-family:arial; font-size:11px; border-radius: 9px}
+#cloud .header ul.util_cloud li.notice span.count em {display:inline-block; font-style:normal; line-height:18px; padding:0 6px 0 0; background:url(../../resources/image/Polaris/new/num_bg_r.png) right top no-repeat;}
+#cloud .header ul.util_cloud li.feedback {display: none !important;}
+#cloud .header ul.util_cloud li.feedback a {width:20px; height:25px; text-indent:-999em; background:url(../../resources/image/Polaris/new/feedback.png) 0 7px no-repeat;}
+#cloud .header ul.util_cloud li.app {padding:0 26px 0 0}
+#cloud .header ul.util_cloud li.app a {margin-top:8px;width:22px; height:18px; text-indent:-999em; background-position: 0 -252px;}
+#cloud .header ul.util_cloud li.user {position: relative; padding:0}
+body.rtl #cloud .header ul.util_cloud li.user {padding:0}
+#cloud .header ul.util_cloud li.user span {position: absolute; left: 0; display:inline-block; width:36px; height:36px; background:url(../../resources/image/Polaris/new/pic_bg.png) no-repeat}
+#cloud .header ul.util_cloud li.user a {background:none} /* 20150624 추가 */
+#cloud .header a.btn_prev {display:none} /* 201505011 추가 */
+#cloud .header ul.util_cloud li.computer_doc {margin:3px 0 0;}
+#cloud .header ul.util_cloud li.computer_doc a {background:none; font-weight:bold}
+#cloud .header ul.util_cloud li.login {margin:0 0 0 -5px; padding:0 37px 0 0}
+#cloud .header ul.util_cloud li.computer_doc a.login,
+#cloud .header ul.util_cloud li.login a.login {height:30px; margin:-5px 0 0 0; padding:0 15px 0 36px; color:#6e6e6e; font-weight:bold; line-height:30px; border:1px solid #c8c8c8; border-radius:3px; background:url(../../resources/image/Polaris/new/button/login.png) 15px 5px no-repeat;}
+body.rtl #cloud .header ul.util_cloud li.login {margin:0 0 0 -5px; padding:0 0 0 37px;}
+body.rtl #cloud .header ul.util_cloud li.computer_doc a.login,
+body.rtl #cloud .header ul.util_cloud li.login a.login {margin:0 24px 0 0; padding:0 36px 0 15px; background:url(../../resources/image/Polaris/new/button/login_rtl.png) right 5px no-repeat;}
+
+
+#cloud .header fieldset {clear:both; max-width:732px; margin:0 auto 0} /* 20150429 width 수정 */
+#cloud .header fieldset p.txt {text-align:center; color:#787878; font-size:14px;}
+#cloud .header fieldset p.txt em {color:#3c7df0;}
+#cloud .header fieldset p.txt.no_doc {margin:-16px 0 0; font-size:13px;}
+#cloud .header fieldset p.txt a {text-decoration:underline; color:#3c7df0}
+#cloud .header fieldset p.txt.offline {height:18px;}
+#cloud .header fieldset p.search {position:relative; height:33px; margin:17px 0 0; padding-right:40px; border:3px solid #3c7df0; border-radius:3px;} /* 20150429 padding-right 추가 및 width 삭제 */
+#cloud .header fieldset p.search label {position:absolute; left:16px; top:9px; font-size:14px; color:#a0a0a0} /* 20150514 디자인검수 수정 */
+body.kr #cloud .header fieldset p.search label {top:6px;}
+#cloud .header fieldset p.search input {width:100%; height:31px; line-height:30px; text-indent:16px; border:none; -webkit-appearance:none; outline:none} /* 20150512 outline 추가 */
+#cloud .header fieldset p.search button {position:absolute; top:-1px; right:0; width:37px; height:34px; background-position:0 -835px; text-indent:-999em;cursor:pointer;}
+#cloud .header fieldset p.search a.del {position:absolute; top:8px; right:48px; display:inline-block; width:18px; height:18px; overflow: hidden; text-indent: -999em; background:url(../../resources/image/Polaris/new/img.png) right -1027px no-repeat;}
+#cloud .header fieldset p.search a.del {display:none;}
+#cloud .header fieldset p.search a.del.loading{background:url(../../resources/image/Polaris/new/loading.gif) no-repeat;}
+/* #cloud .header div.conPop {position:absolute; top:40px; right:15px; width:404px; padding:11px 0 0; background:url(../../resources/image/Polaris/new/conPop_topBg.png) left top no-repeat; z-index:2}
+#cloud .header div.conPop div.box {background:url(../../resources/image/Polaris/new/conPop_btmBg.png) left bottom no-repeat;}
+#cloud .header div.conPop.connect {}
+#cloud .header div.conPop.connect ul {margin:0 0 0 16px;}
+#cloud .header div.conPop.connect li {position:relative; min-height:86px; border-bottom:1px solid #d2d2d2; font-size:13px; color:#787878;}
+#cloud .header div.conPop.connect li.pc {min-height:90px}
+#cloud .header div.conPop.connect strong {display:block; padding:13px 0 5px; font-size:15px; font-weight:bold; color:#505050}
+#cloud .header div.conPop.connect a, #cloud .header div.conPop.connect li span {position:absolute; right:15px; top:19px; display:inline-block; width:48px; height:48px;  background:url(../../resources/image/Polaris/new/img.png) no-repeat;}
+#cloud .header div.conPop.connect a {text-indent:-999em;}
+#cloud .header div.conPop.connect li.mobile a {background-position:-384px -839px;}
+#cloud .header div.conPop.connect li.pc a {background-position:-384px -926px;}
+#cloud .header div.conPop.connect li span {padding:0 60px 0 0; color:#3c7df0; font-size:13px; text-align:right; line-height:48px; background-position:right -839px;}
+#cloud .header div.conPop.mobile {}
+#cloud .header div.conPop.connect02 h3 {margin:0 12px; padding:11px 0 12px; font-size:15px; color:#505050; border-bottom:1px solid #d2d2d2}
+#cloud .header div.conPop.connect02 h3 a.prev {display:inline-block; width:24px; height:24px; margin:0 9px 0 0; text-indent:-999em;  background:url(../../resources/image/Polaris/new/img.png) 0 -749px no-repeat;}
+#cloud .header div.conPop.connect02 dl {text-align:center; color:#787878; font-size:13px}
+#cloud .header div.conPop.mobile dt {padding:18px 0 31px; line-height:15px;}
+#cloud .header div.conPop.mobile dd {}
+#cloud .header div.conPop.mobile dd a {display:inline-block; width:48px; height:42px; padding:63px 0 0; margin:0 26px; background:url(../../resources/image/Polaris/new/img.png) no-repeat}
+#cloud .header div.conPop.mobile a.android {background-position:-113px -839px;}
+#cloud .header div.conPop.mobile a.ios {background-position:-213px -839px;}
+#cloud .header div.conPop.mobile a.amazon {background-position:-313px -839px;}
+
+#cloud .header div.conPop.pc dt {padding:14px 0 37px; line-height:15px;}
+#cloud .header div.conPop.pc dd {padding:141px 0 26px; background:url(../../resources/image/Polaris/new/pc_connect.png) center top no-repeat}
+#cloud .header div.conPop.pc dd a.download {display:inline-block; width:320px; height:40px; line-height:40px; margin:0 auto; font-size:16px; background:#3c7df0; color:#fff; border-radius:5px}
+ */
+#cloud .header div.conPop {position:absolute; top:40px; right:12px; width:412px; padding:14px 0 0; background:url(../../resources/image/Polaris/new/conPop_topBg.png) left top no-repeat; z-index:2}/* 20150820 수정 */
+body.cn.zh #cloud .header div.conPop {right:12px;}
+#cloud .header div.conPop.user{right: 10px;}
+#cloud .header div.conPop div.box {padding-bottom:5px; background:url(../../resources/image/Polaris/new/conPop_btmBg.png) left bottom no-repeat;}
+#cloud .header div.conPop.connect {display:none;}
+#cloud .header div.conPop.connect ul {margin:0 6px 0 16px;}
+#cloud .header div.conPop.connect li {float:none; position:relative; min-height:86px; border-bottom:1px solid #d2d2d2; font-size:13px; color:#787878;}
+#cloud .header div.conPop.connect li.pc {min-height:90px}
+#cloud .header div.conPop.connect li.folder {min-height:90px}
+body.fr #cloud .header div.conPop.connect li.folder {padding-bottom:10px}
+#cloud .header div.conPop.connect strong {display:block; padding:13px 0 5px; font-size:15px; font-weight:bold; color:#505050}
+#cloud .header div.conPop.connect a, #cloud .header div.conPop.connect li span {position:absolute; right:15px; top:19px; display:inline-block; width:52px; height:48px;  background:url(../../resources/image/Polaris/new/img.png) no-repeat;}
+#cloud .header div.conPop.connect a {text-indent:-999em;}
+#cloud .header div.conPop.connect li.mobile.off a {background-position:-384px -839px;}
+#cloud .header div.conPop.connect li.folder.off a {background-position:-384px -1025px;}
+#cloud .header div.conPop.connect li.pc.off a {background-position:-384px -926px;}
+#cloud .header div.conPop.connect li.mobile.on a,
+#cloud .header div.conPop.connect li.pc.on a,
+#cloud .header div.conPop.connect li.folder.on a {background-position:right -839px;}
+/*#cloud .header div.conPop.connect li span {padding:0 70px 0 0; color:#3c7df0; font-size:13px; text-align:right; line-height:48px; background-position:right -839px;}*/
+#cloud .header div.conPop.mobile {}
+#cloud .header div.conPop.connect02 h3 {margin:0 12px; padding:11px 0 12px; font-size:15px; color:#505050; border-bottom:1px solid #d2d2d2}
+#cloud .header div.conPop.connect02 h3 a.prev {display:inline-block; width:24px; height:24px; vertical-align: middle;margin:0 9px 0 0; text-indent:-999em;  background:url(../../resources/image/Polaris/new/img.png) 0 -749px no-repeat;}
+#cloud .header div.conPop.connect02 dl {text-align:center; color:#787878; font-size:13px}
+#cloud .header div.conPop.mobile dt {padding:18px 0 31px; line-height:15px;}
+#cloud .header div.conPop.mobile dd {}
+#cloud .header div.conPop.mobile dd a {display:inline-block; width:48px; height:42px; padding:63px 0 0; margin:0 26px; background:url(../../resources/image/Polaris/new/img.png) no-repeat}
+#cloud .header div.conPop.mobile a.android {background-position:-113px -839px;}
+#cloud .header div.conPop.mobile a.ios {background-position:-213px -839px;}
+#cloud .header div.conPop.mobile a.amazon {background-position:-313px -839px;}
+
+#cloud .header div.conPop.pc dt, #cloud .header div.conPop.sync dt {padding:14px 0 37px; line-height:15px;}
+#cloud .header div.conPop.pc dd, #cloud .header div.conPop.sync dd {padding:141px 0 26px; background:url(../../resources/image/Polaris/new/pc_connect.png) center top no-repeat}
+#cloud .header div.conPop.pc dd a.pcdown, #cloud .header div.conPop.sync dd a.download{display:inline-block; width:320px; height:40px; line-height:40px; margin:0 auto; font-size:16px; background:#3c7df0; color:#fff; border-radius:5px}
+
+#cloud .header div.conPop.user {display:none; background:url(../../resources/image/Polaris/new/conPop_topBg02.png) 4px top no-repeat;} /* 20150820 수정 */
+#cloud .header div.conPop.user dl {padding:34px 41px 0}
+#cloud .header div.conPop.user dt {position:absolute; margin:0 29px 0 0;}
+#cloud .header div.conPop.user dt img {position:absolute; top:19px; left:19px}
+#cloud .header div.conPop.user dt span.bg {/* display:inline-block; */  display:none !important; position:absolute; left:0; width:109px; height:108px;}
+#cloud .header div.conPop.user.basic dt span.bg , #cloud .header div.conPop.user.free dt span.bg {display:block !important; background: url(../../resources/image/Polaris/new/cloud/user_pic_free02.png) no-repeat;}
+#cloud .header div.conPop.user.premium dt span.bg, #cloud .header div.conPop.user.pro dt span.bg, #cloud .header div.conPop.user.smart dt span.bg {background: url(../../resources/image/Polaris/new/cloud/user_pic_prem.png) no-repeat;}
+#cloud .header div.conPop.user.lg dt span.bg {background: url(../../resources/image/Polaris/new/cloud/user_pic_lg.png) no-repeat;}
+#cloud .header div.conPop.user.team dt span.bg {background: url(../../resources/image/Polaris/new/cloud/user_pic_team.png) no-repeat;}
+#cloud .header div.conPop.user.orangefree dt span.bg, #cloud .header div.conPop.user.orangepremium dt span.bg, #cloud .header div.conPop.user.orange dt span.bg {background: url(../../resources/image/Polaris/new/cloud/user_pic_orange.png) no-repeat;}/* orange 일경우 */
+#cloud .header div.conPop.user dd {padding:12px 0 0 141px; font-size:15px; }
+#cloud .header div.conPop.user dd strong {display:block; margin:0 0 12px; font-size:16px; color:#282828; word-break:break-all; line-height: 17px; /* max-height: 30px; */ /* overflow: hidden; */}
+#cloud .header div.conPop.user dd span.mail {display:block; margin:0 0 12px; color:#787878;  word-break:break-all; line-height: 17px; /* max-height: 30px; */ /* overflow: hidden; */}
+
+#cloud .header div.conPop.user dd span.service {display:none !important; height: 19px; line-height: 18px;margin:0 0 31px; padding:0 0 0 22px; font-size:13px; line-height: 17px; background: url(../../resources/image/Polaris/new/account/badge.png) 0 -11px no-repeat;}
+#cloud .header div.conPop.user.free dd span.service, #cloud .header div.conPop.user.basic dd span.service {color:#787878; background:url(../../resources/image/Polaris/new/cloud/user_free.png) 0 1px no-repeat;}
+#cloud .header div.conPop.user.premium dd span.service, #cloud .header div.conPop.user.pro dd span.service {color:#3c7df0; background:url(../../resources/image/Polaris/new/cloud/user_premium.png) 0 1px no-repeat;}
+#cloud .header div.conPop.user.smart dd span.service {color:#3c7df0; background:url(../../resources/image/Polaris/new/cloud/user_smart.png) 0 1px no-repeat;}
+#cloud .header div.conPop.user.team dd span.service {color:#e18c00; background:url(../../resources/image/Polaris/new/cloud/user_team.png) 0 1px no-repeat;}
+#cloud .header div.conPop.user.lg dd span.service {color:#c91658; background:url(../../resources/image/Polaris/new/cloud/user_lg.png) 0 1px no-repeat;}
+#cloud .header div.conPop.user.free.orange dd span.service, #cloud .header div.conPop.user.orangefree dd span.service {color:#ff6600; background:url(../../resources/image/Polaris/new/cloud/orange_free.png) 0 1px no-repeat;}/* orange free 일 경우 */
+#cloud .header div.conPop.user.premium.orange dd span.service, #cloud .header div.conPop.user.orangepremium dd span.service {color:#ff6600; background:url(../../resources/image/Polaris/new/cloud/orange_premium.png) 0 1px no-repeat;}/* orange premium 일 경우 */
+
+body.rtl #cloud .header div.conPop.user dd span.service {padding:0 22px 0 0; background: url(../../resources/image/Polaris/new/account/badge.png) right -11px no-repeat;}
+body.rtl #cloud .header div.conPop.user.free dd span.service {background:url(../../resources/image/Polaris/new/cloud/user_free.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.premium dd span.service {background:url(../../resources/image/Polaris/new/cloud/user_premium.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.team dd span.service {background:url(../../resources/image/Polaris/new/cloud/user_team.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.lg dd span.service {background:url(../../resources/image/Polaris/new/cloud/user_lg.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.free.orange dd span.service {background:url(../../resources/image/Polaris/new/cloud/orange_free.png) right 1px no-repeat;}/* orange free 일 경우 */
+body.rtl #cloud .header div.conPop.user.premium.orange dd span.service {background:url(../../resources/image/Polaris/new/cloud/orange_premium.png) right 1px no-repeat;}/* orange premium 일 경우 */
+
+#cloud .header div.conPop.user dd span.btn a {color:#505050; font-size:13px;}
+#cloud .header div.conPop.user dd span.btn var {padding:0 8px; color:#a0a0a0;}
+#cloud .header div.conPop.user p.btn {width:400px; margin:40px 0 0 6px; padding:12px 0 19px; text-align:center; border-top:1px solid #d2d2d2;} /* 20150820 수정 */
+#cloud .header div.conPop.user p.btn a {display:inline-block; height:26px; line-height:26px; padding:0 32px; color:#787878; font-size:13px;  border-radius:2px; text-align:center; border:1px solid #c8c8c8;}
+
+body.cn.zh #cloud .header h1 {display: block; width: 340px; background: url(../../resources/image/Polaris/new/bi_cn.png) no-repeat;}
+#cloud .header.sm,
+#cloud.templete .header {position:static; left:0; top:0; height:72px; background:#fff; border-bottom:1px solid #d2d2d2; z-index:3} /* 20150429 z-index 수정 */
+#cloud .header.sm{position:fixed;} /*20150819 송경식 */
+#cloud .header.sm h1,
+#cloud.templete .header h1 {position:absolute; left:30px; top:9px; width:180px; height:0; margin:0 auto; background:url(../../resources/image/Polaris/new/img.png) -421px 0 no-repeat; height:30px; padding:0;background-repeat: no-repeat !important}
+body.cn.zh #cloud .header.sm h1, body.cn.zh #cloud.templete .header h1 {background: url(../../resources/image/Polaris/new/img_cn.png) -426px 0 no-repeat;}
+#cloud .header.sm ul.util_cloud,
+#cloud.templete .header ul.util_cloud {position:absolute;}
+#cloud .header.sm ul.util_cloud.fl,
+#cloud.templete .header ul.util_cloud.fl {right:133px;}
+#cloud .header.sm ul.util_cloud.fr,
+#cloud.templete .header ul.util_cloud.fr {right:0;}
+#cloud .header.sm ul.util_cloud.fl li a,
+#cloud.templete .header ul.util_cloud.fl li a {padding:0 6px 0 0;text-indent:-999em; width:16px} /* 20150421 padding */
+#cloud .header.sm fieldset,
+#cloud.templete .header fieldset {position:absolute; top:8px; left:256px;}
+#cloud .header.sm fieldset p.txt,
+#cloud.templete .header fieldset p.txt {display:none}
+#cloud .header.sm fieldset p.search,
+#cloud.templete .header fieldset p.search {margin:0}
+
+#cloud .header.sm.searchResult fieldset,
+#cloud.templete .header.searchResult fieldset {top:-55px;}
+
+#cloud.templete .header.searchResult fieldset {top:8px;}
+
+#cloud .header.sm.searchResult fieldset p.search,
+#cloud.templete .header.searchResult fieldset p.search {border:3px solid #f0f0f0; background:#f0f0f0;}
+#cloud .header.sm.searchResult fieldset p.search input,
+#cloud.templete .header.searchResult fieldset p.search input {background:#f0f0f0}
+#cloud .header.sm.searchResult fieldset p.search button,
+#cloud.templete .header.searchResult fieldset p.search button {background-position:-38px -835px;}
+#cloud .header.sm.searchResult h1,
+#cloud.templete .header.searchResult h1 {display:none;}
+#cloud .header.sm.searchResult a.btn_prev,
+#cloud.templete .header.searchResult a.btn_prev {position:absolute; height:22px;top:10px; left:-224px;  display:inline-block;  padding-left:34px; font-size:14px; color:#6e6e6e; overflow:hidden; background: url(../../resources/image/Polaris/new/img.png) 0 -1034px no-repeat}
+/* tooltip */
+#cloud .header ul.util_cloud li div.cloud_tooltip{ z-index:20; display:none; position:absolute; margin:4px 0 0; text-align:center; padding:6px 0 0; background:url(../../resources/image/Polaris/new/tooltip_arrow.png) center top no-repeat}
+#cloud .header ul.util_cloud li div.cloud_tooltip span {display:inline-block; height:30px; padding:0 0 0 10px; line-height:27px; font-size:13px; background:#000; border-radius:4px}
+#cloud .header ul.util_cloud li div.cloud_tooltip em{display:inline-block; height:30px;  padding:0 10px 0 0; color:#fff; vertical-align : top;}
+#cloud .header ul.util_cloud.fl li div.cloud_tooltip {top:20px;}
+#cloud .header ul.util_cloud li div.cloud_tooltip{display:none;}
+#cloud .header ul.util_cloud.fl li div.cloud_tooltip{display:none;}
+#cloud .header.sm ul.util_cloud.fl li:hover div.cloud_tooltip,
+#cloud.templete .header ul.util_cloud.fl li:hover div.cloud_tooltip {display:block;}
+#cloud .header ul.util_cloud li.open div.cloud_tooltip{left:-15px}/* 20150514 디자인검수 수정 */
+#cloud .header ul.util_cloud li.share div.cloud_tooltip{left:-30px}/* 20150514 디자인검수 수정 */
+#cloud .header ul.util_cloud li.app div.cloud_tooltip{left:-9px;}
+#cloud .header ul.util_cloud li.user div.cloud_tooltip{left:-25px;}
+#cloud .header ul.util_cloud li.app div.cloud_tooltip{left:-10px}
+body.ja #cloud .header ul.util_cloud li.app div.cloud_tooltip{left:-15px}
+#cloud .header ul.util_cloud li.user div.cloud_tooltip{/* left:-28px; */ left:-23px;}
+#cloud .header ul.util_cloud li.notice div.cloud_tooltip {left:-34px}
+body.ko #cloud .header ul.util_cloud li.notice div.cloud_tooltip,
+body.kr #cloud .header ul.util_cloud li.notice div.cloud_tooltip {left:-16px}
+#cloud .header ul.util_cloud li.chat div.cloud_tooltip {left: -13px;}
+body.web.rtl #cloud .header ul.util_cloud li.chat div.cloud_tooltip {left:1px; }
+#cloud .header ul.util_cloud li.open div.cloud_tooltip span{min-width:;}/* 20150514 디자인검수 수정 */
+#cloud .header ul.util_cloud li.share div.cloud_tooltip span{}/* 20150514 디자인검수 수정 */
+#cloud .header ul.util_cloud li.notice div.cloud_tooltip span {}/* 20150514 디자인검수 수정 */
+#cloud .header ul.util_cloud li.app div.cloud_tooltip span{}
+#cloud .header ul.util_cloud li.user div.cloud_tooltip span{position:relative; top:0px; min-width:60px;}
+
+
+#cloud div.btn_open div.cloud_tooltip {display:none; position:absolute; margin:4px 0 0; padding:6px 0 0; background:url(../../resources/image/Polaris/new/tooltip_arrow.png) center top no-repeat} /* 20150522 추가 */
+#cloud div.btn_open div.cloud_tooltip span {display:inline-block; height:30px; padding:0 0 0 14px; line-height:25px; font-size:13px; background:url(../../resources/image/Polaris/new/tooltip_l.png) left no-repeat}/* 20150522 추가 */
+#cloud div.btn_open div.cloud_tooltip em {display:inline-block; height:30px;  padding:0 14px 0 0; color:#fff; background:url(../../resources/image/Polaris/new/tooltip_r.png) right no-repeat}/* 20150522 추가 */
+#cloud div.btn_open:hover div.cloud_tooltip {display:block; left:10px} /* 20150522 추가 */
+/* tooltip 끝 */
+
+/* 애니메이션 */
+#cloud .header.sm {
+
+    -webkit-animation: fadein 0.3s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 0.3s; /* Firefox < 16 */
+        -ms-animation: fadein 0.3s; /* Internet Explorer */
+         -o-animation: fadein 0.3s; /* Opera < 12.1 */
+            animation: fadein 0.3s;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+/* 애니메이션 끝  */
+#cloud div#cloud_container {/* padding-left: 254px; */}
+
+#cloud section.cloud_contents {/* float:left; */ width:100%; padding:0 0 68px; height:100%;}
+#cloud section.cloud_contents.sm {margin-top:60px;} /* 20150424 margin-top 수정 */
+#cloud.templete section.cloud_contents {/* margin-top:73px; */ }
+/*#cloud section.cloud_contents.search h2.title {display:none;}*/
+#cloud.templete section.cloud_contents * {font-size:13px;}
+#cloud section.doc_list {position:relative; width:1140px; margin:0 auto 0;}
+#cloud section.doc_list.fix{margin-left: 373px;}
+#cloud section.doc_list h2 {position:relative; padding:30px 0 15px 12px; font-size:16px; color:#787878; font-weight:normal} /* 20150612 position:relative; 추가 */
+#cloud section.doc_list h2.result {display:none;}
+#cloud section.doc_list h2.result em {color:#3c7df0;}
+
+#cloud section.doc_list h2.title {overflow:hidden;padding-left:20px;padding-right:35px;}
+#cloud section.doc_list h2.result {display:none;}
+#cloud section.doc_list h2.result em {color:#1e82ff;}
+#cloud section.doc_list h2.title a.doc {font-size:14px;color:#505050;font-weight:bold;}
+#cloud section.doc_list h2.title a.pchome_alldoc.doc {float:right;padding-right:15px;font-weight:normal;color:#787878;background: url(../../resources/image/Polaris/new/bul_arrow.png) 100% 50% no-repeat;}
+body.rtl #cloud section.doc_list h2.title a.pchome_alldoc.doc {float:left;padding-left:15px;background: url(../../resources/image/Polaris/new/bul_arrow_rtl.png) 0 50% no-repeat;}
+#cloud section.doc_list h2.title var {padding:0 12px; font-weight:normal; font-style:normal; color:#c8c8c8;}
+
+#cloud section.doc_list h2 a.refresh {position:absolute; right:14px; display:inline-block; margin:6px 0 0; width:21px; height:15px; text-indent:-9999em; background:url(../../resources/image/Polaris/new/refresh.png) no-repeat;} /* 20150612 추가 */
+#cloud section.doc_list h2 a.refresh:hover {background-position:0 -23px;}/* 20150612 추가 */
+#cloud div.sort {float:right; display:none; position:absolute; top:61px; right:0; width:400px;}/* 20150507 수정 */
+#cloud_contents search sm #cloud div.sort {top:150px;}/* 20150514 디자인검수 수정 */
+#cloud div.sort p {position:absolute; right:102px;}/* 20150507 수정 */
+#cloud div.sort p a {color:#787878;}/* 20150507 수정 */
+#cloud div.sort p a.on, #cloud div.sort p a.active  {color:#3c7df0;}/* 20150507 수정 */
+#cloud div.sort p var {padding:0 12px; color:#d2d2d2;}/* 20150507 수정 */
+#cloud div.sort h4 {position:absolute; right:0; margin:0 14px 0 0; padding:0 17px 0 0; color:#787878; background:url(../../resources/image/Polaris/new/img.png) right -422px no-repeat; cursor:pointer; font-weight:normal}/* 20150507 수정 */
+#cloud div.sort ul {display:none; position:absolute; top:30px; right:0; width:146px; padding:20px 0 0; background:#fff; box-shadow: 0 2px 0 #ebecec; border:1px solid #999ea4; border-radius:3px; z-index:3}/* 20150507 수정 */
+#cloud div.sort li a {display:block; margin:0 0 20px; padding:0 0 0 38px; font-size:13px; color:#505050; text-align:left;}/* 20150507 수정 */
+#cloud div.sort li a.on {background:url(../../resources/image/Polaris/new/img.png) 0 -909px no-repeat;}/* 20150507 수정 */
+#cloud section.cloud_contents.search section.doc_list h2.result, #cloud section.cloud_contents div.sort {display:block;}/* 20150507 수정 */
+#cloud section.doc_list dl {/* float:left; */width:100%;cursor: pointer;position:relative;height: 59px;/* border-bottom:1px solid #e6e6e6; */clear:both;}
+#cloud section.doc_list dl:hover {background:#e6f4ff;}
+#cloud section.doc_list dt, #cloud section.doc_list dd {float:left;}
+#cloud section.doc_list dt {position:relative;width: 62px;padding: 12px 0 0;text-align:center;}
+#cloud section.shareList section.doc_list dt{width:51px; text-align:left;}
+#cloud section.doc_list dd {position:relative;width: 1073px;min-height:56px;border-bottom:1px solid #e6e6e6;} /* 20150820 수정 */
+#cloud section.doc_list dd strong {display:inline-block; padding:7px 0 0 0; line-height:auto; font-weight:normal; font-size:13px; color:#282828;}/* 20150514 디자인검수 수정 */
+#cloud .list_box td.name {}
+#cloud section.doc_list dd strong div.tit, #cloud .list_box div.tit {position:relative; overflow:hidden; max-width:700px; padding-right:50px; white-space:nowrap; text-overflow:ellipsis; /* height: 22px; */} /* 20150908 수정 */
+#cloud .list_box div.tit {padding-right:80px;}
+#cloud section.doc_list dd strong div.tit em, #cloud .list_box div.tit em{color: #3c7df0;font-weight: bold;}
+#cloud section.doc_list dd span.img, #cloud .list_box div.tit span.img{}
+#cloud section.doc_list dl.share span.img, #cloud section.doc_list dl span.img {position:absolute; top:4px; right: 5px; display:inline-block; width:40px; height:12px; padding-left:22px;}/* 20150908 수정 */
+#cloud .list_box div.tit span.img {position:absolute; top:4px; right:59px; display:inline-block; width:15px; height:12px; padding-left:22px;}/* 20150908 수정 */
+#cloud .list_box div.tit span.img em {display:inline-block; width:17px; height:14px; margin:0 0 0 6px; text-indent:-999em;}/* 20150908 */
+#cloud .list_box div.tit span.img em.share {background:url(../../resources/image/Polaris/new/cloud/bul_share.png) no-repeat;}/* 20150908 */
+#cloud .list_box div.tit span.img em.favorite {background:url(../../resources/image/Polaris/new/cloud/s_favorite_off.png) 0 -1px no-repeat;}/* 20150908 */
+#cloud section.doc_list dd strong div.tit em {display:inline-block; width:17px; height:25px; margin:0 0 0 6px; text-indent:-999em;}/* 20150908 */
+#cloud section.doc_list dd strong div.tit em.favorite {background:url(../../resources/image/Polaris/new/cloud/s_favorite_off.png) 0 -1px no-repeat;}/* 20150908 */
+#cloud section.doc_list dd strong div.tit em.share{background:url(../../resources/image/Polaris/new/cloud/bul_share.png) no-repeat;}
+
+/* #cloud section.doc_list dd span.location, .search_result ul span.location  {display:block; font-size:12px; height:20px; max-width:380px; color:#a0a0a0; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+ */#cloud section.doc_list dd span.txt,
+#cloud section.doc_list dd span.name,
+#cloud section.doc_list dd span.location {margin-top:0;  display:block; font-size:12px; line-height:auto; max-width: 332px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;color: #969696;}
+#cloud section.doc_list dd span.txt strong,
+.search_result ul span.txt strong {display:inline; padding:0; color: #3c7df0;font-weight: bold;} /* 20150514 디자인검수 수정 */
+#cloud section.doc_list dd span.date {position:absolute; top:18px; right: 64px; color: #787878;}
+#cloud section.doc_list em {color:#3c7df0} /* 20150506 추가*/
+#cloud section.doc_list dl.premium dt {padding-top:25px;}
+#cloud section.doc_list dl.premium dd span.date {top:36px;}
+
+#cloud div.no_doc,
+#cloud div.offline,
+#cloud div.limited,
+#cloud section.noshare,
+#cloud section.no_mydoc{position:fixed; top:50%; left:50%; display:none; margin:53px 0 0 -366px; padding-top:5px;display:; width:732px; text-align:center;} /* 20150514 디자인검수 수정 */
+#cloud.templete div.no_doc,
+#cloud.templete div.offline,
+#cloud.templete div.limited,
+#cloud.templete section.noshare,
+#cloud.templete section.no_mydoc {margin-top:-25px;} /* 20150514 디자인검수 추가 */
+/* #cloud section.noshare {display:none; margin: 139px auto 0; width:732px; text-align:center;} 20150514 디자인검수 수정 */
+#cloud section.no_doc dl, #cloud section.offline dl {position:relative; top:209px;}
+#cloud section.no_doc dt, #cloud section.offline dt {padding:109px 0 7px; font-size:15px; color:#787878;/* opacity:1;filter:alpha(opacity=100); */text-align:center;}
+#cloud section.no_doc dt.hide {background:none;opacity:0; filter:alpha(opacity=0);}
+#cloud section.no_mydoc dt,
+#cloud section.no_doc dt {background:url(../../resources/image/Polaris/new/no_doc.png) center top no-repeat;}
+#cloud section.no_doc.share dt {background:url(../../resources/image/Polaris/new/noshare.png) center top no-repeat;}
+#cloud section.no_doc.favorite dt {background:url(../../resources/image/Polaris/new/no_favorite.png) center top no-repeat;}
+
+#cloud section.doc_list div.no_doc {position: relative; text-align:center; padding: 61px 0 15px 12px;}/* 20150514 디자인검수 수정 */
+#cloud section.doc_list div.no_doc dl {float:none; cursor:default; border-bottom: none;}
+#cloud section.doc_list div.no_doc dl:hover {background:none;}
+#cloud section.doc_list div.no_doc dt,
+#cloud section.noshare dt,
+#cloud section.no_mydoc dt {float:none; width:auto; padding:109px 0 7px; font-size:15px; color:#787878;}
+#cloud section.doc_list div.no_doc dt {float:none; background:url(../../resources/image/Polaris/new/no_doc.png) center top no-repeat;}
+#cloud section.doc_list div.no_doc.offline dt{background:url(../../resources/image/Polaris/new/offline.png) center top no-repeat;}
+#cloud section.doc_list div.no_doc dd {border-bottom:0;}
+section.offline dt {background:url(../../resources/image/Polaris/new/offline.png) center top no-repeat;}
+#cloud section.limited p.no_data {position:absolute; top:50%; left:50%; margin:-147px 0 0 -196px;text-align:center}
+body.fr #cloud section.limited p.no_data {margin:-147px 0 0 -296px;}
+#cloud section.doc_list div.no_doc.noshare dt {background:url(../../resources/image/Polaris/new/noshare.png) center top no-repeat;}
+#cloud section.no_doc dd,
+#cloud section.offline dd,
+#cloud section.doc_list div.no_doc dd,
+#cloud section.noshare dd {font-size:13px; color:#a0a0a0; width:100%}
+#cloud section.no_doc dd {text-align: center;}
+#cloud section.no_doc dd a {text-decoration:underline; color:#3c7df0}
+#cloud p.search label.off {display:none}
+
+#cloud section.limited .no_data.result span{display: block;padding-top: 19px;padding-left: 43px;color: #a4a7ab;}
+body.fr #cloud section.limited .no_data.result span {padding-left:0}
+#cloud section.limited .no_data.result a{display: inline-block;width:320px; height:40px; text-align:center; margin: 21px 0 0 43px;line-height:38px;color: #fff;border-radius: 3px;
+  background: #3c7df0;text-align: center;font-size: 13px;}
+body.fr #cloud section.limited .no_data.result a {margin-left:0}
+#cloud section.cloud_contents.search.sm section.no_doc {margin: 0 auto 0;position: relative;width: 732px;}
+
+#cloud section.templete {clear:both; width:100%;}
+#cloud section.templete div.tab {padding:0 0 23px; text-align:center}
+#cloud section.templete div.tab li {display:inline-block; margin:0 -3px 0 0;/* float: left; */vertical-align: top;}
+#cloud section.templete div.tab a {display:inline-block; width:88px; padding: 24px 0 8px; text-align:center; color:#505050; border-bottom:3px solid #fff; cursor:default}
+#cloud section.templete div.tab a.slide {height:auto}
+#cloud section.templete div.tab a.full:hover, #cloud section.templete div.tab a.full.on {color:#3c7df0; border-bottom:3px solid #3c7df0}
+#cloud section.templete div.tab a.word:hover, #cloud section.templete div.tab a.word.on {color:#3c7df0; border-bottom:3px solid #3c7df0}
+#cloud section.templete div.tab a.sheet:hover, #cloud section.templete div.tab a.sheet.on {color:#6eaf19; border-bottom:3px solid #6eaf19}
+#cloud section.templete div.tab a.slide:hover, #cloud section.templete div.tab a.slide.on {color:#ff8c3c; border-bottom:3px solid #ff8c3c}
+#cloud section.templete div.tab a.hwp:hover, #cloud section.templete div.tab a.hwp.on {color:#3c7df0; border-bottom:3px solid #3c7df0}
+#cloud section.templete div.thum {clear:both; margin: 0 24px 0; border-bottom:1px solid #e6e6e6;}
+#cloud section.templete div.thum.select{padding: 45px 0 0;}
+#cloud section.templete div.thum.select h2{display:none;}
+#cloud section.templete div.thum.slide, #cloud section.templete div.thum.sheet, #cloud section.templete div.thum.hwp, #cloud section.templete div.thum.word {border-bottom:none}
+#cloud section.templete div.thum.slide {width:auto; height:auto; overflow: auto }
+#cloud section.templete h2 {padding: 32px 0 27px 45px; color:#787878; font-size:15px; font-weight:normal;}
+body.rtl #cloud section.templete h2 {padding: 32px 45px 27px 0;}
+#cloud section.templete dl {display:inline-block;width: 208px;margin: 0 9px;text-align:center;cursor:pointer;}
+#cloud section.templete dd {padding:12px 0 49px;}
+
+/* 템플릿 검색 결과 */
+#cloud section.templete.search h3 {padding:28px 0 52px; text-align:left; color:#787878; font-size:14px; font-weight:normal}
+#cloud section.templete.search div.thum {border-bottom:none;}
+#cloud section.templete.search dl {width:auto; height:234px; margin-bottom:45px;}
+#cloud section.templete.search dl.slide {float:none; width:auto; height:234px; overflow:visible}
+#cloud section.templete.search dl.slide dt , #cloud section.templete.search dl.ppt dt, #cloud section.templete.search dl.pptx dt {padding:43px 0;}
+#cloud section.templete.search dd span {display:inline-block; padding-left:20px;}
+/*#cloud section.templete.search dl.slide dd span {background:url(../../resources/image/Polaris/new/s_slide.png) no-repeat}
+#cloud section.templete.search dl.ppt dd span {background:url(../../resources/image/Polaris/new/s_ppt.png) no-repeat}
+#cloud section.templete.search dl.pptx dd span {background:url(../../resources/image/Polaris/new/s_pptx.png) no-repeat}
+#cloud section.templete.search dl.word dd span {background:url(../../resources/image/Polaris/new/s_word.png) no-repeat}
+#cloud section.templete.search dl.doc dd span {background:url(../../resources/image/Polaris/new/s_doc.png) no-repeat}
+#cloud section.templete.search dl.docx dd span {background:url(../../resources/image/Polaris/new/s_docx.png) no-repeat}
+#cloud section.templete.search dl.hwp dd span {background:url(../../resources/image/Polaris/new/s_hwp.png) no-repeat}
+#cloud section.templete.search dl.sheet dd span {background:url(../../resources/image/Polaris/new/s_sheet.png) no-repeat}
+#cloud section.templete.search dl.xls dd span {background:url(../../resources/image/Polaris/new/s_xls.png) no-repeat}
+#cloud section.templete.search dl.xlsx dd span {background:url(../../resources/image/Polaris/new/s_xlsx.png) no-repeat}*/
+#cloud section.templete.search dl.slide dd span {background:url(../../resources/image/Polaris/new/s_pptx.png) no-repeat}
+#cloud section.templete.search dl.word dd span {background:url(../../resources/image/Polaris/new/s_docx.png) no-repeat}
+#cloud section.templete.search dl.sheet dd span {background:url(../../resources/image/Polaris/new/s_xlsx.png) no-repeat}
+#cloud section.templete.search dl.hwp dd span {background:url(../../resources/image/Polaris/new/s_hwp.png) no-repeat}
+#cloud section.templete.search dl.odt dd span {background:url(../../resources/image/Polaris/new/s_odt.png) no-repeat}
+/* 템플릿 검색 결과 끝 */
+dl.floating {position:fixed; right:28px; bottom:25px; z-index:3} /* 20150512 z-index 수정 */
+dl.floating dt {position:absolute; bottom:0; right:0px; padding:11px 0 0; width:64px;}/* 20150430 수정 */
+dl.floating dt a {display:block; text-indent:-9999em;}
+dl.floating dt a {width:64px; height:64px; cursor:pointer;}
+dl.floating dt a.open {background-position:0 -317px; z-index:2}
+dl.floating dt a.close {display:none; background-position:0 -396px; z-index:1}
+dl.floating dd {display:; width:180px; text-align:right}/* 20150508 수정 */
+dl.floating dd a {position:absolute;  right:7px;display:none; width:155px; height:50px; margin:0 0 10px 8px; background:url(../../resources/image/Polaris/new/floating.png) no-repeat;}/* 20150508 수정 */
+dl.floating a span {position:absolute; float:right; right:68px;  height:32px; margin:7px 0 0; line-height:34px; display:inline-block; padding:0 0 0 12px; border-radius:3px; border:1px solid #ddd; box-shadow:-0 1px 2px 0 #d0d0d0; background:#fff; color:#3c3c3c; display:none;}/* 20150820 수정 */
+dl.floating a.guestinit span.guest {display:block}
+dl.floating a.guestinit span.guest em {display:inline-block; height:32px; padding:0 12px 0 0; white-space: nowrap;}
+dl.floating a:hover span {display:block} /* 20150430 수정 */
+dl.floating a:hover span em {display:inline-block; height:32px; padding:0 12px 0 0; white-space: nowrap;}/* 20150430 수정 */
+dl.floating dt a span {right:75px; margin:-4px 0 0; /* min-width:90px; */  text-indent: 0;  background: #fff;} /* 20150506 수정 */
+/* dl.floating dt a.open span{width: 100px;} */
+
+
+/* dl.floating dd a {
+background:transparent;
+-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+} 20150708 추가
+ */
+@media only screen and (max-width:1244px) {
+    #cloud .header.sm h1,
+    #cloud.templete .header h1 {} /* 20150429 수정 */
+    #cloud .header fieldset {width:732px}
+}
+/*custom*/
+#cloud .header ul.util_cloud.fr .notice_pop{right: 20px;}
+#pchome_upload_input{width:0; height:0; position: absolute; top: -999px;}
+
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+div#pchome_upload{position: relative;margin: auto;text-decoration: underline;color: #3c7df0;top: -23px;right: -200px;height:0 !important;}
+div#pchome_upload3{  position: relative; top: 0;  left: 0; text-decoration: underline;  color: #3c7df0; display: inline-block;}
+div#pchome_upload3 object {left:0;}
+#SWFUpload_0 {right:0;}
+
+/* 공유 리스트 - 20150507 */
+#cloud section.shareList .share_header {position:relative; height:57px;border-bottom:1px solid #dcdcdc; background:#f5f5f5;padding-left: 254px;} /* 20150511 z-index 수정 */
+#cloud section.shareList .share_header h2 {color:#787878; font-size:15px; font-weight:normal; line-height:49px;} /* 20150511 추가 */
+#cloud section.shareList .share_header a.btn_menu,
+#cloud section.shareList .share_header div.btn_open {position:absolute; display:inline-block;} /* 20150522 수정 */
+#cloud section.shareList .share_header div.btn_open {top:9px; right:8px; }/* 20150522 추가 */
+#cloud section.shareList .share_header a.btn_menu {text-indent:-999em; width:64px; height:48px; background:url(../../resources/image/Polaris/new/img_02.png) 0 -220px no-repeat;}
+#cloud section.shareList .share_header a.btn_menu.on {background-position:0 -269px;}
+#cloud section.shareList .share_header div.btn_open a {display:inline-block; height:30px; padding:0 10px 0 34px; color:#6e6e6e; line-height:27px; border:1px solid #d2d2d2; border-radius:3px; background:#fff url(../../resources/image/Polaris/new/bul_open.png) 10px 7px no-repeat;}/* 20150522 수정 */
+#cloud section.shareList .share_header dl.location {line-height: 57px; width: 60%;}
+#cloud section.shareList .share_header h3 {padding:0 0 0 53px; color:#787878; font-weight:normal; font-size:13px; line-height:58px;}
+#cloud section.shareList .share_header h3 em {color:#3c7df0;}
+#cloud section.shareList .share_header h3 span {float:right; padding:0 23px 0 0; width:80%; text-align:right; }
+body.web.rtl #cloud section.shareList .share_header h3 span {float:left; text-align:left; padding:0 0 0 23px;}
+#cloud #trashcan_list h3 span em {display:inline-block; padding-left:19px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width:100%;; color:#ff5555; background:url(../../resources/image/Polaris/new/bul_caution.png) 0 no-repeat;}
+#cloud section.shareList .share_header dl.location dt {white-space:nowrap; text-overflow:ellipsis; /* overflow:hidden;*/ height:57px; }
+#cloud section.shareList .share_header dl.location dt a, #cloud section.shareList .share_header dl.location em {display:inline-block; padding:0 0 0 30px;/* max-width:8%; */ white-space:nowrap; text-overflow:ellipsis; overflow:hidden; background:url(../../resources/image/Polaris/new/location_bg.png) 11px 23px no-repeat}
+/* #cloud section.shareList .share_header dl.location dt a.first {max-width:100px}jquery를 이용하여 사이즈 리사이징 해야 함 */
+#cloud section.shareList .share_header dl.location a {color:#787878;}
+#cloud section.shareList .share_header dl.location em {color:#3c7df0;}
+#cloud section.shareList .share_header dl.location a.folder_open {display:;position:relative; top:0px; left:40px; margin-right:-18px; width:28px; height:28px; text-indent:-9999em; background:url(../../resources/image/Polaris/new/img_02.png) 0 3px no-repeat;}
+#cloud section.shareList .share_header dl.location a.folder_open:hover {border:1px solid #d7d7d7}
+#cloud section.shareList .share_header dl.location a.first, #cloud section.shareList .share_header dl.location em.first {padding:0; background:none;}
+#cloud section.shareList .share_header dl.location a.first, #cloud section.shareList .share_header dl.location em.first {padding-left:50px;  /* white-space:nowrap; text-overflow:ellipsis; overflow:hidden; */ }
+#cloud section.shareList .share_header dl.location em.first {width:70%;}
+#cloud section.shareList .share_header dl.location dd {position:relative}
+#cloud section.shareList .share_header dl.location ul {position:absolute; /* top:-32px; */ left:34px; max-width:250px; padding:6px 0; border:1px solid #999ea4; background:#fff; border-radius:3px; box-shadow: 0 0 4px 1px #d2d2d2;z-index:2}
+#cloud section.shareList .share_header dl.location li a {display:block; height:33px; line-height:37px; margin:0 0 9px; padding:0 23px 0 44px; color:#505050; font-size:13px; background:url(../../resources/image/Polaris/new/img_02.png) no-repeat; text-overflow:ellipsis; white-space:nowrap; overflow:hidden}
+#cloud section.shareList .share_header dl.location li a.teamFolder {background-position:5px -113px;}
+#cloud section.shareList .share_header dl.location li a.folder {background-position:5px -64px;}
+#cloud section.shareList .share_header dl.location li a.inbox {background-position:5px -159px;}
+#cloud section.shareList .share_header dl.location li a.cloud {background-position:5px -331px;} /* 20150518 추가 */
+#cloud section.shareList .share_header ul.btn {position:absolute; right:20px; top: 15px; background:#f5f5f5;}
+/* #cloud section.shareList .share_list#my_list .share_header ul.btn {left:0;} */
+#cloud section.shareList .share_header ul.btn li {float:left;}
+#cloud section.shareList .share_header ul.btn li.context_menu { height:26px; line-height:28px;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more {position:relative; /* display:none; */ padding-right:21px; border-right:1px solid #ddd}
+#cloud section.shareList .share_header ul.btn li.context_menu_more a.more {width:25px; height:26px; text-indent:-999em; background:url(../../resources/image/Polaris/new/cloud/context_menu_more.png) no-repeat;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu {display:none; left:-120px;top:40px;}
+/* #cloud section.shareList .share_header ul.btn li.context_menu_more:hover div.context_menu {display:block;} */
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu li {float:none}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu a {display:block; margin:0}
+#cloud section.shareList .share_header ul.btn a,
+#cloud section.shareList .share_header ul.btn div.open {display: block; margin-left: 21px; color: #282828; vertical-align: top; float: left;}
+#cloud section.shareList .share_header ul.btn div.open {cursor: pointer;  background: url(../../resources/image/Polaris/new/arrow_bottom.png) right no-repeat; padding-right: 13px;}
+#cloud section.shareList .share_header ul.btn a.upload,
+#cloud section.shareList .share_header ul.btn a.newFolder {position:relative; top:-2px; padding:0 14px 0 34px; height:30px; line-height:30px; border:1px solid #d2d2d2; border-radius:3px;}
+#cloud section.shareList .share_header ul.btn a.upload {margin:0 0 0 20px; background:#fff url(../../resources/image/Polaris/new/cloud/btn_upload.png) 10px 7px no-repeat;}
+#cloud section.shareList .share_header ul.btn a.newFolder {margin:0 8px; background:#fff url(../../resources/image/Polaris/new/cloud/btn_newFolder.png) 10px 7px no-repeat;}
+#cloud section.shareList .share_header ul.btn a#swf_upload { position: relative; top: -2px; border: 1px solid #d2d2d2; border-radius: 3px; background: #fff url(../../resources/image/Polaris/new/cloud/btn_upload.png) 10px 7px no-repeat;}
+#cloud section.shareList section.tree {position:absolute; left:0; top:73px; bottom:0; background:#fff; width:256px; /* min-width:256px; max-width:380px;*/overflow-x:hidden; overflow-y:auto; z-index: 3; -webkit-overflow-scrolling:touch;}
+#cloud section.shareList section.tree.on {display:block;}
+/* 20150522 추가 */
+@media only screen and (min-width:1024px) and (max-width:1264px) {
+    #cloud section.shareList .share_header dl.location dt a, #cloud section.shareList .share_header dl.location em {}
+    /* #cloud section.shareList .share_header dl.location em.first {width:50%;} */
+}
+@media only screen and (max-width:1170px) {
+    #cloud section.shareList .share_header dl.location {width:80%;}
+    #cloud section.shareList .share_header dl.location dt a, #cloud section.shareList .share_header dl.location em {}
+    #cloud section.shareList .share_header ul.btn {display:;}
+}
+
+@media only screen and (max-width:1040px) {
+    #cloud section.shareList .share_header dl.location em.first {width:50%;}
+    #cloud section.shareList .share_header div.btn_open {right:20px;}
+    #cloud section.shareList .share_header div.btn_open a {text-indent:-999em; padding:0; width:35px;}
+    #cloud section.shareList .share_header div.btn_open div.cloud_tooltip {min-width:190px; left:-80px;}
+}
+/* 20150522 추가 끝 */
+#cloud section.shareList section.tree dl.tree_folder {position:relative; z-index:1}
+#cloud section.shareList section.tree dl.tree_folder dd {}
+#cloud section.shareList section.tree table {/* width:336px; */ width:100%; margin-left:-16px; margin-top:28px;}
+#cloud section.shareList section.tree table td {padding-right:14px;}
+#cloud section.shareList section.tree ul {margin-left:4px;}
+#cloud section.shareList section.tree li {padding-left:14px;  white-space:nowrap;  max-width:256px;}
+#cloud section.shareList section.tree ul ul li {height:32px;}
+#cloud section.shareList section.tree ul a img {position:relative; top:-2px;left: -7px;vertical-align:middle; padding:5px 11px 4px 10px; margin:0 0 0 10px;}
+#cloud section.shareList section.tree ul a {display:block; height:23px; padding-right:10px; font-size:13px; line-height:23px; border:2px solid #fff; color:#505050;}
+#cloud section.shareList section.tree ul a em {display:inline-block; margin:0 0 0 -8px;}
+#cloud section.shareList section.tree li.close ul{display:none;}
+#cloud section.shareList section.no_doc{display:block;}
+#cloud section.templete section.no_doc {text-align:center}
+#cloud section.shareList section.tree ul a:hover {color:#3c7df0}
+#cloud section.shareList section.tree ul.cloud {margin-bottom:18px; margin-left:20px;}
+#cloud section.shareList section.tree li.close ul.cloud{display:none;}
+#cloud section.shareList section.tree ul.cloud a {font-size:13px;}
+
+/* #cloud section.shareList section.tree ul li.root>span a.on img::before,
+#cloud section.shareList section.tree ul li.root>span a.on img,
+#cloud section.shareList section.tree ul li.root>span a:hover img{ content: url(../../resources/image/Polaris/new/cloud/cloud_on.png); }
+#cloud section.shareList section.tree ul li.root.close>span a.on img::before,
+#cloud section.shareList section.tree ul li.root.close>span a.on img,
+#cloud section.shareList section.tree ul li.root.close>span a:hover img{ content: url(../../resources/image/Polaris/new/cloud/cloud_close_on.png); }
+#cloud section.shareList section.tree ul li.root.open>span a.on img::before,
+#cloud section.shareList section.tree ul li.root.open>span a.on img,
+#cloud section.shareList section.tree ul li.root.open>span a:hover img{ content: url(../../resources/image/Polaris/new/cloud/cloud_open_on.png); } */
+
+/* #cloud section.shareList section.tree ul.cloud a:hover,
+#cloud section.shareList section.tree ul.cloud a.close:hover,
+#cloud section.shareList section.tree ul.cloud a.open:hover,
+#cloud section.shareList section.tree ul.cloud a.on {border:2px solid #87aff0; background:#ebf5ff;} */
+
+#cloud section.shareList section.tree ul a.on,
+#cloud section.shareList section.tree ul.cloud a:hover{color:#3c7df0;}
+
+#cloud section.shareList section.tree ul li.dndOver>a,
+#cloud section.shareList section.tree ul li.dndOver>span>a {border:2px solid #87aff0 !important; background:#ebf5ff !important;}
+/* #cloud section.shareList section.tree ul.cloud li a.dndOver {border:2px solid #87aff0 !important; background:#ebf5ff !important;} */
+
+#cloud section.shareList section.tree li.lnb.search_full,
+#cloud section.shareList section.tree li.lnb.temp_full {margin-top:-8px;}
+
+/* 20150724 추가 */
+#cloud section.shareList section.tree li.lnb {padding-left:28px; margin:0 0 0 10px; height:40px; line-height:40px;}
+#cloud section.shareList section.tree li.lnb.shareDoc {}
+#cloud section.shareList section.tree li.lnb.docOpen {margin-bottom:40px;}
+#cloud section.shareList section.tree li.lnb a {display: inline-block;padding-left:32px;height:40px;line-height:40px;background:url(../../resources/image/Polaris/new/cloud/img_04.png) no-repeat;}
+#cloud section.shareList section.tree li.lnb.shareDoc a {background-position:0 -46px;}
+#cloud section.shareList section.tree li.lnb.recentDco a {background-position:0 -6px;}
+#cloud section.shareList section.tree li.lnb.favorite a {background-position:0 -86px;}
+#cloud section.shareList section.tree li.lnb.docOpen a {background-position:0 -164px;}
+#cloud section.shareList section.tree li.lnb.bin a {background-position:0 -126px;}
+#cloud section.shareList section.tree li.lnb.start a {background-position:0 -1136px;}
+#cloud section.shareList section.tree li.lnb.search_full a {background-position:0 -426px;}
+#cloud section.shareList section.tree li.lnb.search_name a {background-position:0 -466px;}
+#cloud section.shareList section.tree li.lnb.search_con a {background-position:0 -506px;}
+#cloud section.shareList section.tree li.lnb.temp_full a {background-position:0 -696px;}
+#cloud section.shareList section.tree li.lnb.temp_word a {background-position:0 -736px;}
+#cloud section.shareList section.tree li.lnb.temp_sheet a {background-position:0 -776px;}
+#cloud section.shareList section.tree li.lnb.temp_slide a {background-position:0 -816px;}
+#cloud section.shareList section.tree li.lnb.temp_hwp a {background-position:0 -856px;}
+#cloud section.shareList section.tree li.lnb.temp_odt a {background-position:0 -1793px;}  /* AOM-7534 */
+#cloud section.shareList section.tree li.lnb.shareDoc.on a,
+#cloud section.shareList section.tree li.lnb.shareDoc a:hover {background-position:0 -251px;}
+#cloud section.shareList section.tree li.lnb.recentDco.on a,
+#cloud section.shareList section.tree li.lnb.recentDco a:hover {background-position:0 -211px;}
+#cloud section.shareList section.tree li.lnb.favorite.on a,
+#cloud section.shareList section.tree li.lnb.favorite a:hover {background-position:0 -291px;}
+#cloud section.shareList section.tree li.lnb.start.on a,
+#cloud section.shareList section.tree li.lnb.start a:hover {background-position:0 -1207px;}
+#cloud section.shareList section.tree li.lnb.docOpen a:hover,
+#cloud section.shareList section.tree li.lnb.docOpen.on a {background-position:0 -369px;}
+#cloud section.shareList section.tree li.lnb.temp_full a:hover,
+#cloud section.shareList section.tree li.lnb.temp_full a.on {color:#3778eb; background-position:0 -920px;}
+#cloud section.shareList section.tree li.lnb.temp_word a:hover,
+#cloud section.shareList section.tree li.lnb.temp_word a.on {color:#3778eb; background-position:0 -960px;}
+#cloud section.shareList section.tree li.lnb.temp_sheet a:hover,
+#cloud section.shareList section.tree li.lnb.temp_sheet a.on {color:#69aa14; background-position:0 -1000px;}
+#cloud section.shareList section.tree li.lnb.temp_slide a:hover,
+#cloud section.shareList section.tree li.lnb.temp_slide a.on {color:#f08c32; background-position:0 -1040px;}
+#cloud section.shareList section.tree li.lnb.temp_hwp a:hover,
+#cloud section.shareList section.tree li.lnb.temp_hwp a.on {color:#3778eb; background-position:0 -1080px;}
+
+#cloud section.shareList section.tree li.lnb.temp_odt a:hover,
+#cloud section.shareList section.tree li.lnb.temp_odt a.on {color:#3778eb; background-position:0 -1863px;} /* AOM-7534 */
+
+#cloud section.shareList section.tree li.lnb.on a {color: #3c7df0;}
+#cloud section.shareList section.tree li.root.on ul a{color: #282828}
+
+#cloud section.shareList section.tree li.lnb.search a {background:url(../../resources/image/Polaris/new/cloud/bul_search.png) 0 0 no-repeat;}
+#cloud section.shareList section.tree li.lnb.search.full a {background-position:0 3px}
+#cloud section.shareList section.tree li.lnb.search.file a {background-position:0 -37px}
+#cloud section.shareList section.tree li.lnb.search.folder a {background-position:0 -78px}
+#cloud section.shareList section.tree li.lnb.search.owner a {background-position:0 -117px}
+#cloud section.shareList section.tree li.lnb.search.text a {background-position:0 -156px}
+#cloud section.shareList section.tree li.lnb.search.full.on a,
+#cloud section.shareList section.tree li.lnb.search.full a:hover {background-position:0 -199px}
+#cloud section.shareList section.tree li.lnb.search.file.on a,
+#cloud section.shareList section.tree li.lnb.search.file a:hover {background-position:0 -239px}
+#cloud section.shareList section.tree li.lnb.search.folder.on a,
+#cloud section.shareList section.tree li.lnb.search.folder a:hover {background-position:0 -280px}
+#cloud section.shareList section.tree li.lnb.search.owner.on a,
+#cloud section.shareList section.tree li.lnb.search.owner a:hover {background-position:0 -319px}
+#cloud section.shareList section.tree li.lnb.search.text.on a,
+#cloud section.shareList section.tree li.lnb.search.text a:hover {background-position:0 -358px}
+
+body.rtl #cloud section.shareList section.tree li.lnb.search.full a {background-position:right 3px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.file a {background-position:right -37px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.folder a {background-position:right -78px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.owner a {background-position:right -117px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.text a {background-position:right -156px}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_odt a {background-position:right -1793px;}  /* AOM-7534 */
+body.rtl #cloud section.shareList section.tree li.lnb.search.full.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.search.full a:hover {background-position:right -199px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.file.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.search.file a:hover {background-position:right -239px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.folder.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.search.folder a:hover {background-position:right -280px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.owner.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.search.owner a:hover {background-position:right -319px}
+body.rtl #cloud section.shareList section.tree li.lnb.search.text.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.search.text a:hover {background-position:right -358px}
+
+body.rtl #cloud section.shareList section.tree li.lnb.temp_odt a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.temp_odt a.on {color:#3778eb; background-position:right -1863px;} /* AOM-7534 */
+
+#cloud section.shareList section.doc_list {padding:69px 0 0}
+#cloud section.shareList section.doc_list h2 {display:none}
+#cloud section.shareList section.doc_list div.sort {}
+#cloud section.shareList section.doc_list dl {}
+#cloud section.shareList section.doc_list dl dd {min-height:68px;}
+#cloud section#my_list.shareList section.doc_list dl dd strong {padding-top:25px;} /* 20150514 디자인검수 수정 */
+#cloud section.shareList div.sort {top:15px; display:block}
+#cloud section.shareList div.sort p {display:none;}
+.blind {display:none; position:fixed; width:100%; height:100%; background:#fff; z-index:2}
+#cloud .mCS-minimal.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{background:#e5e5e5; width:5px;}
+/* 공유 리스트 끝 */
+.blind {display:none; position:fixed; width:100%; height:100%; background:#fff; z-index:2}/* 20150512 추가 */
+/*
+::-webkit-scrollbar {width:8px;height:8px;border:3px solid #fff;}
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {display:block;height:10px;background:#efefef}
+::-webkit-scrollbar-track {background:#efefef;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,.2)}
+::-webkit-scrollbar-thumb {height:50px;width:50px;background:rgba(0,0,0,.2);-webkit-border-radius:8px;border-radius:8px;-webkit-box-shadow:inset 0 0 4px rgba(0,0,0,.1)}
+*/
+
+/* test sample */
+.pretext{position:absolute; top:-9999px;}
+
+/* .notice_pop {display:none; position:absolute; right:0; margin:63px 0 0; width:376px; z-index:2; padding:0 0 2px; width:376px; background:url(../../resources/image/Polaris/new/notice_bg02.png) left bottom no-repeat;}
+ */.notice_pop {display:none; position:absolute; top: 0; right: 0; margin:40px -10px 0 0; width:376px; z-index:2; padding:0 0 2px; width:376px; background:url(../../resources/image/Polaris/new/notice_bg02.png) left bottom no-repeat;}
+.notice_pop h3 {height:26px; line-height:24px; margin-top:-6px; padding:6px 0 0 10px; font-size:13px; background: url(../../resources/image/Polaris/new/notice_bg.png) no-repeat; border-bottom:1px solid #e3e4e5; }
+.notice_pop div.box {float:left; max-height: 600px; padding:0 1px; overflow:auto;}
+.notice_pop div.box .no_data{width: 185px; margin: 50px; padding: 72px 45px 0; color: #a4a7ab; text-align: center; line-height: 16px; background: url(../../resources/image/Polaris/new/send_no_result.png) center top no-repeat;}
+.notice_pop dl {position:relative; float:left; width: 374px; padding:10px 0 10px; border-bottom:1px solid #e3e4e5; cursor:pointer; background:#ffffe6;}
+.notice_pop dl:last-child{ border-bottom: 0px;}
+/* .notice_pop dl:hover {background:#f6f6f6; z-index:-1;} */
+.notice_pop dl:hover {background:#f6f6f6;}
+/* .notice_pop dl.read.dl:hover {background:#c4c4c4;} */
+.notice_pop dt {position:relative; float:left; width:50px; margin:0 0 0 14px; }
+.notice_pop dl:hover dt {background:url(../../resources/image/Polaris/new/pic_bg02_hover.png) no-repeat;}
+.notice_pop dt img {position:relative;}
+.notice_pop dt span.link_check {position: absolute;top: 26px; left: 22px;}
+.notice_pop dt span.bg {position:absolute; top:0; left:0; display:inline-block; width:36px; height:36px; background:url(../../resources/image/Polaris/new/pic_bg03_hover.png) no-repeat;}/* 20150319 ì¶”ê°€ */
+.notice_pop dl:hover dt span.bg {background:url(../../resources/image/Polaris/new/pic_bg02_hover.png) no-repeat;}
+.notice_pop dl.read {background:#fff;}
+.notice_pop dl.read dt {/* background:url(../../resources/image/Polaris/new/pic_bg02.png) no-repeat; */} /* 20150820 수정*/
+.notice_pop dl.read dt span.bg {background:url(../../resources/image/Polaris/new/pic_bg02.png) no-repeat;}
+.notice_pop dl.read.dl:hover {background:#f6f6f6;}
+/* .notice_pop dt img {position:relative; z-index:-1;} */
+.notice_pop dd {float:left; width:270px; color:#5e5e5e; line-height:18px; color:#5e5e5e; word-break: break-all;}
+.notice_pop dd strong. .notice_pop dd span.doc {color:#242628;}
+.notice_pop .date {display:block; margin:3px 0 0; color:#a1a2a4; font-family:arial;}
+.notice_pop .mCSB_inside > .mCSB_container{ margin-right:0px; }
+.notice_pop .mCSB_scrollTools .mCSB_draggerRail{width: 8px;}
+.notice_pop .mCSB_scrollTools .mCSB_draggerContainer{right: -4px;}
+
+.notice_pop .mCS-rounded.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.notice_pop .mCS-rounded-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.notice_pop .mCS-rounded-dots.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.notice_pop .mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{margin: 0 6px;}
+
+p.try{position:fixed;left:10%;width:80%;top:50%;text-align:center;z-index:30; display: none;font-family:sans-serif,'Tahoma','MS PGothic'; } /* 20140114 */
+p.try.pay{top:5%;}
+p.try span{display: inline-block;
+padding: 10px 10px;
+line-height: 20px;
+font-family: dotum, sans-serif;
+color: #fff;
+border: 1px solid #303a4a;
+box-shadow: 0 3px 3px #d9d9d9;
+text-align: center;
+background: url(../../resources/image/Polaris/new/toast.png) repeat;}
+p.try span a{color:#ffffff;}
+
+div.menu {position:absolute; right:0; top:0px;}
+div.menu a {display:inline-block; background:url(../../resources/image/Polaris/new/cloud/util_menu.png) no-repeat}
+div.menu a.menu_open {width:53px; height:56px; text-indent:-999em; background-position: 0 12px;}
+div.menu ul {display:none; position:absolute; right:-120px; min-width:170px; padding:8px 0 10px; border:1px solid #bdbdbd; box-shadow: 0 0 4px 1px #ebebeb; border-radius:3px;  background:#fff; z-index:2}
+/* div.menu:hover ul {display:block} */
+#cloud div.menu li a {color:#505050;}
+div.menu li a {display:block; padding-left:53px; height:40px; line-height:40px;}
+/*20150820 송경식 */
+div.menu li.share a {background-position:0 -46px}
+div.menu li.link a {background-position:0 -87px}
+div.menu li.del a {background-position:0 -126px}
+div.menu li.open a {background-position:0 -436px}
+div.menu li.download a {background-position:0 -180px}
+div.menu li.rename a {background-position:0 -244px}
+div.menu li.move a {background-position:0 -308px}
+div.menu li.copy a {background-position:0 -372px}
+div.menu li.favorite a {background-position:0 -503px}
+div.menu li.favorite a.off {background-position:0 -573px}
+div.menu li a:hover {background-color:#ebebeb;}
+div.menu li a.select {background-color:#dcf0ff}
+p.btn_more {clear:both; padding:15px 18px 0 0; text-align:right;}
+p.btn_more a {display:inline-block; padding:0 13px 0 0; background:url(../../resources/image/Polaris/new/cloud/location_bg.png) right no-repeat;}
+
+section.share_list {}
+body.tree {height:100%; overflow-y: hidden !important;}
+body.tree #cloud.templete .header {position:static}
+
+div.resize {position:absolute; top:73px; bottom:0; left: 255px; background:#fff; width:1px; border-right:1px solid #dcdcdc; /*cursor:col-resize;*/ z-index: 2;}
+.cloud_contents.search div.resize {width:1px; border-right:1px solid #dcdcdc;}
+body.web .cloud_contents.search div.resize {width:0; border:none}
+body.web.rtl .cloud_contents.search div.resize {border-left:1px solid #dcdcdc; border-right:none;}
+
+/*div.resize {position:absolute; top:73px; bottom:0; left: 255px; background:#fff; width:1px; border-right:1px solid #dcdcdc; cursor:col-resize; z-index: 2;} */
+/*div.resize:hover {border-right:1px solid #8c8c8c}*/
+
+.share_list {width:100%; height:100%;}
+.share_list .location {}
+.share_list .list {padding-left:254px;}
+.share_list .list_box {position:absolute; top:181px; bottom:0; width:; left:256px; right:0; padding-bottom:125px; overflow:auto; -webkit-overflow-scrolling:touch;}
+.share_list .list.off .list_box {top:155px;}
+.share_list .list_box.nodata {top: 131px;}
+.share_list.templete .list_box {top:131px;}
+.share_list .list .list_box ul.file {position:relative; width:100%; height:49px; font-size:13px; cursor: default;}
+.share_list .list ul.subject {height:49px;  width:100%; border-bottom:1px solid #ebebeb; position: relative;  display:none;}
+.share_list .list ul.subject li, .share_list .list ul.file li {position:absolute; display:inline-block; background:#fff; height:49px; line-height:49px; text-overflow:ellipsis; color:#282828; overflow:hidden; white-space:nowrap; text-align:left}
+.share_list .list .form {width:51px; padding-left:50px;}
+/* .share_list .list td.form {width:33px;} */
+.share_list .list .name {width:auto; text-align:left}
+.share_list .list .owner {width:157px;}
+.share_list .list .modity {width:201px;}
+.share_list .list ul.subject li.modity {border-left:1px solid #ebebeb; border-right:1px solid #ebebeb;}
+.share_list .list .size {width:94px;}
+.share_list .list li.name {left:83px; right:0px;}
+.share_list .list li.owner {right:321px; background:#fff; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+.share_list .list ul.subject li.owner {border-left:1px solid #ebebeb;}
+.share_list .list li.modity {right:110px; /* background:#fff; */}
+.share_list .list li.size {right:0}
+.share_list .list_box ul.file li {height:48px; line-height:48px; border-bottom:1px solid #e6e6e6; border-left:none;}
+.share_list .list_box li.form,
+.share_list .list_box ul.file li.form {border-bottom:none;}
+.share_list .list_box ul.file li.form {position:relative;}
+.share_list .list_box ul.file li.form span.img,
+#cloud section.doc_list dt span.img {position:absolute; top:27px; left:60px;display:inline-block; }
+#cloud section.doc_list dt span.img {top:32px; left:35px;}
+.share_list .list_box ul.file li.form span.upload,
+#cloud section.doc_list dt span.upload {width:17px; height:12px; background:url(../../resources/image/Polaris/new/cloud/bul_upload.png) no-repeat}
+.share_list .list_box ul.file li.form span.error,
+#cloud section.doc_list dt span.error {left:64px; width:13px; height:13px; background:url(../../resources/image/Polaris/new/cloud/bul_error.png) no-repeat}
+.share_list .list_box li.form img {position:relative; top:9px;}
+.share_list .list .list_box ul.disable li {color:#c8c8c8}
+.share_list .list .list_box ul.disable li img {opacity:0.4}
+#version_list .list .list_box ul {cursor:default;}
+/*#cloud .share_list .list .name a {color:#282828}
+ #cloud .share_list .list li.name a.up, #cloud .share_list .list li.name a.down {padding-right:14px; color:#787878;}
+#cloud .share_list .list li.name a:hover {color:#505050;}
+#cloud .share_list .list li.name a.up {background:url(../../resources/image/Polaris/new/cloud/arrow_up.png) right no-repeat;}
+#cloud .share_list .list li.name a.down {background:url(../../resources/image/Polaris/new/cloud/arrow_down.png) right no-repeat;} */
+#cloud .share_list .list li a.up, #cloud .share_list .list li a.down {padding-right:14px; color:#787878; background:none}
+#cloud .share_list .list li a.up {background:url(../../resources/image/Polaris/new/cloud/arrow_up.png) right no-repeat;}
+#cloud .share_list .list li a.down {background:url(../../resources/image/Polaris/new/cloud/arrow_down.png) right no-repeat;}
+.share_list .list ul.subject li.pointer:hover, .share_list .list ul.subject li.pointer.on {background:#f9f9f9; }
+.share_list .list td.form {position:relative; border-bottom:none;}
+.share_list .list .owner,
+.share_list .list .modity,
+.share_list .list .size {padding-left:16px;}
+.share_list .list td.modity,
+.share_list .list td.size {font-size:13px; color:#787878;}
+.share_list .list .form input {display:none; position:absolute; left:25px; top:17px; width:15px; height:15px;}
+.share_list .list .form input.version {display:block;}
+.share_list.search_result .list li.form input {top:40px}
+.share_list.search_result .list_box ul.docName li.form input {top:28px} /* 문서명 검색일 경우 */
+.share_list .list div.list_box ul.selected li {background:#ebf5ff}
+/* .share_list .list div.list_box ul:hover li {background:#f5f5f5} */
+.share_list .list div.list_box ul.hover li {background:#f5f5f5}
+.share_list .list ul.subject li.form input {top:18px;}
+.share_list .list div.list_box ul.selected li.form input,
+/* .share_list .list div.list_box ul:hover li.form input, */
+.share_list .list div.list_box ul.hover li.form input,
+.share_list .list ul.subject:hover li.form input,
+.share_list .list ul.subject li.form input.selected{display:block;}
+.share_list .list div.list_box ul.selected li.form input,
+/* .share_list .list div.list_box ul:hover li.form input {display:block;} */
+.share_list .list div.list_box ul.hover li.form input {display:block;}
+.share_list .list div.list_box ul li.size {text-indent:0} /* 20150908 추가 */
+/* .share_list .list div.list_box ul:hover li.size {text-indent:-999em;} */
+/*.share_list .list div.list_box ul.hover li.size {text-indent:-999em;} 20150908 추가 */
+.share_list .list_box ul.file li.favorite, .share_list .list_box td div.favorite {display:none; position:absolute; top:0; right:340px; padding-right:17px; line-height:auto;}/* 20150908 추가 */
+.share_list.shareDoc .list_box ul.file li.favorite, .share_list.shareDoc .list_box td div.favorite {right:500px}
+.share_list .list_box td div.favorite {top:50%; margin-top:-17px;}
+body.rtl .share_list .list_box li.favorite {right:auto; left:360px; padding:0 0 0 17px;}
+/*.share_list .list_box ul:hover li.favorite {display:block;} */
+.share_list .list_box ul.hover li.favorite {display:block;}/* 20150908 추가 */
+/* .share_list .list_box ul.folder:hover li.favorite, .share_list .list_box ul.zip:hover li.favorite {display:none} */
+.share_list .list_box ul.folder.hover li.favorite, .share_list .list_box ul.zip.hover li.favorite {display:none}
+/* #trashcan_list.share_list .list div.list_box ul:hover li.size, .share_list .list div.list_box ul.zip:hover li.size  {text-indent:0}  */
+#trashcan_list.share_list .list div.list_box ul.hover li.size, .share_list .list div.list_box ul.zip.hover li.size  {text-indent:0}
+#cloud .share_list .list_box li.favorite a.btn, #cloud .share_list .list_box td div.favorite a.btn {display:inline-block; height:26px; padding:0 12px 0 34px; line-height:25px; font-size:13px; border-radius:3px; color:#787878; background:#fff url(../../resources/image/Polaris/new/cloud/bul_share02.png) 10px  no-repeat; border:1px solid #b4b4b4}/* 20150908 추가 */
+body.rtl #cloud .share_list .list_box li.favorite a.btn, body.rtl #cloud .share_list .list_box td div.favorite a.btn {padding:0 34px 0 12px; background:#fff url(../../resources/image/Polaris/new/cloud/bul_share02_rtl.png) right 7px  no-repeat;}
+
+#cloud .share_list .list_box li.favorite img {margin-left:17px; vertical-align:middle}/* 20150908 추가 */
+body.rtl #cloud .share_list .list_box li.favorite img {margin-right:17px; margin-left:auto}
+/*
+#search_list .share_list .list ul.subject li.form input {display:none;} 20150818 검색결과 체크박스 제거
+#search_list .share_list .list div.list_box ul.selected li.form input,
+#search_list .share_list .list div.list_box ul:hover li.form input {display:none;} 20150818 검색결과 체크박스 제거
+*/
+#search_template .share_list.templete.search div.list_box {padding:45px 0 0;}
+
+div.context_menu {position:absolute; min-width:170px; border:1px solid #a0a0a0; background:#fffeff; border-radius:3px; box-shadow: 0 0 4px 1px #d2d2d2; z-index:3}
+body.fr div.context_menu {min-width:190px;}
+div.context_menu ul {padding:6px 0}
+div.context_menu li {position: static;}
+/*
+div.context_menu a {display:block; height:44px; line-height:44px; padding:0 0 0 56px; color:#505050; background:url(../../resources/image/Polaris/new/cloud/bul_doc.png) no-repeat; color: #888;}
+div.context_menu li:hover {background-color:#ebebeb;}
+
+div.context_menu li.send a {background-position:0 0px}
+div.context_menu li.urlcopy a {background-position:0 -66px}
+div.context_menu li.download a {background-position:0 -126px}
+div.context_menu li.rename a {background-position:0 -192px}
+div.context_menu li.move a {background-position:0 -254px}
+div.context_menu li.copy a {background-position:0 -319px}
+div.context_menu li.bin a {background-position:0 -678px}
+div.context_menu li.open a,
+div.context_menu li.open2 a {background-position:0 -463px}
+body.rtl div.context_menu li.open a,
+body.rtl  div.context_menu li.open2 a {background-position:right -463px}
+div.context_menu li.favorite a {background-position:0 -530px}
+div.context_menu li.favorite a.off {background-position:0 -744px}
+div.context_menu li.restore a {background-position:0 -604px}
+div.context_menu li.delete a {background-position:0 -388px}
+div.context_menu li.version a {background-position:0 -818px}
+*/
+
+div.context_menu a {display:block; height:38px; line-height:38px; padding:0 0 0 56px; color:#505050; background:url(../../resources/image/Polaris/new/cloud/bul_doc02.png) no-repeat; color: #888;}
+div.context_menu li:hover {background-color:#ebebeb;}
+
+div.context_menu li.send a {background-position:0 -50px}
+div.context_menu li.urlcopy a {background-position:0 -88px}
+div.context_menu li.download a {background-position:0 -168px}
+div.context_menu li.rename a {background-position:0 -210px}
+div.context_menu li.move a {background-position:0 -250px}
+div.context_menu li.copy a {background-position:0 -290px}
+div.context_menu li.bin a {background-position:0 -493px}
+div.context_menu li.open a,
+div.context_menu li.open2 a {background-position:0 -9px}
+body.rtl div.context_menu li.open a,
+body.rtl  div.context_menu li.open2 a {background-position:right -9px}
+div.context_menu li.favorite a {background-position:0 -128px}
+div.context_menu li.favorite a.off {background-position:0 -409px}
+div.context_menu li.restore a {background-position:0 -452px}
+div.context_menu li.delete a {background-position:0 -330px}
+div.context_menu li.version a {background-position:0 -370px}
+p.btm_bg {position:fixed; bottom:0; right:20px; width:100%; height:119px; background:url(../../resources/image/Polaris/new/cloud/btm_bg.png) repeat-x; display:none;}
+
+#cloud .list_box li.name {max-width:75%;}
+#cloud .shareDoc .list_box li.name {max-width:75%;}
+#cloud .list_box div.tit {float:left; max-width:60%; display:inline-block; overflow:hidden; height:48px; line-height:48px;}
+body.rtl #cloud .list_box div.tit {float:right;}
+#cloud .shareDoc .list_box div.tit {max-width:50%;}
+/* #cloud .list_box div.tit span.img {top:28px; display:none;} */
+#cloud .list_box ul.share div.tit  span.img{display:inline-block;}
+
+#cloud .search_result .list_box div.tit {top:-11px; margin-bottom:-36px;}
+/* .search_result .list .list_box ul {height:98px;  overflow:hidden}
+.search_result .list .list_box ul li {min-height: 97px;}
+.share_list.search_result .list_box li {line-height: 97px;}
+.share_list.search_result .list_box li.name {line-height:16px;} */
+.search_result ul span.location,
+.search_result ul span.txt {position:relative; top: 0px;}
+.search_result ul span.location {clear:both; max-width:65%; margin: 16px 0 0; line-height:16px; display: block;}
+.search_result ul span.txt {display:block; height:19px; overflow:hidden; padding:0 0 15px; line-height:16px; font-size:12px; max-width:65%; word-break:break-all}
+.search_result .list .list_box ul.docName {height:69px;} /* 문서명 검색일 경우 */
+.search_result .list .list_box ul.docName li {min-height: 68px;} /* 문서명 검색일 경우 */
+.search_result .list_box ul.docName li {line-height: 68px;}/* 문서명 검색일 경우 */
+
+div.file_upload {display:none; position:fixed; top:72px; width:100%; height:100%; z-index:10; border:3px solid #ddd; background:url(../../resources/image/Polaris/new/cloud/upload_bg.png) repeat}
+div.file_upload div.txt {position:absolute; top:50%; left:50%; width:426px; height:288px; margin:-204px 0 0 -343px; background:url(../../resources/image/Polaris/new/cloud/upload_bg02.png) no-repeat;}
+div.file_upload div.txt span {display:block; padding:195px 0 0 ; text-align:center; color:#fff; font-size:18px; line-height:24px;}
+
+body.web div.file_upload {top : 96px;}
+body.web .notice div.file_upload {top : 148px;}
+/*
+popup
+#cloud div.popup {position:absolute; top:50%; left:50%; width:380px; margin:-120px 0 0 -190px;; font-size:13px;}
+#cloud div.popup h1 {height:32px; line-height:32px; font-size:12px; background:#474f5b;}
+#cloud div.popup .popup_content {padding:0 13px; background:#fff; color:#25272a;}
+#cloud div.popup .popup_content dl {padding:18px 0 0;}
+#cloud div.popup .popup_content dt {padding:0 0 15px 7px; font-weight:bold;}
+#cloud div.popup .popup_content input {height:30px; width:100%; line-height:30px; border-radius:2px; font-size:12px; text-indent:8px;}
+#cloud div.popup .popup_content p.location {padding:18px 0 30px 13px;}
+#cloud div.popup div.bx_btn {padding:10px 0; height:auto; background:#fff;}
+#cloud div.popup div.bx_btn a {padding:0 28px; font-size:13px;}
+#cloud div.popup span.btn_close {top:10px; right:15px;}
+#cloud div#mask {position:fixed; top:0; width:100%; height:100%; background:#dcdcdc; opacity:0.3; z-index:4}`
+
+ */
+@media only screen and (min-width:1400px) {
+    #cloud .list_box li.name {max-width:90%;}
+}
+@media only screen and (min-width:1200px) and (max-width:1400px) {
+    #cloud .list_box li.name {max-width:70%;}
+    #cloud .shareDoc .list_box li.name {max-width:50%;}
+}
+
+
+@media only screen and (max-width:1099px) {
+   div.header, #cloud div#cloud_container, #cloud .header {width:100%;}
+   #cloud .header.sm, #cloud.templete .header {width:100%;}
+   #cloud .header.sm ul.util_cloud.fr, #cloud.templete .header ul.util_cloud.fr {position:static}
+   #cloud .header.sm fieldset, #cloud.templete .header fieldset {}
+   #cloud .header.sm fieldset p.search, #cloud.templete .header fieldset p.search{width:298px;}
+   body.web #cloud .header.sm fieldset p.search, body.web #cloud.templete .header fieldset p.search{width:auto;}
+   .share_list .list_box {width:;}
+   .share_list .list .list_box ul {width:auto;}
+   .search_result ul span.txt {max-width:400px;}
+   #cloud .list_box li.name div.tit {max-width:40%;}
+}
+@media only screen and (min-width:1005px) and (max-width:1098px) {
+
+}
+
+@media only screen and (max-width:1170px) {
+	#homeList {width:1170px;}
+}
+@media only screen and (max-width:1004px) {
+    div.header, #cloud div#cloud_container, #cloud .header {width:1004px;}
+    #cloud .header.sm, #cloud.templete .header {width:1004px;}
+    body.web #cloud .header.sm, body.web #cloud.templete .header {position: relative;}
+    .share_list .list_box {width:751px;}
+    #cloud div#cloud_container {padding-bottom:50px;}
+}
+
+@media only screen and (max-width:1200px) {
+.share_list .list .owner {width:80px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+#cloud .shareDoc .list_box li.name {min-width:240px;}
+ #cloud .shareDoc .list_box li.name div.tit {max-width:170px;}
+}
+
+@media only screen and (min-width:1100px) and (max-width:1199px) {
+    #cloud .list_box li.name {max-width:65%;}
+    #cloud .shareDoc .list_box li.name{max-width:45%;}
+    #cloud .shareDoc .list_box li.name div.tit {max-width:270px;}
+}
+
+#pchome_upload2 {position: relative; display: inline-block;}
+#pchome_upload2 object {position:absolute; z-index: 1; top: 0; left: 0;}
+#pchome_upload2 .uploadify-button { padding: 0 0 0 34px; text-align: left;}
+
+#cloud section.shareList .share_header ul.btn li {position:relative; /* min-width:217px; */ text-align:right; /* border-left:1px solid #ddd */}
+#cloud section.shareList .share_header ul.btn div.context_menu {display:block; left:0}
+#cloud section.shareList .share_header ul.btn div.context_menu li {text-align:left; min-width:auto;}
+
+
+@media only screen and (max-width:1300px) {
+   /* #cloud section.shareList .share_header ul.btn li.context_menu { border-right:none; text-overflow:ellipsis; overflow:hidden; white-space:nowrap} */
+   #cloud section.shareList .share_header ul.btn li.context_menu_more {display:inline-block; min-width:30px; }
+   #cloud section.shareList .share_header dl.location {width:500px;}
+}
+
+/* div.drag {position:absolute; top:150px; left:100px; z-index:10} */
+div.drag p.file_name {width:199px; height:82px; color:#fff; background:url(../../resources/image/Polaris/new/cloud/drag_bg.png) no-repeat;}
+div.drag.multy p.file_name {background:url(../../resources/image/Polaris/new/cloud/drag_bg02.png) no-repeat;}
+div.drag p.file_name img {margin:16px 20px 0 24px; vertical-align:top;}
+div.drag p.file_name span {display:inline-block; width:100px; line-height:70px; text-overflow:ellipsis; overflow:hidden; white-space:nowrap;}
+div.drag span.count {position:absolute; top:-5px; right:-3px; display:inline-block; padding:0 0 0 12px; height:26px; background: url(../../resources/image/Polaris/new/cloud/drag_bg_l.png) left no-repeat; color:#fff; font-family:arial;}
+div.drag span.count em {display:inline-block; font-style:normal; line-height:26px; padding:0 10px 0 0; font-size:14px; background: url(../../resources/image/Polaris/new/cloud/drag_bg_r.png) right no-repeat;}
+
+#cloud.templete .header div.caution {display:none !important;}
+div.caution {position:relative; width:732px; min-height:53px; padding:14px 0 0; margin:0 auto 7px; background:url(../../resources/image/Polaris/new/cloud/caution_top.png) top no-repeat;}
+div.caution div {float:left; width:732px; padding:0 0 14px; font-size:13px; background:url(../../resources/image/Polaris/new/cloud/caution_btm.png) bottom no-repeat;}
+div.caution dl {display:inline-table; width:732px;}
+div.caution dt {float:left; padding:0 13px 0 55px; width:auto; min-height:18px; background:url(../../resources/image/Polaris/new/cloud/bul_caution.png) 18px no-repeat;}
+div.caution dd {display:table-cell; width:100px; vertical-align:middle; margin:0 0 0 0; padding:2px 0 5px 22px; border-left:1px solid #c8c8c8; word-break: keep-all}
+#cloud div.caution dd a {display:inline-block; padding:0 19px 0 0; color:#505050;}
+#cloud div.caution dd a#caution_second {display:inline-block; width:110px; word-break:keep-all;}
+#cloud div.caution dd.btn_close a{padding:0; margin-top:0px; display:inline-block; width:20px; height:20px; text-indent: -999em; background:url(../../resources/image/Polaris/new/cloud/btn_close.png) no-repeat;}
+div.caution.no_btn dt {width:600px;}
+div.caution.no_btn dd {display:none;}
+div.caution dd.btn_close {display:table-cell; width:40px; padding-right:0; border-left:none;}
+div.header.sm div.caution {top: -9999px;}
+
+/*test */
+/* a.loading{display: inline-block; width: 18px; height: 18px; overflow: hidden; text-indent: -999em;
+    background:url(../../resources/image/Polaris/new/loading.gif) no-repeat;}
+#cloud section.doc_list h2 a.loading{position: absolute; margin: 4px 0 0 20px;}
+#cloud section.shareList .share_header h3.loading{background: url(../../resources/image/Polaris/new/loading.gif) no-repeat 20px 20px;}
+#cloud section.shareList .share_header dl.location dt.loading{background: url(../../resources/image/Polaris/new/loading.gif) no-repeat 20px 20px;}
+*/
+
+/*footer */
+footer {margin:0 0 0; background:#fff; }
+footer * {color:#3e3f40;}
+footer div {position:relative; width:100%; height:100px; padding:30px 0 0; background:#fff;}
+footer p.menu {float:left; padding:24px 0 0 36px;}
+footer p.menu a {margin-right:19px; }
+footer img {position:relative; top:-2px; margin:0 0 0 9px; vertical-align:middle;}
+footer dl.language {position:relative; float:left; cursor:pointer;} /* 20150129 추가 */
+footer dl.language dt {width:71px; height:22px; margin:21px 0 0; padding-left:7px; line-height:22px;border:1px solid #cbcccc; border-radius:2px; background: url(/resources/image/Polaris/new/bullet/bul_down02.png) 62px 11px no-repeat;}
+footer dl.language dd {position:absolute; bottom:25px; width:71px; padding:7px 0 7px 7px; background:#fff; line-height:20px; border:1px solid #cbcccc; border-radius:2px; display:none; }
+
+footer p.social {position:absolute; top:48px; right:30px;} /* 20150129 수정 */
+footer p.social a {display:inline-block; width:28px; height:28px; margin:0 8px 0 0; padding:0; vertical-align:middle; background:url(/resources/image/Polaris/new/common/footer_sns.png) no-repeat;}/* 20140507 수정 */
+footer p.social a.social_01 {background-position:0 0} /* 20150129 수정 */
+footer p.social a.social_02 {background-position:-36px 0} /* 20150129 수정 */
+footer p.social a.social_03 {background-position:-72px 0} /* 20150129 수정 */
+footer p.social a.social_04 {background-position:-108px 0} /* 20150129 수정 */
+footer p.social a span {display:none;}
+footer {display:none;}
+.share_list .list .list_box footer {position:relative; bottom:0; height:57px; margin:0px 0 0; padding:25px 0 0; z-index:10;}
+.share_list .list .list_box footer footer * {color:#3e3f40;}
+.share_list .list .list_box footer  p {display:inline-block; padding:0 0 0 0}
+.share_list .list .list_box footer  img {position:relative; top:-2px; margin:0 0 0 9px; vertical-align:middle;}
+.share_list .list .list_box footer ul{position: static; width: auto; height: auto; font-size: 13px; cursor: pointer;}
+.share_list .list .list_box footer ul li{   height: auto;
+    line-height: normal;
+    border-bottom: none;
+    border-left: none;
+    position: static;
+    display: block;
+    background: #fff;
+    height: auto;
+    line-height: auto;
+    text-overflow: ellipsis;
+    color: #3e3f40;
+    text-align: left;
+}
+/* footer */
+
+/* en */
+/* body.en dl.floating dt a.open span {width:102px;} */
+body.en #cloud section.shareList .share_list#trashcan_list div.context_menu { min-width: 210px;}
+/* fr */
+body.fr #cloud .header div.conPop.user dd span.btn a{line-height: 25px;}
+body.fr #cloud .header ul.util_cloud li.notice div.cloud_tooltip { left: -32px;}
+body.fr #cloud .header ul.util_cloud li.app div.cloud_tooltip {left: -40px;}
+/* body.fr dl.floating dt a.open span{width: 140px;} */
+body.fr #cloud section.shareList .share_list#trashcan_list div.context_menu { min-width: 230px;}
+body.fr #recent_list > div.list > ul > li.modity.pointer { padding-left: 12px; width: 230px; }
+body.fr #cloud section.shareList section.tree ul a {font-size:14px;}
+body.fr #cloud section.shareList section.tree ul a em {margin:0 0 0 -12px;}
+body.fr #cloud section.shareList section.tree li.lnb a {padding-left:35px;}
+body.fr #mydoc > section.tree > div > ul > li.lang a { width:48px; }
+body.fr #pchome_upload2 { padding-right: 22px; }
+body.fr #my_list > div.context_menu { width: 170px; }
+body.fr.web #cloud section.shareList section.tree div.lnb_footer li {float:left; padding:0 10px 0 0;}
+/* RTL */
+body.rtl {direction:rtl;}
+body.rtl * {font-family:arial !important, sans-serif}
+body.rtl .fr {float:left}
+body.rtl .fl {float:right}
+body.rtl #cloud .header ul.util_cloud.fr {margin:8px 0 0 17px;}
+body.rtl #cloud section.doc_list h2 a.refresh {left:14px; right:auto;}
+body.rtl #cloud section.doc_list dt,
+body.rtl #cloud section.doc_list dd {float:right;}
+body.rtl #cloud section.doc_list div.no_doc {/* position:fixed */padding: 61px 15px 0 12px;margin: 53px -366px 0 0;right: 50%;left: initial;}
+body.rtl #cloud section.doc_list div.no_doc dt,
+body.rtl #cloud section.doc_list div.no_doc dd {float:none;}
+body.rtl #cloud section.doc_list dd span.date {left: 64px; right:auto;}
+body.rtl  #cloud .header ul.util_cloud li.notice span.count {left:auto; right:9px;}
+body.rtl #cloud .header ul.util_cloud li.app,
+body.rtl #cloud .header ul.util_cloud li.notice,
+body.rtl #cloud .header ul.util_cloud li.open {padding:0 0 0 26px;}
+body.rtl div.menu {left:5px; right:auto;}
+body.rtl #cloud .header.sm.searchResult a.btn_prev,
+body.rtl #cloud.templete .header.searchResult a.btn_prev {left:auto; right:-224px;  padding:0 34px 0 0; background: url(../../resources/image/Polaris/new/cloud/btn_prev.png) right top no-repeat}
+body.rtl #cloud .header fieldset p.search {padding:0 0 0 40px}
+body.rtl #cloud .header fieldset p.search label {right:16px; left:auto;}
+body.rtl #cloud .header fieldset p.search button {left:-1px; right:auto}
+body.rtl #cloud .header fieldset p.search a.del {left:48px; right:auto;}
+body.rtl #cloud section.doc_list dd strong div.tit,
+body.rtl #cloud .list_box div.tit {padding-left:40px; padding-right:0}
+body.rtl p.btn_more {padding:15px 0 0 18px; text-align:left;}
+body.rtl p.btn_more a {padding:0 0 0 13px; background:url(../../resources/image/Polaris/new/cloud/location_bg_rtl.png) left no-repeat;}
+body.rtl #cloud .header div.conPop {left:14px; right:auto;}
+body.rtl #cloud .header div.conPop div.box {background:url(../../resources/image/Polaris/new/cloud/conPop_btmBg_rtl.png) right bottom no-repeat;}
+body.rtl #cloud .header div.conPop.user {left: 14px; display:none; background:url(../../resources/image/Polaris/new/cloud/conPop_topBg_rtl.png) right top no-repeat;}
+body.rtl #cloud .header div.conPop.user dt {margin:0 0 0 29px;}
+body.rtl #cloud .header div.conPop.user dt img {right:20px}
+body.rtl #cloud .header div.conPop.user dt span.bg {right:0;}
+body.rtl #cloud .header div.conPop.user dd {padding:12px 141px 0 0;}
+body.rtl #cloud .header div.conPop.user dd span.service {padding:0 22px 0 0;}
+body.rtl #cloud .header div.conPop.user p.btn {margin:40px 6px 0 0;}
+body.rtl #cloud .header div.conPop.user.free dd span.service {color:#66a10c; background:url(../../resources/image/Polaris/new/cloud/user_free.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.premium dd span.service {color:#3c7df0; background:url(../../resources/image/Polaris/new/cloud/user_premium.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.team dd span.service {color:#e18c00; background:url(../../resources/image/Polaris/new/cloud/user_team.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.lg dd span.service {color:#c91658; background:url(../../resources/image/Polaris/new/cloud/user_lg.png) right 1px no-repeat;}
+body.rtl #cloud .header div.conPop.user.free.orange dd span.service {color:#ff6600; background:url(../../resources/image/Polaris/new/cloud/orange_free.png) right 1px no-repeat;}/* orange free 일 경우 */
+body.rtl #cloud .header div.conPop.user.premium.orange dd span.service {color:#ff6600; background: url(../../resources/image/Polaris/new/cloud/orange_premium.png) right 1px no-repeat;}/* orange premium 일 경우 */
+body.rtl #cloud .header ul.util_cloud li {float:right;}
+body.rtl #cloud .header ul.util_cloud li.app div.cloud_tooltip{left:6px}
+body.rtl #cloud .header ul.util_cloud li.user div.cloud_tooltip{left:0px;}
+body.rtl #cloud .header ul.util_cloud li.notice div.cloud_tooltip {left:2px}
+body.rtl #cloud .header ul.util_cloud.fr .notice_pop{left:10px; right:auto; background:url(../../resources/image/Polaris/new/common/notice_bg02_rtl.png) left bottom no-repeat;}
+body.rtl .notice_pop h3 {padding:6px 10px 0 0; background: url(../../resources/image/Polaris/new/common/notice_bg_rtl.png) no-repeat; }
+body.rtl .notice_pop dt {float:right; margin:0 14px 0 0; }
+body.rtl .notice_pop dt span.bg {left:auto; right:0}
+body.rtl .notice_pop dt span.link_check {right:22px; left:auto;}
+body.rtl .notice_pop dd {float:right}
+body.rtl #cloud .header div.conPop {position:absolute; top:40px; left: 63px; width:412px; padding:14px 0 0; background:url(../../resources/image/Polaris/new/cloud/conPop_topBg_rtl.png) left top no-repeat; z-index:2}
+body.rtl #cloud .header div.conPop div.box {padding-bottom:5px; background:url(../../resources/image/Polaris/new/cloud/conPop_btmBg_rtl.png) left bottom no-repeat;}
+body.rtl #cloud .header div.conPop.connect {display:none; left:63px;} /* 20150820 수정 */
+body.rtl #cloud .header div.conPop.connect ul {margin:0 16px 0 0;}
+body.rtl #cloud .header div.conPop.connect li {float:none; position:relative; min-height:86px; padding-left:80px; border-bottom:1px solid #d2d2d2; font-size:13px; color:#787878;}
+body.rtl #cloud .header div.conPop.connect li.pc {min-height:90px}
+body.rtl #cloud .header div.conPop.connect li.folder {min-height:90px}
+body.rtl #cloud .header div.conPop.connect strong {display:block; padding:13px 0 5px; font-size:15px; font-weight:bold; color:#505050}
+body.rtl #cloud .header div.conPop.connect a,
+body.rtl #cloud .header div.conPop.connect li span {left:15px; right:auto;}
+body.rtl #cloud .header div.conPop.connect li span {padding:0 70px 0 0;}
+body.rtl #cloud .header div.conPop.mobile {}
+body.rtl #cloud .header div.conPop.connect02 h3 a.prev {margin:0 0 0 9px;}
+body.rtl #cloud .header div.conPop.connect02 dl {text-align:center; color:#787878; font-size:13px}
+body.rtl #cloud .header div.conPop.mobile dt {padding:18px 0 31px; line-height:15px;}
+body.rtl #cloud .header div.conPop.mobile dd {}
+
+body.rtl #cloud .header.sm h1,
+body.rtl #cloud.templete .header h1 {left:auto; right:30px;}
+body.rtl #cloud .header.sm ul.util_cloud.fr,
+body.rtl #cloud.templete .header ul.util_cloud.fr {left:0; right:auto}
+body.rtl #cloud .header.sm fieldset,
+body.rtl #cloud.templete .header fieldset {right:260px; left:auto;}
+body.rtl #cloud section.shareList section.tree li.lnb {padding-right:0; margin:0 10px 0 0;}
+body.rtl #cloud section.shareList section.tree li.lnb a {padding-right:39px;}
+body.rtl #cloud section.shareList section.tree li.lnb.shareDoc a {background-position:right -46px;}
+body.rtl #cloud section.shareList section.tree li.lnb.recentDco a {background-position:right -6px;}
+body.rtl #cloud section.shareList section.tree li.lnb.docOpen a {background-position:right -164px;}
+body.rtl #cloud section.shareList section.tree li.lnb.bin a {background-position:right -126px;}
+body.rtl #cloud section.shareList section.tree li.lnb.favorite a {background-position:right -86px;}
+body.rtl #cloud section.shareList section.tree li.lnb.search_full a {background-position:right -426px;}
+body.rtl #cloud section.shareList section.tree li.lnb.search_name a {background-position:right -466px;}
+body.rtl #cloud section.shareList section.tree li.lnb.search_con a {background-position:right -506px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_full a {background-position:right -696px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_word a {background-position:right -736px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_sheet a {background-position:right -776px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_slide a {background-position:right -816px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_hwp a {background-position:right -856px;}
+body.rtl #cloud section.shareList section.tree li.lnb.shareDoc.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.shareDoc a:hover {background-position:right -251px;}
+body.rtl #cloud section.shareList section.tree li.lnb.recentDco.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.recentDco a:hover {background-position:right -211px;}
+body.rtl #cloud section.shareList section.tree li.lnb.docOpen a:hover {background-position:right -291px;}
+body.rtl #cloud section.shareList section.tree li.lnb.start a {background-position:right -1136px;}
+
+body.rtl #cloud section.shareList section.tree li.lnb.favorite.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.favorite a:hover {background-position:right -291px;}
+body.rtl #cloud section.shareList section.tree li.lnb.start.on a,
+body.rtl #cloud section.shareList section.tree li.lnb.start a:hover {background-position:right -1207px;}
+body.rtl #cloud section.shareList section.tree li.lnb.docOpen a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.docOpen.on a{background-position:right -428px;}
+body.rtl #cloud section.shareList section.tree li.lnb.bin a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.bin.on a {background-position:right -331px;}
+body.rtl #cloud section.shareList section.tree li.lnb.search_full a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.search_full.on a {background-position:right -554px;}
+body.rtl #cloud section.shareList section.tree li.lnb.search_name a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.search_name.on a {background-position:right -594px;}
+body.rtl #cloud section.shareList section.tree li.lnb.search_con a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.search_con.on a {background-position:right -634px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_full a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.temp_full a.on {color:#3778eb; background-position:right -920px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_word a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.temp_word a.on {color:#3778eb; background-position:right -960px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_sheet a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.temp_sheet a.on {color:#69aa14; background-position:right -1000px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_slide a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.temp_slide a.on {color:#f08c32; background-position:right -1040px;}
+body.rtl #cloud section.shareList section.tree li.lnb.temp_hwp a:hover,
+body.rtl #cloud section.shareList section.tree li.lnb.temp_hwp a.on {color:#3778eb; background-position:right -1080px;}
+body.rtl #cloud section.shareList section.tree li.lnb.on a {color: #3c7df0;}
+body.rtl #cloud section.shareList section.tree li.root.on ul a{color: #282828}
+
+#cloud section.shareList section.tree li.lnb.bin a:hover,
+#cloud section.shareList section.tree li.lnb.bin.on a {background-position:0 -331px;}
+#cloud section.shareList section.tree li.lnb.search_full a:hover,
+#cloud section.shareList section.tree li.lnb.search_full.on a {background-position:0 -554px;}
+#cloud section.shareList section.tree li.lnb.search_name a:hover,
+#cloud section.shareList section.tree li.lnb.search_name.on a {background-position:0 -594px;}
+#cloud section.shareList section.tree li.lnb.search_con a:hover,
+#cloud section.shareList section.tree li.lnb.search_con.on a {background-position:0 -634px;}
+
+body.rtl #cloud section.shareList section.tree ul a img {right:-9px; padding:5px 10px 5px 11px; margin: 0 -25px 0 0;}
+body.rtl #cloud section.shareList section.tree ul a em {margin:0 -8px 0 0;}
+body.rtl dl.floating dt a, body.rtl dl.floating dt span {background:url(../../resources/image/Polaris/new/cloud/img_rtl.png) no-repeat}
+body.rtl dl.floating {left:28px; right:auto} /* 20150512 z-index 수정 */
+body.rtl dl.floating dt {left:0; right:auto;}/* 20150430 수정 */
+body.rtl dl.floating dt a.open {background-position:0 -317px; z-index:2}
+body.rtl dl.floating dt a.close {display:none; background-position:0 -396px; z-index:1}
+body.rtl dl.floating dd {text-align:right}/* 20150508 수정 */
+body.rtl dl.floating dd a {left:0px;right:auto;display:none; background:url(../../resources/image/Polaris/new/floating.png) no-repeat}/* 20150508 수정 */
+body.rtl dl.floating a span {text-align:right; padding:0 0 0 12px; display:none;}/* 20150430 수정 */
+body.rtl dl.floating a.guestinit span.guest em {padding:0 12px 0 0;}
+body.rtl dl.floating a:hover span {display:block}
+body.rtl dl.floating a:hover span em {padding:0 12px 0 0;}
+body.rtl dl.floating dt a span {float:left; left:83px; bottom:20px; right:auto; text-align:left; /* min-width:60px;  */background:none}
+body.rtl dl.floating dd a span {left: 58px; right:auto;}
+/* body.rtl dl.floating dt a.open span {width:auto;} */
+
+body.rtl #cloud section.shareList section.tree {position:absolute; right:0; left:auto}
+body.rtl #cloud section.shareList section.tree ul.cloud {margin:0 20px 0 0;}
+body.rtl #cloud section.shareList section.tree ul {margin:0 4px 0 0;}
+body.rtl #cloud section.shareList section.tree li {padding:0 14px 0 0;  white-space:nowrap;}
+body.rtl div.resize {right:256px;}
+body.rtl #cloud section.shareList .share_header {padding:0 254px 0 0;}
+body.rtl #cloud section.shareList .share_header dl.location a.first, body.rtl #cloud section.shareList .share_header dl.location em.first {padding:0 50px 0 0;}
+body.rtl #cloud section.shareList .share_header dl.location em.first {background:none}
+body.rtl #cloud section.shareList .share_header dl.location a.first {padding-left:30px; background-position:10px 23px}
+body.rtl #cloud section.shareList .share_header ul.btn {left:20px; right:auto}
+body.rtl #cloud section.shareList .share_header ul.btn a.upload {margin:0 20px 0 0}
+body.rtl .share_list .list_box {right:253px; left:0}
+body.rtl .share_list .list {padding:0 254px 0 0;}
+body.rtl .share_list .list li {text-align:right;}
+body.rtl .share_list .list li.name {right:101px; left:0px;}
+body.rtl .share_list .list li.owner {left:322px; right:auto;}
+body.rtl .share_list .list ul.subject li.owner {border-right:1px solid #ebebeb;}
+body.rtl .share_list .list li.modity {left:117px; right:auto; /* background:#fff; */}
+body.rtl .share_list .list li.size {left:0; right:auto}
+body.rtl .share_list .list .form {padding:0 50px 0 0; }
+body.rtl .share_list .list .owner,
+body.rtl .share_list .list .modity,
+body.rtl .share_list .list .size {padding:0 23px 0 0;}
+body.rtl .share_list .list td.modity,
+body.rtl .share_list .list li.form input {right:25px;}
+body.rtl #cloud section.doc_list dl.share span.img,
+body.rtl #cloud .list_box div.tit span.img {left:-31px; right:auto;}
+body.rtl #cloud section.shareList .share_header h3 {text-align: right; padding: 0px 53px 0 0;}
+body.rtl p.btm_bg {left:20px; right:auto}
+
+body.rtl div.context_menu a {padding:0 56px 0 0; }
+body.rtl div.context_menu li.send a {background-position:right -50px}
+body.rtl div.context_menu li.urlcopy a {background-position:right -88px}
+body.rtl div.context_menu li.download a {background-position:right -168px}
+body.rtl div.context_menu li.rename a {background-position:right -192px}
+body.rtl div.context_menu li.move a {background-position:right -210px}
+body.rtl div.context_menu li.copy a {background-position:right -290px}
+body.rtl div.context_menu li.delete a {background-position:right -330px}
+body.rtl div.context_menu li.open a {background-position:right -9px}
+body.rtl div.context_menu li.favorite a {background-position:right -128px}
+body.rtl div.context_menu li.favorite a.off {background-position:right -409px}
+body.rtl div.context_menu li.version a {background-position:right -370px}
+
+body.rtl div.popup h1{padding-right:12px;padding-left:30px; }
+body.rtl div.popup span.btn_close {left:5px; right:auto}
+
+body.rtl #cloud section.shareList .share_header ul.btn li {float:right; }
+body.rtl #cloud section.shareList .share_header ul.btn li.context_menu {float:; border-left:none}
+body.rtl #cloud section.shareList .share_header ul.btn li.context_menu_more {float:right; position:relative; /* display:none; */ padding-left:0; border-left:1px solid #ddd; border-right:none}
+body.rtl #cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu {display:none; left:0px;top:40px;}
+body.rtl #cloud section.shareList .share_header ul.btn div.context_menu li {text-align:right; border:none}
+body.rtl div.menu {left:0; right:auto;}
+body.rtl div.menu a {background-position: -5px 7px;}
+body.rtl div.menu ul {left:0; right:auto;}
+body.rtl #cloud div.menu li a {color:#505050;}
+body.rtl div.menu li a { padding:0 53px 0 0;}
+/*20150820 송경식*/
+body.rtl div.menu li.share a {background-position:right -46px}
+body.rtl div.menu li.link a {background-position:right -87px}
+body.rtl div.menu li.del a {background-position:right -126px}
+body.rtl div.menu li.open a {background-position:right -436px}
+body.rtl div.menu li.download a {background-position:right -180px}
+body.rtl div.menu li.favorite a {background-position:right -503px}
+body.rtl div.menu li.favorite a.off {background-position:right -573px}
+body.rtl div.menu li.rename a {background-position:right -244px}
+body.rtl div.menu li.move a {background-position:right -308px}
+body.rtl div.menu li.copy a {background-position:right -372px}
+
+body.rtl #cloud .header fieldset p.search {padding:0 0 0 40px;}
+body.rtl #cloud .header fieldset p.search a.del {left:48px; right:auto}
+
+/*body.rtl  #cloud div.no_doc, */
+
+body.rtl #cloud section.shareList .share_header dl.location li a { background:url(../../resources/image/Polaris/new/img_02_rtl.png) no-repeat;}
+body.rtl #cloud section.shareList .share_header dl.location a.folder_open {right:40px; margin-right:-18px;}
+body.rtl #cloud section.shareList .share_header dl.location ul { /* top:-30px; */right:32px; left:auto}
+body.rtl #cloud section.shareList .share_header dl.location li {}
+body.rtl #cloud section.shareList .share_header dl.location li a.folder {padding:0 42px 0 13px; color:#505050; font-size:13px; background-position:right -64px}
+body.rtl #cloud section.shareList .share_header dl.location li a.cloud {padding:0 42px 0 13px; background-position:right -331px}
+
+body.rtl #cloud section.shareList .share_header dl.location dt a,
+body.rtl #cloud section.shareList .share_header dl.location em {background:url(../../resources/image/Polaris/new/location_bg_rtl.png) 11px 23px no-repeat}
+body.rtl #cloud section.shareList .share_header dl.location em {background:none;}
+body.rtl #cloud section.doc_list h2 {padding:61px 12px 15px 0;}
+body.rtl #cloud section.shareList .share_header dl.location dt a.folder_open {left:-50px; background:url(../../resources/image/Polaris/new/img_02.png) 0 -12px no-repeat;}
+body.rtl #cloud section.shareList .share_header dl.location dt a.folder {padding:0 42px 0 13px; color:#505050; font-size:13px; background:url(../../resources/image/Polaris/new/img_02.png) 0 -12px no-repeat;}
+body.rtl #cloud section.shareList .share_header dl.location li a.cloud {padding:0 42px 0 13px; background-position:right -331px}
+body.rtl.ar #cloud section.shareList .share_header ul.btn a.upload{background-position: 50px 7px; padding: 0 34px 0 14px;}
+body.rtl.ar #cloud section.shareList .share_header ul.btn a#swf_upload{background-position: 62px 7px; margin-left:0;  margin-right:21px;}
+body.rtl.ar #cloud section.shareList .share_header ul.btn a.newFolder{background: url(../../resources/image/Polaris/new/cloud/btn_newFolder.png) #fff no-repeat 67px 7px; padding: 0 34px 0 14px;}
+body.rtl div.file_upload{right:256px;}
+body.rtl div.file_upload div.txt{margin: -204px 0 0 -103px;}
+body.rtl #pchome_upload2 .uploadify-button { padding: 0 34px 0 0; text-align: right;}
+body.rtl .notice_pop div.box .mCSB_container{margin-left: 0px;}
+/* web */
+body.web #cloud .header.sm,
+body.web #cloud.templete .header {height:96px;}
+body.web #cloud .header.sm fieldset,
+body.web #cloud.templete .header fieldset {position:absolute; top:-36px; left:260px;}
+body.web.rtl #cloud .header.sm fieldset,
+body.web.rtl #cloud.templete .header fieldset {right:260px; left:auto;}
+body.web #cloud .header fieldset {/*max-width:40%;*/}
+body.web #cloud .header.sm h1, body.web #cloud.templete .header h1 {top:32px;}
+body.web div.resize {top:97px;}
+body.web #cloud section.shareList section.tree {top:97px;}
+body.web .share_list .list_box {top:205px;}
+body.web .share_list.templete .list_box {top:155px;}
+body.web #cloud .header ul.util_cloud.fr {margin:32px 17px 0 0;}
+body.web.rtl #cloud .header ul.util_cloud.fr {margin:32px 0 0 17px;}
+body.web #cloud .header ul.util_cloud li.link {line-height:32px;}
+body.web #cloud .header ul.util_cloud li.link a {background:none}
+body.web #cloud .header div.conPop {top:70px}
+body.web #cloud .header.notice div.conPop {top:122px}
+body.web #cloud .header div.conPop.user {width:292px; background:url(../../resources/image/Polaris/new/web_conPop_topBg.png) left top no-repeat}
+body.web.rtl #cloud .header div.conPop.user {background:url(../../resources/image/Polaris/new/web_conPop_topBg_rtl.png) left top no-repeat}
+body.web #cloud .header div.conPop.user div.box {background:url(../../resources/image/Polaris/new/web_conPop_btmBg.png) left bottom no-repeat}
+body.web section.tree p.banner {position:fixed; bottom:60px; left:30px;width: 145px; height:220px; overflow:hidden}
+body.web.rtl section.tree p.banner {right:30px;}
+body.web #cloud .header ul.util_cloud li.chat {position: relative; display:; margin:4px 0 0 0; background:none;} /* 20150129 수정 20150226 성영원 수정 */
+body.web #cloud .header ul.util_cloud li.chat a {display:block; width:28px; height:23px; background: url(/resources/image/Polaris/new/button/chat.png) 0 no-repeat;}/* 20140423 ì±„íŒ… ì¶”ê°€ */
+body.web #cloud .header ul.util_cloud li.chat img {display:none;}
+body.web #cloud .header ul.util_cloud li.chat.new img {display:block; position:absolute; left:10px; top:0px;}
+body.web.rtl #cloud .header ul.util_cloud li.chat.new img {left:auto}
+body.web #cloud .header ul.util_cloud li.chat a span {display:none}
+
+/* 웹가이드 */
+body.web div.pop_notice {height:137px;background:#fff; border-bottom:1px solid #dcdcdc; text-align:left;} /* 20150129 수정 */
+body.web div.pop_notice .btn_close {position:absolute; top:17px; right: 42px;} /* 20150129 수정 */
+body.web div.pop_notice dl { width:705px; margin:0 auto; min-height:120px;} /* 20140423 수정 */
+body.web div.pop_notice dl.pop_01 {background:url(/resources/image/Polaris/new/notice_pop01.png) 525px 21px no-repeat;} /* 20131218 성영원 수정 다국어관련 */
+body.web div.pop_notice dl.pop_02 {background:url(/resources/image/Polaris/new/notice_pop02.png) 565px 23px no-repeat;} /* 20131218 성영원 수정 다국어관련 */
+body.web div.pop_notice dl.pop_03 {background:url(/resources/image/Polaris/new/notice_pop03.png) 490px 14px no-repeat;} /* 최근 문서 - 20131218 성영원 수정 다국어관련 */
+/* body.web div.pop_notice dl.pop_04 {background:url(/resources/image/Polaris/new/notice_pop04.png) 480px 25px no-repeat;} 공유 - 20131218 성영원 수정 다국어관련 */
+body.web div.pop_notice dl.pop_04 {background:url(/resources/image/Polaris/new/notice_pop06.png) 475px 25px no-repeat;}/* 20140625 팝업 추가 */
+body.web div.pop_notice dl.pop_05 {position:relative;background:url(/resources/image/Polaris/new/notice_pop05.png) 0 25px no-repeat;} /*공유 - 20131218 성영원 수정 다국어관련 */
+body.web div.pop_notice dl.pop_07 {background:url(/resources/image/Polaris/new/notice_pop07.png) 10px 31px no-repeat;}/* 20141126 검색 결과 계정 업그레이드  팝업 추가 */
+body.web div.pop_notice dt {padding:37px 0 9px; font-weight:bold; font-size:17px; color:#3a4049;} /* 20140703 수정 */
+body.web div.pop_notice dt em {color:#1a65e9; font-style:normal;}
+body.web div.pop_notice dl.pop_05 dt,
+body.web div.pop_notice dl.pop_05 dd {padding-left:150px}
+body.web div.pop_notice dd {line-height:18px;}
+body.web div.pop_notice dd.btn_service {position:absolute; top:51px; right:0px;}
+body.web div.pop_notice dd.btn_service a {display:inline-block;  padding:12px 13px; border-radius:2px; background:#3c7df0; color:#fff;}
+body.web div.pop_notice dl.pop_07 dt, body.web div.pop_notice dl.pop_07 dd {padding-left:137px;}
+body.web div.pop_notice dl.pop_07 dt {padding-top:42px;}
+body.web div.pop_notice dl.pop_07 dd.btn_upgrade {position:relative;}
+body.web div.pop_notice dl.pop_07 dd.btn_upgrade a {position:absolute; top:-42px; left:543px; display:inline-block; height:36px; line-height:32px; color:#fff !important; padding:0 23px; border-radius:3px; background:#3c7df0; text-align:center; font-size:13px;}
+
+body.web div.location_box {position:relative; border-bottom:1px solid #dcdcdc; background:#f5f5f5;}
+body.web #cloud section.shareList .share_header {border:none; background:none;}
+body.web #cloud section.share_list.pop_on section.share_header div.location_box {height:58px;}
+body.web #cloud section.share_list.pop_on .list {margin-top:139px;}
+body.web #cloud section.share_list.pop_on .list_box {top:345px;}
+body.web #cloud div.notice section.share_list.pop_on .list_box {top:397px;}
+body.web #cloud section.share_list .list {margin-top:0px;}
+body.web #cloud div section.share_list#version_list .list_box {top:155px;}
+body.web #cloud div.notice section.share_list .list_box {top:257px;}
+body.web #cloud div.notice section.share_list.templete .list_box {top:205px;}
+body.web #cloud div.notice section.share_list#version_list .list_box {top:207px;}
+body.web #cloud .header div.conPop.user dt {position:relative; margin:0; height: 118px; /*margin:0 auto; width:100px;*/}
+body.web #cloud .header div.conPop.user dd {padding:0 0 20px; border-bottom:1px solid #e8e7e8;}
+body.web #cloud .header div.conPop.user dd span.service {margin-bottom:0;}
+body.web #cloud .header div.conPop.user p.btn {width:280px; margin-top:28px;}
+body.web #cloud .header div.conPop.user ul {margin:0 0 0 40px; padding:18px 0 0;}
+body.web.rtl #cloud .header div.conPop.user ul {margin:0 40px 0 0}
+body.web #cloud .header div.conPop.user ul a {display:block; height:36px; line-height:36px;}
+
+body.web div.context_menu li.open2,
+body.web div.context_menu li.download2 {position:relative; background:url(../../resources/image/Polaris/new/arrow_right.png) right no-repeat}
+body.web.rtl div.context_menu li.open2,
+body.web.rtl div.context_menu li.download2 {background:url(../../resources/image/Polaris/new/arrow_left.png) left no-repeat}
+body.web div.context_menu li.open2:hover,
+body.web div.context_menu li.download2:hover {background-color:#ebebeb}
+body.web #cloud div.context_menu li.open2:hover div.menu_box{display:block;}
+body.web #cloud section.shareList .share_header ul.btn a.open2 ,
+body.web #cloud section.shareList .share_header ul.btn a.download2 {padding-right:17px; background:url(../../resources/image/Polaris/new/arrow_bottom.png) right no-repeat;}
+
+body.web #cloud .menu_box {display:none; position:absolute; left: 168px; top:0; padding:5px 0; border:1px solid #a0a0a0; box-shadow:0 0 5px #b2b2b2; border-radius:5px; background:#fff; z-index:10; min-width: 235px;}
+body.web.rtl #cloud .menu_box {right:168px; left:auto}
+body.web.fr #cloud .menu_box {left:188px; min-width:280px;}
+body.web #cloud .share_header ul.btn .menu_box {top : 28px; left:21px; text-align: left; right: auto;}
+body.web.en #cloud .menu_box{right:-239px;}
+body.web.cn #cloud .menu_box{right:-250px;}
+body.web.fr #cloud .menu_box {min-width: 285px;}
+body.web.cn #cloud .share_header ul.btn .menu_box{min-width: 250px;}
+body.web.rtl #cloud .share_header ul.btn .menu_box {left:auto; text-align: right; right: 0;}
+
+body.web #cloud .menu_box a, body.web #cloud .share_header ul.btn .menu_box a {margin:0; padding:0 13px; display:block; background:none;}
+body.web #cloud .share_header ul.btn .menu_box a{height: 44px; line-height: 44px;}
+body.web #cloud .menu_box a:hover, body.web #cloud .share_header ul.btn .menu_box a:hover {background-color:#ebebeb;}
+
+body.web div.location_box {border:}
+body.web .share_list .list ul.subject {border-top:1px solid #dcdcdc;}
+
+body.web .share_list .list_box {padding-bottom:0px;}
+
+section.box_inner {min-height:100%;}
+
+body.web #cloud div.header.notice {height:148px;}
+body.web #cloud div.header.notice h1 {position:absolute; top:83px; left:28px; z-index:5}
+body.web.rtl #cloud div.header.notice h1 {right:28px; left:auto}
+body.web #cloud div.header p.top_notice {height:52px; line-height:50px; color:#2f2e23; text-align:center; background:#fffac1; border-bottom:1px solid #e4e4b6}
+body.web #cloud div.header p.top_notice span.top_notice_text {display:inline-block; line-height:16px; padding:8px 0;width: 50%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; vertical-align: middle;}
+body.web.en #cloud div.header p.top_notice span.top_notice_text,
+body.web.fr #cloud div.header p.top_notice span.top_notice_text {width:50%; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; vertical-align:middle;}
+body.web #cloud div.header p.top_notice a {display:inline-block; text-decoration:underline; margin:0 10px 0 10px;}
+body.web #cloud div.header p.top_notice a:hover {text-decoration:underline;}
+body.web #cloud div.header p.top_notice img {position:absolute; top:19px; right:16px;}
+body.web #cloud .header.sm.notice fieldset,
+body.web #cloud.templete .header.notice fieldset {top:16px;}
+body.web #cloud div.notice section.shareList section.tree, body.web div.notice div.resize {top:149px;}
+
+/* IE8 */
+/* #cloud section.shareList .share_header h3 {padding-top:22px\9;}*/
+#cloud section.shareList section.tree ul a {line-height:34px\9}
+#cloud .header fieldset p.search label {top:10px\9}
+#cloud .header ul.util_cloud li.open a {line-height:36px\9;}
+
+body.web #cloud section.shareList section.tree div.lnb_footer {position:fixed; bottom:20px; left:25px; z-index:1001}
+body.web.rtl #cloud section.shareList section.tree div.lnb_footer {right:25px; left:auto;}
+body.web #cloud section.shareList section.tree div.lnb_footer li {float:left; padding:0 18px 0 0;}
+body.web.rtl #cloud section.shareList section.tree div.lnb_footer li {float:right; padding:0 0 0 18px;}
+body.web #cloud section.shareList section.tree div.lnb_footer li a {font-size:13px; height:31px;line-height:31px; padding:0; border:none;}
+body.web #cloud section.shareList section.tree div.lnb_footer li.menu ul li {float:none; max-width:auto; padding:0;}
+body.web #cloud section.shareList section.tree div.lnb_footer li.menu ul {display:none; position:absolute; left:160px; bottom:30px; padding:7px 0;border:1px solid #a0a0a0; width:auto; border-radius:3px; box-shadow: 0 0 4px 1px #d2d2d2; background:#fff;}
+body.web.rtl #cloud section.shareList section.tree div.lnb_footer li.menu ul {right:160px; left:auto;}
+body.web #cloud section.shareList section.tree div.lnb_footer li.menu li a {height:38px; line-height:38px; color:#505050; font-size:13px; padding:0 19px; border:none}
+body.web #cloud section.shareList section.tree div.lnb_footer li.menu li a:hover {background:#ebebeb}
+body.web #cloud section.shareList section.tree div.lnb_footer li.lang a {display:inline-block; padding:0 0 0 20px; background:url(../../resources/image/Polaris/new/cloud/lang.png) 0 9px no-repeat;}
+body.web.rtl #cloud section.shareList section.tree div.lnb_footer li.lang a {padding:0 20px 0 0;background:url(../../resources/image/Polaris/new/cloud/lang.png) right 9px no-repeat;}
+body.web #cloud section.shareList section.tree div.lnb_footer li.menu a.btn_menu {margin-top:2px;display:inline-block; width:34px; height:16px; text-indent:-999em; background:url(../../resources/image/Polaris/new/cloud/btn_menu.png) 0 11px no-repeat}
+
+body.web #cloud section.shareList section.tree {overflow:hidden; border-right:1px solid #dcdcdc;}
+body.web.rtl #cloud section.shareList section.tree {border-left:1px solid #dcdcdc;}
+body.web #cloud section.shareList section.tree dl.tree_folder {position:absolute; top:0; bottom: 300px; width:100%; overflow-y:auto; overflow-x:hidden}
+
+div.lang_pop, div.lang_pop div#mask {display:none; position:fixed; left:0; top:0; width:100%; height:100%;}
+div.lang_pop {z-index:10}
+div.lang_pop div#mask {background:#dcdcdc; opacity:0.3; filter:alpha(opacity=30);}
+div.lang_pop div.box {position:absolute; top:50%; left:50%; width:232px; height:320px; margin:-120px 0 0 -116px; border:1px solid #a0a0a0; border-radius:3px; box-shadow: 0 0 4px 1px #d2d2d2; background:#fff; z-index:2}
+div.lang_pop div.box h3, div.lang_pop div.box li {padding:0 34px;}
+div.lang_pop div.box h3 {padding-top:30px; padding-bottom:23px; font-size:15px; color:#25272a;}
+div.lang_pop div.box a.btn_close {position:absolute; top:21px; right:22px; width:12px; height:12px; text-indent:-999em; background:url(../../resources/image/Polaris/new/cloud/btn_close02.png) no-repeat}
+body.rtl div.lang_pop div.box a.btn_close {left:22px;right:auto;}
+div.lang_pop div.box a {display:inline-block; width:164px; height:38px; line-height:38px; font-size:13px; color:#7d7f85;}
+div.lang_pop div.box a.on{color:#25272a; font-weight:bold; background:url(../../resources/image/Polaris/new/cloud/bul_check.png) right no-repeat}
+body.web.rtl div.lang_pop div.box a.on {background:url(../../resources/image/Polaris/new/cloud/bul_check.png) left no-repeat}
+div.lang_pop div.box li:hover {background:#f5f5f5}
+
+body.web ::-webkit-scrollbar {width:8px;height:8px;border:3px solid #fff;}
+/*body.web #cloud section.shareList section.tree ::-webkit-scrollbar {display:none;}*/
+body.web #cloud section.shareList section.tree:hover ::-webkit-scrollbar {display:block}
+body.web ::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {display:block;height:0;background:#fff}
+/* body.web #cloud section.shareList section.tree ::-webkit-scrollbar-button:start:decrement,
+body.web #cloud section.shareList section.tree ::-webkit-scrollbar-button:end:increment {height:20px;}*/
+body.web ::-webkit-scrollbar-track {background:#fff;}
+body.web ::-webkit-scrollbar-thumb {height:0px;width:50px;background:#e5e5e5;-webkit-border-radius:3px;border-radius:3px;}
+
+body.web .share_list .location_box h3 a {display:inline-block; margin-left:-23px; padding:0 0 0 26px; background:url(../../resources/image/Polaris/new/cloud/btn_prev02.png) 0 20px no-repeat;}
+body.web.rtl .share_list .location_box h3 a {text-align:right;  margin:0 -23px 0 0; padding:0 26px 0 0; background:url(../../resources/image/Polaris/new/cloud/btn_prev02_rtl.png) right 20px no-repeat;}
+body.web .share_list .list_box h3 {padding-left:48px; height:48px; line-height:48px; font-weight:normal; color:#787878; border-bottom:1px solid #e6e6e6; border-top:1px solid #e6e6e6; background:#fcfcfc;}
+body.web .share_list .list .version li {text-align:center; padding:0}
+body.web .share_list .list .version ul.current li {border-bottom:none}
+body.web .share_list .list .version li.form {width:86px; padding-right:16px;text-align:right;}
+body.web .share_list .list .version li.version {left:102px; min-width:132px; width:80%; text-align:left; text-decoration:underline;}
+body.web .share_list .list .version li.change {right:65%; width:80px;}
+body.web .share_list .list .version li.user {right:45%; width:20%;}
+body.web .share_list .list .version li.modity {width:20%; right:25%;}
+body.web .share_list .list .version li.size {width:10%; right:15%;}
+body.web .share_list .list .version li.download {right:0; width:10%;}
+body.web .share_list .list .version li.download a,
+body.web .share_list .list p.btn a {display:inline-block; height:30px; padding:0 14px; line-height:30px; border-radius:3px; border:1px solid #d2d2d2;}
+body.web .share_list .list p.btn {padding:25px 0; text-align:center;}
+body.web .share_list .list p.btn a {margin:0 10px;}
+
+body.web.rtl .share_list .list_box h3 {padding:0 48px 0 0;}
+body.web.rtl .share_list .list .version li.form {padding:0 0 0 16px; text-align:left;}
+body.web.rtl .share_list .list .version li.version {right:102px; left:auto; text-align:right;}
+body.web.rtl .share_list .list .version li.change {left:65%; right:auto;}
+body.web.rtl .share_list .list .version li.user {left:45%; right:auto; width:20%;}
+body.web.rtl .share_list .list .version li.modity {width:20%; left:25%; right:auto;}
+body.web.rtl .share_list .list .version li.size {width:10%; left:15%; right:auto}
+body.web.rtl .share_list .list .version li.download {left:0; right:auto; width:10%;}
+
+body.web #cloud section.doc_list dd strong div.tit, body.web #cloud .list_box div.tit {/*width:100%;*/ padding-right:80px}
+body.web.rtl #cloud section.doc_list dd strong div.tit, body.web.rtl #cloud .list_box div.tit {padding:0 0 0 50px;}
+
+@media screen and  (max-width:1024px) {
+    body.web #cloud section.shareList section.tree  {overflow-x:visible; overflow:visible;}
+    body.web section.tree p.banner {position:absolute;}
+    body.web #cloud section.shareList section.tree div.lnb_footer {position:absolute;}
+    body.web #cloud section.shareList section.tree div.lnb_footer li.menu ul{left: 80px;}
+    body.web.fr #cloud section.shareList section.tree div.lnb_footer li a {font-size:13px;}
+    body.web.fr #cloud section.shareList section.tree div.lnb_footer li {padding:0 10px 0 0}
+}
+
+@media screen and  (max-height:560px) {
+    body.web #cloud section.shareList section.tree dl.tree_folder {bottom:60px;}
+    body.web section.tree p.banner {display:none;}
+}
+
+.sync_popup {position:fixed; left:50%; top:50%; width:572px; margin:-300px 0 0 -286px; border:; border:3px solid #ebebeb; border-radius:5px; z-index: 10; background: #fff; }
+.sync_popup .syncBox {border:1px solid #bdbdbd; color:#25272a; border-radius:3px}
+.sync_popup .syncBox div.box {}
+.sync_popup .syncBox a {text-decoration:none; color:#25272a; }
+.sync_popup .syncBox em {font-style:normal;}
+.sync_popup .syncBox h2 {font-size:15px;}
+.sync_popup .syncBox a.btn_close {position:absolute; top:17px; right:18px; display:inline-block; width:12px; height:12px; text-indent:-9999em; background:url(/resources/image/Polaris/new/common/btn_close.png) no-repeat;}
+.sync_popup dl {margin:47px 50px 0 50px; padding-left:148px; background:url(/resources/image/Polaris/new/common/notice_popup_sync.png) 0 3px no-repeat;}
+.sync_popup dt {margin:0 0 21px; font-size:16px;}
+.sync_popup dt em {color:#3c7df0;}
+.sync_popup dd {font-size:13px; line-height:21px;}
+.sync_popup dd.btn {padding:20px 0 50px 0; text-align: right}
+.sync_popup dd.btn a {display:inline-block; padding:0 27px; height:36px; line-height:34px; background:#3c7df0; color:#fff; border-radius:2px}
+.sync_popup label.today {position:absolute; left:25px; bottom:20px; color: #25272a;}
+.sync_popup label.today input {position:relative; top:-1px; vertical-align:middle}
+
+body.rtl #cloud .search_result .list_box td  {text-align:right;}
+.share_list .list td.name div.favorite {display:none; position:absolute; right:0; }
+.share_list .list td.name:hover div.favorite {display:block;}
+.share_list .list td.name {position:relative; padding-bottom:13px; border-bottom:1px solid #e6e6e6;}
+#cloud .search_result .list_box td.name div.tit {float:none; top:0; margin:13px 0 0; height:17px; line-height:17px;}
+.share_list .list td.name var {position:relative; top:-1px; color:#a0a0a0; padding:0 7px; color:#a0a0a0; font-weight:normal; font-size:11px}
+.share_list .list td.name span {color:#a0a0a0; vertical-align:middle;}
+.share_list .list td.name span.location {display:inline-block; max-width:50%;  text-overflow:ellipsis; overflow:hidden; white-space:nowrap}
+.share_list .list td.name span.txt {display:block; padding:4px 20px 0 0; min-height:15px; max-height:69px; overflow:hidden;}
+
+.share_list.search_result .list_box {top: 131px;}
+body.web .share_list.search_result .list_box {top: 156px;}
+.share_list.search_result .list_box table {width:100%;}
+.share_list.search_result .list_box td.form {position:relative; width:43px;}
+.share_list.search_result .list_box tr:hover .form input {display:block;}
+.share_list.search_result .list_box .form input {/*top:50%; margin-top:-8px;*/}
+
+body.rtl .share_list.search_result .list_box .form input {right:25px;}
+
+#cloud section.shareList .share_header ul.btn li.context_menu_more a.sort {border:1px solid #c8c8c8; padding:0 10px 0 36px; height:32px; line-height:30px; border-radius:2px; background:#fff url(../../resources/image/Polaris/new/cloud/bul_sort_02.png) 9px 8px no-repeat;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby {display:none; left:-120px;top:40px;}
+body.fr #cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby {left:-140px;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby li {float:none}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby a {display:block; margin:0; float: none;}
+div.context_menu.orderby a {display:block; height:44px; line-height:44px; padding:0 0 0 43px; color:#505050; color: #888;}
+div.context_menu.orderby li:hover {background-color:#ebebeb;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby a {background:none;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby a.on.desc {background:url(../../resources/image/Polaris/new/cloud/arrow_down.png) 20px 18px no-repeat;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby a.on.asc {background:url(../../resources/image/Polaris/new/cloud/arrow_up.png) 20px 18px no-repeat;}
+#cloud section.shareList .search_result .share_header ul.btn li.context_menu_more {padding:0;border-right:none}
+body.rtl #cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby {display:none; left:0px;top:40px;}
+#cloud section.shareList .share_header ul.btn li.context_menu_more div.context_menu.orderby h4 {text-align: left; margin: 20px 0 0 18px;}
+
+.share_list .list div.list_box tr.hover td {background:#f5f5f5}
+.share_list .list div.list_box tr.selected td {background:#ebf5ff}
+.share_list .list div.list_box tr.selected td.form input,
+.share_list .list div.list_box tr.hover td.form input {display:block;}
+.share_list .list div.list_box tr.selected td.form input,
+.share_list .list div.list_box tr.hover td.form input {display:block;}
+#cloud section.doc_list dd span.txt strong,
+.search_result tr span.txt strong {display:inline; padding:0; color: #3c7df0;font-weight: bold;}
+
+body:not(.rtl) .ui-resizable .ui-resizable-handle.ui-resizable-e {height: 100%; right: 0; position: absolute; width: 8px; cursor:col-resize; }
+body.rtl .ui-resizable .ui-resizable-handle.ui-resizable-w {border-left:1px solid #dcdcdc; height: 100%; left: 0; position: absolute; width: 8px; cursor:col-resize; }
+
+/** search message start **/
+div.try_search {position: fixed; top: 50%; width: 100%; height: 200px;}
+div.try_msg {margin:auto; text-align: center;}
+div.try_msg span {display:inline-block; margin-top:24px; font-size:15px; color:#787878;}
+/** search message end **/
+
+.screen_out,legend{position:absolute;top:-9999px;overflow:hidden;display:block;width:1px;height:1px;font-size:0;line-height:0;text-indent:-9999px;}
+.screen_hide,caption{visibility:hidden;font-size:0;line-height:0;}
+.align_rig{text-align:right;}
+.align_cen{text-align:center;}
+html,body{width:100%;height:100%;}
+.dim{position:absolute;top:0;left:0;z-index:10;width:100%;height:100%;background:#000;opacity:0.4;filter:alpha(opacity=40);}
+
+.share_list .list td.name span {color:#787878; vertical-align:middle; font-size:12px; padding:0 !important}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    :root .share_list .list li.form input {margin-top:-8px;}
+    :root .share_list .list tr.docName td.form input {margin-top:8px;}
+}
+.search_result .list_box td em, .search_result .list_box td strong {background:#e8f2fe; color: #1e82ff; font-weight: bold;}
+.ui-selectable-helper { position: absolute; z-index: 100; border:1px dotted black; }
+.ui-selectable {/* display:table-cell; */position: relative;margin: 0;padding:0px 0px 49px 0px;width: 100%;}   /* 20160405 */
+
+dl.floating.new dd a.template {background-position:right 0;} /* AOM-7534 */
+dl.floating.new dd a.odt {background-position:right -300px;} /* AOM-7534 */
+dl.floating.new dd a.hwp {background-position:right -60px;} /* AOM-7534 */
+dl.floating.new dd a.slide {background-position:right -120px;} /* AOM-7534 */
+dl.floating.new dd a.sheet {background-position:right -180px;} /* AOM-7534 */
+dl.floating.new dd a.word {background-position:right -240px;} /* AOM-7534 */
+dl.floating.new dd a.menu_01{bottom:75px;} /* AOM-7534 */
+dl.floating.new dd a.menu_02{bottom:135px;} /* AOM-7534 */
+dl.floating.new dd a.menu_03{bottom:195px;} /* AOM-7534 */
+dl.floating.new dd a.menu_04{bottom:255px;} /* AOM-7534 */
+dl.floating.new dd a.menu_05{bottom:315px;} /* AOM-7534 */
+dl.floating.new dd a.menu_06{bottom:375px;} /* AOM-7534 */
+
+body.rtl dl.floating.new dd a.template {background-position:left 0;} /* AOM-7534 */
+body.rtl dl.floating.new dd a.odt {background-position:left -300px;} /* AOM-7534 */
+body.rtl dl.floating.new dd a.hwp {background-position:left -60px;} /* AOM-7534 */
+body.rtl dl.floating.new dd a.slide {background-position:left -120px;} /* AOM-7534 */
+body.rtl dl.floating.new dd a.sheet {background-position:left -180px;} /* AOM-7534 */
+body.rtl dl.floating.new dd a.word {background-position:left -240px;} /* AOM-7534 */
+
+dl.floating img.upgrade {position:absolute; top:12px; right:65px;}
+dl.floating a:hover img.upgrade {display:none}
+
+
+/* 홈 문서 리스트 */
+.home_list {position:relative;background:#f5f5f5;}
+.home_list.non_bg {background:#fff}
+.home_list div.templates{display:none;}
+.home_list .thum {margin:0 auto;width:1170px;overflow:hidden;}
+.home_list .thum h2 {clear:both; padding: 28px 0 22px 15px; color:#515151; font-size:15px !important;font-weight:bold;}
+body.rtl .home_list .thum h2 {padding: 28px 15px 22px 0;}
+.home_list .thum h3 {position:relative;padding:0 28px 18px 45px ;font-size:14px !important;color:#787878;font-weight:normal}
+.home_list .thum dl {display:block;float:left;width:20%; text-align:center; cursor:pointer; vertical-align:top;}
+.home_list .thum.col3 dl {width: 33%;}
+.home_list .thum.col4 dl {width: 25%;}
+.home_list .thum.col4 dl.slide {width:22%}
+.home_list .thum.col6 dl {width:16%}
+.home_list .thum.col6 dl.slide {width:20%}
+.home_list .thum dl.templates.hide {display:none;}
+.home_list .thum.showTemplete dl.templates.template {display:block;}
+.home_list .thum dt {position:relative;height:208px;vertical-align:bottom;text-align:center;}
+.home_list .thum dt .upgrade{position:absolute;top: 11px;left: 28px;font-size: 11px !important;font-weight: bold;color: #fff;height: 18px;line-height: 18px;padding: 0 8px;border-radius: 1em;background: #1d7ff9;}
+.home_list .thum dd {padding:12px 0 49px;}
+.home_list .thum dd span {/*margin:0 -40px;*/text-align:center}
+.home_list .thum div#slide dl {width:auto}
+.home_list .thum a.more {position:absolute;top:0;right:45px;display:inline-block;padding-right:15px;font-weight:normal;background:url(../../resources/image/Polaris/new/bul_arrow.png) right 50% no-repeat;color:#787878}
+#cloud .home_list.newtemplates dd {display:none}
+#cloud section.doc_list.type02 {width:1140px; display:none;}
+#cloud section.doc_list.type02 dd {width:1078px;}
+#cloud section.doc_list.type02 dd strong {display:inline-block;width:762px;max-width:762px;}
+#cloud section.doc_list.type02 dd strong .tit {max-width:90%;height:20px;}
+#cloud section.doc_list.type02 dd span.location {display:block; width:762px;max-width:762px; height:29px;}
+#cloud section.doc_list.type02 dd span.location:hover {text-decoration:underline;}
+#cloud.templete.type02 .header {position:fixed}
+#cloud.templete.type02 #cloud_container {padding-top:73px;}
+#cloud section h2.title.bottom {position:fixed;bottom:0;left:0;width:100%;height:48px;padding:0;line-height:48px;text-align:center;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;background:#fff}
+#cloud section h2.title.bottom a.doc {display:inline-block;font-weight:normal;color:#787878}
+#cloud section h2.title.bottom a.mydoc {float:none;display:inline-block;padding-right:15px;background:url(../../resources/image/Polaris/new/bul_arrow.png) right 50% no-repeat;color:#787878}
+#cloud section h2.title.bottom var {font-style:normal;color:#c8c8c8}
+
+
+body.rtl #cloud section h2.title.bottom a.mydoc {padding-right:0;padding-left:15px;background:url(../../resources/image/Polaris/new/bul_arrow_rtl.png) 0 50% no-repeat;color:#787878}
+
+/* #cloud section.doc_list h2.title.bottom {position:fixed;bottom:0;left:0;width:100%;height:48px;padding:0;line-height:48px;text-align:center;border-top:1px solid #dcdcdc;border-bottom:1px solid #dcdcdc;background:#fff}
+#cloud section.doc_list h2.title.bottom a.doc {display:inline-block;font-weight:normal;color:#787878}
+#cloud section.doc_list h2.title.bottom a.pchome_alldoc {float:none;display:inline-block;background:url(/maxage1/common/img/cloud/bul_arrow.png) right 50% no-repeat;color:#787878}*/
+.simple_info_layer {font-size:13px; height:30px;line-height:30px;color:#787878;border-top:1px solid #d2d2d2; padding:0 24px; border-bottom:1px solid #f5dc96;background:#fff0be}
+.simple_info_layer > div {}
+.simple_info_layer > div p {display:inline-block; width:95%;  line-height:30px;}
+.simple_info_layer > div p span {color:#a04b1e; display: inline-block; max-width:90%; text-overflow: ellipsis;overflow: hidden; white-space:nowrap}
+.simple_info_layer > div p span:after {content:'|';display:inline-block;padding:0 8px 0 10px;color:#dcb47d;position:relative;top:-2px;}
+.simple_info_layer > div a {float:right;display:inline-block;padding:0 10px;}
+.simple_info_layer > div p a {float:none; vertical-align: top;}
+body.rtl .home_list .thum h3 {padding:0 45px 18px 45px}
+body.rtl .home_list .thum a.more {right:initial;left:45px;padding-left:15px;;background: url(../../resources/image/Polaris/new/bul_arrow_rtl.png) 0 50% no-repeat;}
+body.rtl #cloud section.doc_list h2.title.bottom a.pchome_alldoc {display:inline-block;background:url(../../resources/image/Polaris/new/bul_arrow_rtl.png) 0 50% no-repeat;color:#787878}

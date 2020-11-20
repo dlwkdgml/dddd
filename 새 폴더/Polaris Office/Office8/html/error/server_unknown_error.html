@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="user-scalable=yes, maximum-scale=1.0">
+<title>Polaris Office</title>
+<link rel="icon" href="https://www.polarisoffice.com/resources/image/favicon_16x16_new.png">
+<link rel="shortcut icon" type="image/x-icon" href="https://www.polarisoffice.com/resources/image/favicon_16x16.ico?20150527">
+<style type="text/css">
+    * {margin:0; padding:0; list-style:none; font-family:sans-serif;}
+    .wrapper {position:absolute; top:50%; left:50%; margin:-120px 0 0 -502px; width:1004px; color:#787878;}
+    .wrapper dl {font-size:13px; line-height:18px; text-align:center;}
+    .wrapper dt {padding:107px 0 41px; background:url(../offline/RTL/resources/image/Polaris/new/account/info_nodata.png) center top no-repeat;}
+    .wrapper a {color:#1d7ff9;}    
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <dl>
+        <dt>
+            Polaris Office 서비스에 연결할 수 없습니다. <span id="status"></span><br>
+            새로 고침 하거나 잠시 후 재 실행하시기 바랍니다.<br>
+            문제가 계속되면 고객센터(<a href="mailto:support@polarisoffice.com" target="_blank">support@polarisoffice.com</a>)로 문의 바랍니다.
+        </dt>
+        <dd><a id="pchome_ServerTemporarilyUnavailable" class="homeLink" href="javascript:void(0)">새로고침</a></dd>
+    </dl>
+</div>
+<script type="text/javascript">
+function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+}
+
+var result = getQueryParams(location.search);
+if(result != undefined) {
+	document.getElementById('status').innerHTML = '(Status:'+result.Status + ', Code:'+ result.Code+')';
+}
+</script>
+</body>
+</html>

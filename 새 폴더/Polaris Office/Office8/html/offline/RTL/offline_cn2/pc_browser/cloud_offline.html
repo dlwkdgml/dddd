@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="user-scalable=yes, maximum-scale=1.0, width=980">
+<title>POLARIS</title>
+<link rel="stylesheet" href="../../resources/css/pccloud.css">
+<link rel="stylesheet" href="../../resources/css/pcpopup.css">
+<!--[if lt IE 9]>
+<script src="../../resources/js/lib/html5.js"></script>
+<![endif]-->
+</head>
+
+<body class="cn"> 
+<div id="cloud" class="templete type02">
+	<div class="header">	
+		<ul class="util_cloud fr account" style="display:none">
+			<li class="open"><a href="#" id="pchomeoff_open">我的文档</a></li>
+            <li class="notice"><a href="#" id="pchomeoff_notice">通知</a><div class="cloud_tooltip"><span><em>通知</em></span></div></li>
+			<li class="feedback" id="feedbackPo" style="display:none"><a id="pchomeoff_feedback" href="#">发送审阅</a><div class="cloud_tooltip"><span><em>发送审阅</em></span></div></li>
+			<li class="app"><a href="#" id="pchomeoff_appdown">应用程序</a><div class="cloud_tooltip"><span><em>应用程序</em></span></div></li>
+			<li class="user"><a href="#" id="pchome_userinfo"><img src="../../resources/image/Polaris/new/cloud/no_tumb.png" width="32" height="32" alt="用户"><span class="bg"></span></a></li>
+		</ul>
+        <ul class="util_cloud fr guest" style="display:none">            
+            <li class="computer_doc"><a id="pchome_open2" href="#">打开“我的文档”</a><div class="cloud_tooltip"><span><em>打开“我的文档”</em></span></div></li>
+			<li class="feedback" id="feedbackPo" style="display:none; margin:-5px 0 0"><a id="pchomeoff_feedback" href="#">发送审阅</a><div class="cloud_tooltip"><span><em>发送审阅</em></span></div></li>
+			<li class="login"><a href="#" class="login">登录</a></li>
+		</ul>
+        <h1 class="ko init" id="pchome_main">Polaris Office</h1>
+		<div class="conPop user free">
+            <div class="box">
+                <dl>
+                    <dt><img src="../../resources/image/Polaris/new/cloud/no_tumb.png" width="70" height="70" alt="사용자"><span class="bg"></span></dt>
+                    <dd>
+                        <strong>...</strong>
+                        <span class="mail">...</span>
+                        <span class="service">...</span>
+                        <span class="btn"><a href="#"><span id="pchomeoff_account">账户信息</span></a><var>|</var><a href="#"><span id="pchomeoff_setting">账户设置</span></a></span>
+                    </dd>
+                </dl>
+                <p class="btn"><a id="pchomeoff_logout" href="#">退出登录</a></p>
+            </div>
+        </div>
+		<fieldset>
+			<legend>在我的文档中搜索</legend>
+			<p class="txt offline"></p>
+			<p class="search"><label for="search"></label><input type="text" id="search"><button id="search_btn">查找</button></p>
+		</fieldset>
+	</div>
+	<div id="cloud_container">
+		<section class="cloud_contents">
+			<section id="homeList">
+				<div id="caution_home" class="simple_info_layer" style="display:none;">
+					<div>
+						<p><span id="caution_text"></span><a id="caution_second" onclick="checkalaram(event);"></a></p>
+						<a id="closenotice" href="#" onclick="closeNotiPopup(event);"><img src="../../resources/image/Polaris/new/bbt_close.png" alt="close" /></a>
+					</div>
+				</div>			
+				<div class="home_list newtemplates hide"><!-- 문서 -->
+					<div class="thum">
+						<h2>新建文档</h2>
+						<dl class="templates word hide" id="newword" onclick="templateBlankClick(event)">
+							<dt><img src="../../resources/image/Polaris/new/img_temp01.png" alt="word"></dt>
+							<dd><span>新建文字文档</span></dd>
+						</dl>
+						<dl class="templates sheet hide" id="newsheet" onclick="templateBlankClick(event)">
+							<dt><img src="../../resources/image/Polaris/new/img_temp02.png" alt="excel"></dt>
+							<dd><span>新建工作表</span></dd>
+						</dl>
+						<dl class="templates slide hide" id="newslide" onclick="templateBlankClick(event)">
+							<dt><img src="../../resources/image/Polaris/new/img_temp05.png" alt="slide"></dt>
+							<dd><span>新建幻灯片</span></dd>
+						</dl>
+						<dl class="templates hwp hide" id="newhwp" onclick="templateBlankClick(event)">
+							<dt>
+								<img src="../../resources/image/Polaris/new/img_temp03.png" alt="hwp">
+								<span class="upgrade">UPGRADE</span>
+							</dt>
+							<dd><span>新建HWP</span></dd>
+						</dl>
+						<dl class="templates odt hide" id="newodt" onclick="templateBlankClick(event)">
+							<dt><img src="../../resources/image/Polaris/new/img_temp04.png" alt="odt"></dt>
+							<dd><span>新建ODT</span></dd>
+						</dl>
+						 <dl class="templates template">
+							<dt><img src="../../resources/image/Polaris/new/img_temp06.png" alt="template"></dt>
+							<dd><span>模板</span></dd>
+						</dl>
+					</div>
+				</div>
+				<div class="home_list non_bg">
+					<div class="templates init sa">
+						<div class="thum word">
+						    <h2>模板</h2>
+						    <h3>文档<a href="#" class="word more">查看更多</a></h3>
+						</div>
+						<div class="thum sheet">
+						    <h3>电子表格<a href="#" class="sheet more">查看更多</a></h3>
+						</div>	
+						<div class="thum slide">
+						    <h3>幻灯片<a href="#" class="slide more">查看更多</a></h3>
+						</div>	
+						<div class="thum hwp">
+						    <h3>HWP<a href="#" class="hwp more">查看更多</a></h3>
+						</div>			
+						<div class="thum odt">
+						    <h3>ODT<a href="#" class="odt more">查看更多</a></h3>
+						</div>	
+						<h2 class="title bottom">
+							<a href="#" class="recent">查看最近使用文档</a>
+							<var>|</var>   
+			           		<a href="#" class="mydoc" id="pchome_open2">打开“我的文档”</a>  		
+						</h2>	
+					</div>	
+					<section id="doc_list" class="doc_list init type02"> 
+						<h2 class="title">
+							<a href="#" class="pchome_recent2 doc">最近使用文档</a>
+							<a href="#" class="pchome_alldoc doc">打开“我的文档”</a>					
+						</h2>
+
+						<div id="offline_list" class="offline no_doc">
+							<dl>
+								<dt>目前处于离线状态。</dt>
+								<dd>请检查网络连接。</dd>
+							</dl>
+						</div>
+						<div id="offline_guest_list" class="offline no_doc">
+							<dl>
+								<dt>没有最近使用文档。</dt>
+								<dd>Polaris Office在此显示最近在移动设备和电脑上打开过的所有文档。</dd>
+							</dl>
+						</div>
+					</section>
+				</div>
+			</section>
+         	<section id="template_list" class="shareList" style="display:none">
+                <section class="tree" style="display:">
+                    <dl class="tree_folder">
+                        <dt></dt>
+                        <dd id="tree">
+                            <table>
+                                <tbody><tr>
+                                    <td>
+                                        <ul>                                          
+                                            <li class="lnb temp_full"><a class="full on" href="#">全部</a></li>
+                                            <li class="lnb temp_word"><a class="word" href="#">DOCX</a></li>
+                                            <li class="lnb temp_sheet"><a class="sheet" href="#">XLSX</a></li>
+                                            <li class="lnb temp_slide"><a class="slide" href="#">PPTX</a></li>
+                                            <li class="lnb temp_hwp">
+                                            	<a class="hwp" href="#">HWP</a>
+                                            	<!--<c:if test="${pcoStyle=='macStyle' && (userlevel == 'FREE')}">
+                                            		<img src="/maxage1/v3/common/img/v4/upgrade.png" class="upgrade">
+                                            	</c:if>-->
+                                            </li>
+                                            <li class="lnb temp_odt"><a class="odt" href="#">ODT</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </dd>
+                    </dl>
+            	</section>
+            	<div class="resize"></div>
+	            <section class="share_list templete"> 
+	                <section class="share_header">
+	                    <div class="location_box">
+	                        <h3>模板</h3> 
+	                    </div>
+	                </section>
+	                <div class="list">                   
+	                    <div class="list_box">
+							<div id="word" class="thum full">
+								<h2>DOCX</h2>
+								<dl id="blank_word" class="templates" onclick="templateBlankClick(event)">
+									<dt><img src="../../resources/image/Polaris/new/blank_word.png"></dt>
+									<dd><span>Blank</span></dd>
+								</dl>
+							</div>
+							<div id="sheet" class="thum full">
+								<h2>XLSX</h2>
+								<dl id="blank_sheet" class="templates" onclick="templateBlankClick(event)">
+									<dt><img src="../../resources/image/Polaris/new/blank_sheet.png"></dt>
+									<dd><span>Blank</span></dd>
+								</dl>
+							</div>
+							<div id="slide" class="thum full">
+								<h2>PPTX</h2>
+								<dl id="blank_slide" class="templates" onclick="templateBlankClick(event)">
+									<dt><img src="../../resources/image/Polaris/new/blank_slide.png"></dt>
+									<dd><span>Blank</span></dd>
+								</dl>
+							</div>
+	                        <div id="hwp" class="thum full">
+	                        	<h2>HWP</h2>
+	                        	<dl id="blank_hwp" class="templates" onclick="templateBlankClick(event)">
+	                        		<dt><img src="../../resources/image/Polaris/new/blank_hwp.png"></dt>
+	                        		<dd><span>Blank</span></dd>
+	                        	</dl>
+	                        </div>
+	                        <div id="odt" class="thum full">
+	                        	<h2>ODT</h2>
+	                        	<dl id="blank_odt" class="templates" onclick="templateBlankClick(event)">
+	                        		<dt><img src="../../resources/image/Polaris/new/blank_odt.png"></dt>
+	                        		<dd><span>Blank</span></dd>
+	                        	</dl>
+	                        </div>
+	                    </div>
+	                </div>
+        		</section>
+       		</section>
+         	<section class="shareList init" id="search_template" style="display:none">            
+                <section class="tree" style="display:">
+                    <dl class="tree_folder">
+                        <dt></dt>
+                        <dd id="tree">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <ul>                                          
+                                            <li class="lnb temp_full"><a href="#" class="all on">模板</a></li>
+                                            <li class="lnb temp_word"><a href="#" class="word">DOCX</a></li>
+                                            <li class="lnb temp_sheet"><a href="#" class="sheet">XLSX</a></li>
+                                            <li class="lnb temp_slide"><a href="#" class="slide">PPTX</a></li>
+                                            <li class="lnb temp_hwp"><a href="#" class="hwp">HWP</a></li>
+                                            <li class="lnb temp_odt"><a class="odt" href="#">ODT</a></li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </dd>
+                    </dl>
+           	 	</section>
+            	<div class="resize"></div>
+            	<section class="share_list templete search" > 
+                	<section class="share_header">
+	                     <div class="location_box">
+                       		 <h3><em>0</em>条结果</h3> 
+                    	</div>
+                	</section>
+	                <div class="list">                   
+	                    <div class="list_box">
+	                        <div class="thum"></div>
+	                        <section class="no_doc" style='display:none'>
+	                            <dl>
+	                                <dt>没有搜索结果</dt>
+	                                <dd></dd>
+	                            </dl>	
+	                        </section>			
+	                    </div>
+	                </div>
+	            </section>	
+			</section>
+		</section>
+		<dl class="floating new">
+			<dt><a class="open">新建文档<span><em>新建文档</em></span></a><a class="close">关闭</a></dt>
+			<dd>
+				<a href="#" id="pchomeoff_template" class="menu_01 template"><span><em>Template</em></span></a>
+				<a href="#" class="menu_02 odt" id="fodt" onclick="pchome(event)"><span><em>ODT</em></span></a>
+				<a href="#" class="menu_02 hwp" id="fhwp" onclick="pchome(event)"><span><em>HWP</em></span>
+					<img src="../../resources/image/Polaris/new/floating_upgrade.png" class="upgrade"><!--  20161017 upgrade add -->
+				</a>
+				<a href="#" class="menu_03 slide" id="fslide" onclick="pchome(event)"><span><em>PPTX</em></span></a>
+				<a href="#" class="menu_04 sheet" id="fsheet" onclick="pchome(event)"><span><em>XLSX</em></span></a>
+				<a href="#" class="menu_05 word" id="fword" onclick="pchome(event)"><span><em>DOCX</em></span></a>
+			</dd>
+		</dl>
+	</div>
+</div>
+
+<div id="pchomeoff_doc"></div>
+<div id="getLocaRecentList"></div>
+<div id="setVersion"></div>
+<div id="pchome_set_userinfo"></div>
+<div id="deleteLocalFile"></div>
+<div id="predeleteLocalFile"></div>
+<div id="open_explorer"></div>
+<div id="pchome_login"></div>
+<div id="pc_check_License"></div>
+<div id="pc_check_userType"></div>
+<div id="pc_get_trial_starttime"></div>
+<div id="layoutcomplete"></div>
+<div id="setDocumentGuide"></div>
+<div id="getDocumentGuide"></div>
+<div id="pchome_loginType1"></div>
+<div id="getNativeLanguage"></div>
+<div id="pchome_file_path"></div>
+<div id="delete_POIntroduce_Document"></div>
+<div id="getLicenseInfo"></div>
+<div id="close_license_expiration_banner"></div>
+<div id="extensionLicense"></div>
+<div id="pchome_IsEmptyNetworkSession"></div>
+<div id="pchomeoff_odt"></div>
+<div id="pchomeoff_hwp"></div>
+<div id="pchomeoff_slide"></div>
+<div id="pchomeoff_sheet"></div>
+<div id="pchomeoff_word"></div>
+<div id="pchome_getPOProductType"></div>
+<div id="pchome_openLocalTemplateDoc"></div>
+<div id="pchome_getGovernmentType"></div>
+<div id="getTemplateType"></div>
+<div id="getServiceType"></div>
+</body>
+</html>
+
+<script type="text/javascript" src="../../resources/js/lib/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../resources/language/cn/pcstring.js"></script>
+<script type="text/javascript" src="../../resources/js/cloud.js"></script>
+<script type="text/javascript" src="../../resources/js/po-local.js"></script>
+<script type="text/javascript" src="../../resources/js/pcpopup_common.js"></script>
+<script type="text/javascript" src="../../resources/js/pcpopup_message.js"></script>
+<script type="text/javascript" src="../../resources/js/template_en.js"></script>
