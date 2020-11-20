@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ProductMapper">
+	
+	<update id="update">
+	 	update tbl_product set pname=#{pname}, price=#{price} , image=#{image} 
+	 	where pcode=#{pcode}
+	</update>
+	
+	<select id="getImage" resultType="string">
+		select image from tbl_image 
+		where pcode=#{pcode}
+	</select>
+
+	<select id="read" resultType="com.example.domain.ProductVO">
+		select * from tbl_product
+ 		 where pcode=#{pcode}
+	</select>
+
+	<insert id="insertImage">
+		insert into tbl_image(image,pcode)
+		 values(#{image},(select max(pcode) from tbl_product))
+	</insert>
+	
+	<insert id="insert">
+		insert into tbl_product(pname,price,image)
+		 values(#{pname},#{price},#{image})
+	</insert>
+	
+	
+	<select id="list" resultType="com.example.domain.ProductVO">
+		
+		select * from tbl_product
+		<if test="searchType=='pname'">
+			where pname like concat('%' , #{keyword}, '%')
+		</if>
+		<if test="searchType=='price1'">
+		<![CDATA[
+			where price <= #{keyword}
+			]]>
+		</if>
+		<if test="searchType=='price2'">
+			<![CDATA[
+			where price >= #{keyword}
+			]]>
+		</if>
+		order by pcode desc
+		limit #{pageStart} ,#{perPageNum}
+		
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(*) from tbl_product
+		<if test="searchType=='pname'">
+			where pname like concat('%' , #{keyword}, '%')
+		</if>
+		<if test="searchType=='price1'">
+		<![CDATA[
+			where price <= #{keyword}
+			]]>
+		</if>
+		<if test="searchType=='price2'">
+			<![CDATA[
+			where price >= #{keyword}
+			]]>
+		</if>
+	</select>
+</mapper>

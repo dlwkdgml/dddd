@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BoardMapper">
+	
+	<select id="getAttach" resultType="String">
+		select fileName from tbl_attach 
+		where bno = #{bno}	
+	</select>
+
+	<select id="totalCount" resultType="int">
+		select count(*) from tbl_board
+	</select>
+	
+	<select id="list" resultType="com.example.domain.BoardVO">
+		select * from tbl_board
+		order by bno desc
+		limit #{pageStart}, #{perPageNum}
+	</select>
+
+	<select id="read" resultType="com.example.domain.BoardVO">
+		select * from tbl_board where bno=#{bno}
+	</select>
+	
+	<insert id="insert">
+		insert into tbl_board(title,content,writer)
+		values(#{title}, #{content}, #{writer})
+	</insert>
+
+	<insert id="addAttach">
+		insert into tbl_attach(fileName,bno)
+		values(#{fileName}, (select max(bno) from tbl_board))
+	</insert>
+
+	<update id="update">
+		update tbl_board set title=#{title}, content=#{content} 
+		where bno=#{bno}
+	</update>
+
+	<delete id="deleteAttach">
+		delete from tbl_attach where bno=#{bno}
+	</delete>
+	
+	<insert id="replaceAttach">
+		insert into tbl_attach(bno,fileName) 
+		values(#{bno}, #{fileName})
+	</insert>
+	
+	
+	<update id="updateView">
+		update tbl_board
+		set viewcnt=viewcnt + 1
+		where bno=#{bno}
+	</update>
+	<update id="updateReply">
+		update tbl_board
+		set replycnt=replycnt + #{amount}
+		where bno=#{bno}
+	</update>
+
+
+</mapper>

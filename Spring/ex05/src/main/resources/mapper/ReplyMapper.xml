@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ReplyMapper">
+	<select id="list" resultType="com.example.domain.ReplyVO">
+		select * from
+		(select rownum rn,
+		tbl.* from
+		(select * from tbl_reply where bno=#{bno} order by rno desc) tbl)
+		where rn
+		between (#{cri.pageStart}+1) and (#{cri.pageStart} +
+		#{cri.perPageNum})
+	</select>
+	
+	<insert id="insert">
+		insert into tbl_reply(rno,bno,reply,replyer)
+		values(seq_reply.nextval,#{bno}, #{reply}, #{replyer})
+	</insert>
+
+	<delete id="delete">
+		delete from tbl_reply where rno=#{rno}
+	</delete>
+</mapper>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.MessgeMapper">
+	 
+	<insert id="insert">
+		insert into tbl_messge(sender, receiver, messge)
+		values(#{sender}, #{receiver}, #{messge})
+	</insert>
+<select id="sendList" resultType="com.example.domain.MessgeVO">
+	select m.*, u.uname from tbl_messge m, tbl_user u
+         where sender=#{sender} and uid=receiver
+ </select>
+ <delete id="delete">
+ 	delete from tbl_messge where mid=#{mid}
+ </delete>
+</mapper>

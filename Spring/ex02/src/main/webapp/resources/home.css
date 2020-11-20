@@ -1,0 +1,5 @@
+@CHARSET "UTF-8";
+<style>
+	.title{background:gray; color:white;}
+	.row:hover{background:gray; color:pink;}
+</style>
